@@ -26,10 +26,20 @@
       
       <categories>
           
-          <category> 数据结构XDOJ题 </category>
+          <category> 数据结构XDOJ </category>
           
       </categories>
       
+      
+        <tags>
+            
+            <tag> XDOJ </tag>
+            
+            <tag> 数据结构 </tag>
+            
+            <tag> c语言 </tag>
+            
+        </tags>
       
     </entry>
     
