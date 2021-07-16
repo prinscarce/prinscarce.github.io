@@ -1,0 +1,550 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=&#34;auto&#34;>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/favicon.jpg">
+  <link rel="icon" href="/img/favicon.jpg">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="description" content="𝐍&#39;𝐨𝐮𝐛𝐥𝐢é 𝐩𝐚𝐬 𝐝𝐞 𝐭&#39;𝐚𝐢𝐦𝐞𝐫">
+  <meta name="author" content="prinscarce">
+  <meta name="keywords" content="">
+  
+  <title>prinscarce</title>
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" />
+
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-markdown-css@4.0.0/github-markdown.min.css" />
+  <link  rel="stylesheet" href="/lib/hint/hint.min.css" />
+
+  
+    
+    
+      
+      <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@10.7.2/styles/github-gist.min.css" />
+    
+  
+
+  
+    <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css" />
+  
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_ba1fz6golrf.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_kmeydafke9r.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+<!-- 自定义样式保持在最底部 -->
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    var CONFIG = {"hostname":"prinscarce.github.io","root":"/","version":"1.8.11","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":true,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null}},"search_path":"/local-search.xml"};
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+
+<body>
+  <header style="height: 70vh;">
+    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand"
+       href="/">&nbsp;<strong>serendipity</strong>&nbsp;</a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                首页
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                归档
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                分类
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                标签
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                关于
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" data-toggle="modal" data-target="#modalSearch">&nbsp;<i
+                class="iconfont icon-search"></i>&nbsp;</a>
+          </li>
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+    <div class="banner" id="banner" parallax=true
+         style="background: url('/img/default.png') no-repeat center center;
+           background-size: cover;">
+      <div class="full-bg-img">
+        <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+          <div class="page-header text-center fade-in-up">
+            <span class="h2" id="subtitle" title="">
+              
+            </span>
+
+            
+              <div class="mt-3">
+  
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-author" aria-hidden="true"></i>
+      prinscarce
+    </span>
+  
+  
+    <span class="post-meta">
+      <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+      <time datetime="2021-07-16 14:14" pubdate>
+        2021年7月16日 下午
+      </time>
+    </span>
+  
+</div>
+
+<div class="mt-1">
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-chart"></i>
+      798 字
+    </span>
+  
+
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-clock-fill"></i>
+      
+      
+      8
+       分钟
+    </span>
+  
+
+  
+  
+    
+      <!-- 不蒜子统计文章PV -->
+      <span id="busuanzi_container_page_pv" style="display: none">
+        <i class="iconfont icon-eye" aria-hidden="true"></i>
+        <span id="busuanzi_value_page_pv"></span> 次
+      </span>
+    
+  
+</div>
+
+            
+          </div>
+
+          
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div class="py-5" id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none"></h1>
+            
+            <div class="markdown-body">
+              <!--
+
+ * @Title: 虚电路网络：帧中继和 ATM
+ * @Description: 
+ * @Author: SoulCompiler/horizon/prinscarce
+ * @Email: prinscarce@outlook.com
+ * @Blog: prinscarce.github.io
+ * @LastEditors: prinscarce
+   -->
+
+<h1 id="第-18-章-虚电路网络：帧中继和-ATM"><a href="#第-18-章-虚电路网络：帧中继和-ATM" class="headerlink" title="第 18 章 虚电路网络：帧中继和 ATM"></a>第 18 章 虚电路网络：帧中继和 ATM</h1><h2 id="一-帧中继"><a href="#一-帧中继" class="headerlink" title="一. 帧中继"></a>一. 帧中继</h2><p><strong>帧中继的特征</strong>、帧中继的结构、永久虚电路、呼叫虚电路</p>
+<h3 id="帧中继的特征"><a href="#帧中继的特征" class="headerlink" title="帧中继的特征"></a>帧中继的特征</h3><ul>
+<li>以较高的速率（1.544Mbps以及最近的44.376Mbps）工作</li>
+<li>工作在物理层和数据链路层</li>
+<li>允许突发性数据</li>
+<li>允许的帧大小为9 000字节，适合于所有的局域网帧</li>
+<li>帧中继比其他传统的广域网花费少</li>
+<li>帧中继仅在数据链路层有错误检测，没有流量或错误控制。-&gt;不需要序列号</li>
+<li>帧中继中的 VCI (虚电路标识符) 称作 DLCI</li>
+</ul>
+<blockquote>
+<p>VCI: Virtual Circuit Identifer<br>DLCI: DataLink Connection Identifer</p>
+</blockquote>
+<h3 id="帧中继的结构"><a href="#帧中继的结构" class="headerlink" title="帧中继的结构"></a>帧中继的结构</h3><img src="/2021/07/16/%E8%AE%A1%E7%BD%91%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0_MarkdownNotes_1.0/%E7%AC%AC3%E9%83%A8%E5%88%86_%E6%95%B0%E6%8D%AE%E9%93%BE%E8%B7%AF%E5%B1%82/%E7%AC%AC18%E7%AB%A0_%E8%99%9A%E7%94%B5%E8%B7%AF%E7%BD%91%E7%BB%9C%EF%BC%9A%E5%B8%A7%E4%B8%AD%E7%BB%A7%E5%92%8CATM/%E7%AC%AC18%E7%AB%A0_%E8%99%9A%E7%94%B5%E8%B7%AF%E7%BD%91%E7%BB%9C%EF%BC%9A%E5%B8%A7%E4%B8%AD%E7%BB%A7%E5%92%8CATM/image-20210622152734913.png" srcset="/img/loading.gif" lazyload alt="image-20210622152734913" style="zoom:67%;">
+
+<h3 id="永久虚电路PVC"><a href="#永久虚电路PVC" class="headerlink" title="永久虚电路PVC"></a>永久虚电路PVC</h3><blockquote>
+<p> PVC: Permanent Virtual Circuit</p>
+</blockquote>
+<ul>
+<li>由管理员为所有的交换机建立统一设置: 源地址分配一个 VCI, 目的地址分配一个 VCI</li>
+<li>缺点:<ul>
+<li>花费大, 即使未使用也需一直付费 (因为连接一直存在)</li>
+<li>只能在一个源地址和一个目的地址间建立连接</li>
+</ul>
+</li>
+</ul>
+<h3 id="交换虚电路SVC"><a href="#交换虚电路SVC" class="headerlink" title="交换虚电路SVC"></a>交换虚电路SVC</h3><blockquote>
+<p>SVC: Switched Virtual Circuit</p>
+</blockquote>
+<ul>
+<li>建立短的, 临时的连接</li>
+<li>需要连接建立和终止阶段</li>
+<li>该连接只存在于源地址和目的地址的数据传输过程中。</li>
+</ul>
+<h2 id="二-异步传输模式ATM"><a href="#二-异步传输模式ATM" class="headerlink" title="二. 异步传输模式ATM"></a>二. 异步传输模式ATM</h2><blockquote>
+<p>ATM: Asychoronous Transfer Mode</p>
+</blockquote>
+<p>ATM 的特征、信元的结构、虚路径  VP、虚电路  VC、VCI</p>
+<h3 id="特征"><a href="#特征" class="headerlink" title="特征"></a>特征</h3><ul>
+<li>定义了三个层，分别为应用适配层，ATM层和物理层<ul>
+<li>物理层：信元可以在任何物理层介质中传输</li>
+<li>ATM层：提供路由、通信量管理、交换和复用服务</li>
+<li>应用适配层：用来支持两个ATM概念</li>
+</ul>
+</li>
+<li>高速互联, 作为网间主干互联的协议</li>
+<li>面向连接, 提供准确可预测的传输</li>
+<li>是信元网络, 采用固定大小的信元作为数据交换的基本单位<ul>
+<li>可以避免多路复用时先到达的大型帧对后到达的小型帧的长时间阻塞</li>
+</ul>
+</li>
+<li>采用异步的时分复用 (TDM) 实现多路复用<ul>
+<li>时隙大小为一个信元的大小</li>
+<li>可以存在空时隙</li>
+</ul>
+</li>
+</ul>
+<h3 id="信元"><a href="#信元" class="headerlink" title="信元"></a>信元</h3><ul>
+<li>ATM网络中的基本数据单元称为信元。</li>
+<li><strong>信元网络使用信元作为数据交换的基本单位.信元定义为一个小的、固定大小的信息块.</strong></li>
+<li>一个信元只有53字节长度，其中5个字节为头部， 48个字节为有效载荷（用户数据可能少于48个字节）。</li>
+</ul>
+<h3 id="传输路径-TP"><a href="#传输路径-TP" class="headerlink" title="传输路径 TP"></a>传输路径 TP</h3><ul>
+<li>Transmission Path</li>
+<li>是端点与交换机之间, 或两交换机之间的所有物理连接</li>
+<li>类似于连接两个城市的高速公路的集合</li>
+</ul>
+<h3 id="虚路径-VP"><a href="#虚路径-VP" class="headerlink" title="虚路径 VP"></a>虚路径 VP</h3><ul>
+<li>Virtual Path</li>
+<li>两个交换机之间的一条或多条连接的集合</li>
+<li>类似于两城市间的一条高速公路</li>
+</ul>
+<h3 id="虚电路-VC"><a href="#虚电路-VC" class="headerlink" title="虚电路 VC"></a>虚电路 VC</h3><ul>
+<li>Virtual Circuit</li>
+<li>信元网络基于虚电路</li>
+<li>属于同一报文的所有信元沿着同一条虚电路传输, 同时保持先后次序</li>
+</ul>
+<p>通过 VPI 和 VCI 来定义一个虚连接, 前者定义特定 VP, 后者定义特定 VC</p>
+<img src="/2021/07/16/%E8%AE%A1%E7%BD%91%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0_MarkdownNotes_1.0/%E7%AC%AC3%E9%83%A8%E5%88%86_%E6%95%B0%E6%8D%AE%E9%93%BE%E8%B7%AF%E5%B1%82/%E7%AC%AC18%E7%AB%A0_%E8%99%9A%E7%94%B5%E8%B7%AF%E7%BD%91%E7%BB%9C%EF%BC%9A%E5%B8%A7%E4%B8%AD%E7%BB%A7%E5%92%8CATM/%E7%AC%AC18%E7%AB%A0_%E8%99%9A%E7%94%B5%E8%B7%AF%E7%BD%91%E7%BB%9C%EF%BC%9A%E5%B8%A7%E4%B8%AD%E7%BB%A7%E5%92%8CATM/20210620160805.png" srcset="/img/loading.gif" lazyload alt="TP VP VC" style="zoom:67%;">
+
+<blockquote>
+<p>TP VP VC 间关系</p>
+</blockquote>
+<img src="/2021/07/16/%E8%AE%A1%E7%BD%91%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0_MarkdownNotes_1.0/%E7%AC%AC3%E9%83%A8%E5%88%86_%E6%95%B0%E6%8D%AE%E9%93%BE%E8%B7%AF%E5%B1%82/%E7%AC%AC18%E7%AB%A0_%E8%99%9A%E7%94%B5%E8%B7%AF%E7%BD%91%E7%BB%9C%EF%BC%9A%E5%B8%A7%E4%B8%AD%E7%BB%A7%E5%92%8CATM/%E7%AC%AC18%E7%AB%A0_%E8%99%9A%E7%94%B5%E8%B7%AF%E7%BD%91%E7%BB%9C%EF%BC%9A%E5%B8%A7%E4%B8%AD%E7%BB%A7%E5%92%8CATM/20210620160831.png" srcset="/img/loading.gif" lazyload alt="TP VP VC" style="zoom:67%;">
+
+<blockquote>
+<p>VP和VC的例子</p>
+</blockquote>
+
+            </div>
+            <hr>
+            <div>
+              <div class="post-metas mb-3">
+                
+                
+              </div>
+              
+                <p class="note note-warning">
+                  
+                    本博客所有文章除特别声明外，均采用 <a target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" rel="nofollow noopener noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！
+                  
+                </p>
+              
+              
+                <div class="post-prevnext">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/2021/07/16/%E8%AE%A1%E7%BD%91%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0_MarkdownNotes_1.0/%E7%AC%AC4%E9%83%A8%E5%88%86_%E7%BD%91%E7%BB%9C%E5%B1%82/%E7%AC%AC19%E7%AB%A0_%E9%80%BB%E8%BE%91%E5%AF%BB%E5%9D%80/%E7%AC%AC19%E7%AB%A0_%E9%80%BB%E8%BE%91%E5%AF%BB%E5%9D%80/">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile"></span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2021/07/16/%E8%AE%A1%E7%BD%91%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0_MarkdownNotes_1.0/%E7%AC%AC3%E9%83%A8%E5%88%86_%E6%95%B0%E6%8D%AE%E9%93%BE%E8%B7%AF%E5%B1%82/%E7%AC%AC17%E7%AB%A0_%E5%B9%BF%E5%9F%9F%E7%BD%91SONET/%E7%AC%AC17%E7%AB%A0_%E5%B9%BF%E5%9F%9F%E7%BD%91SONET/">
+                        <span class="hidden-mobile"></span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+          </article>
+        </div>
+      </div>
+    </div>
+    
+      <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
+        <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目录</p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+      </div>
+    
+  </div>
+</div>
+
+<!-- Custom -->
+
+
+    
+
+    
+      <a id="scroll-top-button" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v"
+                 for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+
+    
+  </main>
+
+  <footer class="text-center mt-5 py-3">
+  <div class="footer-content">
+     <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+  </div>
+  
+
+  
+
+  
+</footer>
+
+
+  <!-- SCRIPTS -->
+  
+  <script  src="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js" ></script>
+<script  src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+<!-- Plugins -->
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+  
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/tocbot@4.12.3/dist/tocbot.min.js" ></script>
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js" ></script>
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/anchor-js@4.3.1/anchor.min.js" ></script>
+
+
+
+  <script defer src="https://cdn.jsdelivr.net/npm/clipboard@2.0.8/dist/clipboard.min.js" ></script>
+
+
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+  <script defer src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" ></script>
+
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12/lib/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var title = document.getElementById('subtitle').title;
+      
+      typing(title)
+      
+    })(window, document);
+  </script>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+
+
+
+
+<!-- 主题的启动项 保持在最底部 -->
+<script  src="/js/boot.js" ></script>
+
+
+</body>
+</html>

@@ -1,0 +1,751 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=&#34;auto&#34;>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/favicon.jpg">
+  <link rel="icon" href="/img/favicon.jpg">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="description" content="𝐍&#39;𝐨𝐮𝐛𝐥𝐢é 𝐩𝐚𝐬 𝐝𝐞 𝐭&#39;𝐚𝐢𝐦𝐞𝐫">
+  <meta name="author" content="prinscarce">
+  <meta name="keywords" content="">
+  
+  <title>prinscarce</title>
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" />
+
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-markdown-css@4.0.0/github-markdown.min.css" />
+  <link  rel="stylesheet" href="/lib/hint/hint.min.css" />
+
+  
+    
+    
+      
+      <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@10.7.2/styles/github-gist.min.css" />
+    
+  
+
+  
+    <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css" />
+  
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_ba1fz6golrf.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_kmeydafke9r.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+<!-- 自定义样式保持在最底部 -->
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    var CONFIG = {"hostname":"prinscarce.github.io","root":"/","version":"1.8.11","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":true,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null}},"search_path":"/local-search.xml"};
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+
+<body>
+  <header style="height: 70vh;">
+    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand"
+       href="/">&nbsp;<strong>serendipity</strong>&nbsp;</a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                首页
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                归档
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                分类
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                标签
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                关于
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" data-toggle="modal" data-target="#modalSearch">&nbsp;<i
+                class="iconfont icon-search"></i>&nbsp;</a>
+          </li>
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+    <div class="banner" id="banner" parallax=true
+         style="background: url('/img/default.png') no-repeat center center;
+           background-size: cover;">
+      <div class="full-bg-img">
+        <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+          <div class="page-header text-center fade-in-up">
+            <span class="h2" id="subtitle" title="">
+              
+            </span>
+
+            
+              <div class="mt-3">
+  
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-author" aria-hidden="true"></i>
+      prinscarce
+    </span>
+  
+  
+    <span class="post-meta">
+      <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+      <time datetime="2021-07-16 14:14" pubdate>
+        2021年7月16日 下午
+      </time>
+    </span>
+  
+</div>
+
+<div class="mt-1">
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-chart"></i>
+      2.9k 字
+    </span>
+  
+
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-clock-fill"></i>
+      
+      
+      32
+       分钟
+    </span>
+  
+
+  
+  
+    
+      <!-- 不蒜子统计文章PV -->
+      <span id="busuanzi_container_page_pv" style="display: none">
+        <i class="iconfont icon-eye" aria-hidden="true"></i>
+        <span id="busuanzi_value_page_pv"></span> 次
+      </span>
+    
+  
+</div>
+
+            
+          </div>
+
+          
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div class="py-5" id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none"></h1>
+            
+            <div class="markdown-body">
+              <!--
+
+ * @Title: 数字传输
+ * @Description: 
+ * @Author: SoulCompiler/prinscarce
+ * @Email: prinscarce@outlook.com
+ * @Blog: prinscarce.github.io
+ * @LastEditors: prinscarce
+   -->
+
+<h1 id="第4章-数字传输"><a href="#第4章-数字传输" class="headerlink" title="第4章 数字传输"></a>第4章 数字传输</h1><h2 id="一-线路编码"><a href="#一-线路编码" class="headerlink" title="一. 线路编码"></a>一. 线路编码</h2><p><strong>数据元素和信号元素的区别、数据速率和信号速率的区别、最小带宽、最大数据速率、直流分量、自同步</strong></p>
+<img src="/2021/07/16/%E8%AE%A1%E7%BD%91%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0_MarkdownNotes_1.0/%E7%AC%AC2%E9%83%A8%E5%88%86_%E7%89%A9%E7%90%86%E5%B1%82%E5%92%8C%E4%BB%8B%E8%B4%A8/%E7%AC%AC4%E7%AB%A0_%E6%95%B0%E5%AD%97%E4%BC%A0%E8%BE%93/%E7%AC%AC4%E7%AB%A0_%E6%95%B0%E5%AD%97%E4%BC%A0%E8%BE%93/image-20210619204638066.png" srcset="/img/loading.gif" lazyload alt="线路编码和解码" style="zoom:67%;">
+
+<h3 id="数据元素和信号元素"><a href="#数据元素和信号元素" class="headerlink" title="数据元素和信号元素"></a>数据元素和信号元素</h3><ul>
+<li>数据元素是表示一块信息的最小实体，即位。</li>
+<li>信号元素是数字信号的最小单元。</li>
+<li>区别：<ul>
+<li>数据元素是我们需要发送的，而信号元素是我们能发送的。</li>
+<li>数据元素是被承载，而信号元素是载体。</li>
+<li>用比喻说明：每个数据元素是需要从一个地方运到另一个地方的人。运送人的车辆是信号元素。可以每个人驾驶一辆车，也可以多个人乘坐一辆车，还可以一个人驾驶一辆车和一辆拖车。</li>
+</ul>
+</li>
+</ul>
+<h3 id="数据速率和信号速率"><a href="#数据速率和信号速率" class="headerlink" title="数据速率和信号速率"></a>数据速率和信号速率</h3><ul>
+<li><p>数据速率定义了1秒发送的数据元素(位)的数量，单位是每秒位(bps)。又称<strong>比特率</strong>。</p>
+</li>
+<li><p>信号速率是1秒发送的信号元素的数量，单位是波特(baud)。又称脉冲速率,调制速率或<strong>波特率</strong>。</p>
+</li>
+<li><p>数据通信中的一个目标是增加数据速率而降低信号速率。增加数据速率增加了传输速度，降低信号速率降低了带宽需求。</p>
+</li>
+<li><p>数据速率和信号速率之间的关系公式化：<br>  $$<br>S = c \times N\times \frac{1}{r}<br>$$</p>
+<ul>
+<li><p>S是信号元素数量(单位baud)， c是情形因子，通常c=1/2，N是数据速率(单位bps)，会根据每种情形改变，比率r为每个信号元素承载的数据元素的数量。</p>
+<img src="/2021/07/16/%E8%AE%A1%E7%BD%91%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0_MarkdownNotes_1.0/%E7%AC%AC2%E9%83%A8%E5%88%86_%E7%89%A9%E7%90%86%E5%B1%82%E5%92%8C%E4%BB%8B%E8%B4%A8/%E7%AC%AC4%E7%AB%A0_%E6%95%B0%E5%AD%97%E4%BC%A0%E8%BE%93/%E7%AC%AC4%E7%AB%A0_%E6%95%B0%E5%AD%97%E4%BC%A0%E8%BE%93/image-20210619204419744-1624106661744.png" srcset="/img/loading.gif" lazyload alt="image-20210619204419744" style="zoom:67%;"></li>
+</ul>
+</li>
+</ul>
+<h3 id="带宽"><a href="#带宽" class="headerlink" title="带宽"></a>带宽</h3><ul>
+<li><strong>虽然数字信号的真实带宽是无限的，但有效带宽是有限的。</strong></li>
+<li>是波特率而不是比特率决定了数字信号的带宽。如果我们使用运输作为类比，是 车辆数量影响了交通，而不是运输的人数。</li>
+</ul>
+<h4 id="最小带宽"><a href="#最小带宽" class="headerlink" title="最小带宽"></a>最小带宽</h4><p>$$<br>B_{min} = c \times N \times \frac{1}{r}<br>$$</p>
+<ul>
+<li>B带宽，N波特率，r比率</li>
+<li>波特率和带宽是有关系的</li>
+<li>平均信号速率S=c* N *1/r，带宽（频率范围）与信号速率（波特率）成正比。</li>
+</ul>
+<h4 id="最大数据速率"><a href="#最大数据速率" class="headerlink" title="最大数据速率"></a>最大数据速率</h4><p>$$<br>N_{max} = \frac{1}{c} \times B \times r=2\times B\times\log_2L<br>$$</p>
+<ul>
+<li>与奈氏公式一致</li>
+<li>若给定通道带宽，则可以得到最大数据速率</li>
+</ul>
+<h3 id="直流分量-DC-Components"><a href="#直流分量-DC-Components" class="headerlink" title="直流分量 DC Components"></a>直流分量 DC Components</h3><ul>
+<li>当数字信号中的电平保持一段时间的恒定时，频谱会产生很低的频率。这些接近于零的频率称为DC （直流）成分。</li>
+</ul>
+<h3 id="自同步"><a href="#自同步" class="headerlink" title="自同步"></a>自同步</h3><ul>
+<li>接收方的位间隔与发送方的位间隔严格对应与匹配。</li>
+<li>为了正确地解释从发送方接收到的信号，接收方的位间隔必须与发送方的位间隔严格对应。</li>
+<li>如果信号中包含有提示接收方起始、中间和结束位置的脉冲的跳变就可以完成自同步。</li>
+</ul>
+<h2 id="二-线路编码方案"><a href="#二-线路编码方案" class="headerlink" title="二. 线路编码方案"></a>二. 线路编码方案</h2><p><strong>单极性编码（NRZ）、极性编码（NRZ-L 和 NRZ-I）、归零码（RZ）、 双相码（Manchester 和 Differential Manchester）、双极性编码（AMI 和伪三进制码）、多电平编码（mBnL，2B1Q、8B6T、MLT-3 了解）</strong></p>
+<img src="/2021/07/16/%E8%AE%A1%E7%BD%91%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0_MarkdownNotes_1.0/%E7%AC%AC2%E9%83%A8%E5%88%86_%E7%89%A9%E7%90%86%E5%B1%82%E5%92%8C%E4%BB%8B%E8%B4%A8/%E7%AC%AC4%E7%AB%A0_%E6%95%B0%E5%AD%97%E4%BC%A0%E8%BE%93/%E7%AC%AC4%E7%AB%A0_%E6%95%B0%E5%AD%97%E4%BC%A0%E8%BE%93/image-20210619211644704.png" srcset="/img/loading.gif" lazyload alt="Line coding schemes" style="zoom:67%;">
+
+<h3 id="1-单极性编码"><a href="#1-单极性编码" class="headerlink" title="1.单极性编码"></a>1.单极性编码</h3><h4 id="不归零编码（NRZ）"><a href="#不归零编码（NRZ）" class="headerlink" title="不归零编码（NRZ）"></a>不归零编码（NRZ）</h4><ul>
+<li><p>所有的信号电平都在时间轴的一边，或者时间轴的上面/时间轴的下面。</p>
+</li>
+<li><p>单级编码方案设计成不归零(non-return-to-zero, NRZ)方案，不归零是指在为中间信号不会回零， 在此方案中正电平定义成位1而零电平定义成位0。</p>
+</li>
+<li><p>缺点：这个方案成本很高,标准功率(每个单元线路阻抗发送1位所需的功率)是极性NRZ方案的两倍。</p>
+<img src="/2021/07/16/%E8%AE%A1%E7%BD%91%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0_MarkdownNotes_1.0/%E7%AC%AC2%E9%83%A8%E5%88%86_%E7%89%A9%E7%90%86%E5%B1%82%E5%92%8C%E4%BB%8B%E8%B4%A8/%E7%AC%AC4%E7%AB%A0_%E6%95%B0%E5%AD%97%E4%BC%A0%E8%BE%93/%E7%AC%AC4%E7%AB%A0_%E6%95%B0%E5%AD%97%E4%BC%A0%E8%BE%93/image-20210619210221616-1624107742791.png" srcset="/img/loading.gif" lazyload alt="image-20210619210221616" style="zoom:67%;"></li>
+</ul>
+<h3 id="2-极性编码方案"><a href="#2-极性编码方案" class="headerlink" title="2.极性编码方案"></a>2.极性编码方案</h3><h4 id="NRZ-L-NRZ电平编码"><a href="#NRZ-L-NRZ电平编码" class="headerlink" title="NRZ-L(NRZ电平编码)"></a>NRZ-L(NRZ电平编码)</h4><ul>
+<li>NRZ-L（NRZ电平编码，NRZ-Level）,<strong>信号电平决定了位值。</strong></li>
+</ul>
+<h4 id="NRZ-I-NRZ反向编码"><a href="#NRZ-I-NRZ反向编码" class="headerlink" title="NRZ-I(NRZ反向编码)"></a>NRZ-I(NRZ反向编码)</h4><ul>
+<li><p>NRZ-I（NRZ反相编码，NRZ-Invert）, <strong>信号电平是否反相转或跳变决定了位值</strong>。如果没有跳变，位值是0,如果有跳变，位值是1。</p>
+<p><strong>NRZ-L和NRZ-I都有N/2 Baud的平均信号速率。</strong>来自S=c *N *1/r,  c=1/2,r=1</p>
+<p><strong>NRZ-L和NRZ-I都有DC成分问题。</strong></p>
+</li>
+</ul>
+<img src="/2021/07/16/%E8%AE%A1%E7%BD%91%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0_MarkdownNotes_1.0/%E7%AC%AC2%E9%83%A8%E5%88%86_%E7%89%A9%E7%90%86%E5%B1%82%E5%92%8C%E4%BB%8B%E8%B4%A8/%E7%AC%AC4%E7%AB%A0_%E6%95%B0%E5%AD%97%E4%BC%A0%E8%BE%93/%E7%AC%AC4%E7%AB%A0_%E6%95%B0%E5%AD%97%E4%BC%A0%E8%BE%93/image-20210619210514987.png" srcset="/img/loading.gif" lazyload alt="NRZ-L和NRZ-I" style="zoom:67%;">
+
+<h4 id="极性归零码-Polar-RZ"><a href="#极性归零码-Polar-RZ" class="headerlink" title="极性归零码(Polar RZ)"></a><strong>极性归零码(Polar RZ)</strong></h4><ul>
+<li><p>在每个位中间信号变为0</p>
+</li>
+<li><p>使用三个值：正值、负值和零</p>
+</li>
+<li><p>缺点：占用的带宽大，三个电平的生成和辨别更加困难</p>
+<img src="/2021/07/16/%E8%AE%A1%E7%BD%91%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0_MarkdownNotes_1.0/%E7%AC%AC2%E9%83%A8%E5%88%86_%E7%89%A9%E7%90%86%E5%B1%82%E5%92%8C%E4%BB%8B%E8%B4%A8/%E7%AC%AC4%E7%AB%A0_%E6%95%B0%E5%AD%97%E4%BC%A0%E8%BE%93/%E7%AC%AC4%E7%AB%A0_%E6%95%B0%E5%AD%97%E4%BC%A0%E8%BE%93/image-20210619211841370-1624108722647.png" srcset="/img/loading.gif" lazyload alt="Polar RZ scheme" style="zoom:67%;"></li>
+</ul>
+<h4 id="曼彻斯特编码-Manchester"><a href="#曼彻斯特编码-Manchester" class="headerlink" title="曼彻斯特编码 (Manchester)"></a>曼彻斯特编码 <strong>(Manchester)</strong></h4><ul>
+<li><strong>RZ的位中间跳变+ NRZ-L</strong></li>
+<li>位的持续时间被二等分，在前半部分电平保持一个水平，后半部分变成另一个水平。</li>
+<li>位中间的跳变提供了同步。</li>
+<li><strong>0：高to低，1：低to高</strong></li>
+</ul>
+<h4 id="差分曼彻斯特-Differential-Manchester"><a href="#差分曼彻斯特-Differential-Manchester" class="headerlink" title="差分曼彻斯特 (Differential Manchester)"></a>差分曼彻斯特 (Differential Manchester)</h4><ul>
+<li><p><strong>RZ + NRZ-I</strong></p>
+</li>
+<li><p>中间总有跳变，值在位起始位置</p>
+</li>
+<li><p><strong>下一个是1不跳变，下一个是0跳变</strong></p>
+<p><strong>在曼彻斯特编码和差分曼彻斯特编码中，位中间的跳变用于同步，值要么在位中间，要么在位起始位置</strong></p>
+<p><strong>曼彻斯特编码和差分曼彻斯特编码的最小带宽是NRZ的两倍</strong></p>
+<img src="/2021/07/16/%E8%AE%A1%E7%BD%91%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0_MarkdownNotes_1.0/%E7%AC%AC2%E9%83%A8%E5%88%86_%E7%89%A9%E7%90%86%E5%B1%82%E5%92%8C%E4%BB%8B%E8%B4%A8/%E7%AC%AC4%E7%AB%A0_%E6%95%B0%E5%AD%97%E4%BC%A0%E8%BE%93/%E7%AC%AC4%E7%AB%A0_%E6%95%B0%E5%AD%97%E4%BC%A0%E8%BE%93/image-20210619212212836-1624108934959.png" srcset="/img/loading.gif" lazyload alt="Manchester and differential Manchester schemes" style="zoom:67%;"></li>
+</ul>
+<h3 id="3-双极性方案-bipolar"><a href="#3-双极性方案-bipolar" class="headerlink" title="3.双极性方案(bipolar)"></a>3.双极性方案(bipolar)</h3><ul>
+<li><strong>一个数据元素的电平是0，另一个数据元素的电平在正值和负值间交替。</strong></li>
+<li><strong>在双极性编码中，使用三种电平：正电平，负电平，零</strong></li>
+</ul>
+<h4 id="交替传号反转（AMI）"><a href="#交替传号反转（AMI）" class="headerlink" title="交替传号反转（AMI）"></a>交替传号反转（AMI）</h4><ul>
+<li><strong>0: 0电平， 1：交替正负电平</strong></li>
+</ul>
+<h4 id="伪三元编码"><a href="#伪三元编码" class="headerlink" title="伪三元编码"></a>伪三元编码</h4><ul>
+<li><strong>1编码成0电平，而位0编码成交替正负电平</strong><img src="/2021/07/16/%E8%AE%A1%E7%BD%91%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0_MarkdownNotes_1.0/%E7%AC%AC2%E9%83%A8%E5%88%86_%E7%89%A9%E7%90%86%E5%B1%82%E5%92%8C%E4%BB%8B%E8%B4%A8/%E7%AC%AC4%E7%AB%A0_%E6%95%B0%E5%AD%97%E4%BC%A0%E8%BE%93/%E7%AC%AC4%E7%AB%A0_%E6%95%B0%E5%AD%97%E4%BC%A0%E8%BE%93/image-20210619213555680.png" srcset="/img/loading.gif" lazyload alt="Bipolar schemes: AMI and pseudoternary" style="zoom:67%;"></li>
+</ul>
+<h3 id="4-多电平方案-multilevel-了解"><a href="#4-多电平方案-multilevel-了解" class="headerlink" title="4.多电平方案(multilevel)了解"></a>4.多电平方案(multilevel)了解</h3><h4 id="mBnL"><a href="#mBnL" class="headerlink" title="mBnL"></a>mBnL</h4><ul>
+<li><p><strong>m个数据元素模式编码成n个信号元素模式，2<sup>m</sup>&lt;=L<sup>n</sup></strong></p>
+</li>
+<li><p>L是信号的电平数，若L=2，用B替换；若L=3，则用T替换；若L=4，则用Q替换</p>
+</li>
+<li><p>2B1Q</p>
+<ul>
+<li><p>使用长度为2的2位数据模式编码成一个4电平信号元素。</p>
+</li>
+<li><p>m = 2、n = 1、L = 4</p>
+</li>
+<li><p>平均信号速率是<br>$$<br>S=N/4<br>$$</p>
+<img src="/2021/07/16/%E8%AE%A1%E7%BD%91%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0_MarkdownNotes_1.0/%E7%AC%AC2%E9%83%A8%E5%88%86_%E7%89%A9%E7%90%86%E5%B1%82%E5%92%8C%E4%BB%8B%E8%B4%A8/%E7%AC%AC4%E7%AB%A0_%E6%95%B0%E5%AD%97%E4%BC%A0%E8%BE%93/%E7%AC%AC4%E7%AB%A0_%E6%95%B0%E5%AD%97%E4%BC%A0%E8%BE%93/image-20210619214240933.png" srcset="/img/loading.gif" lazyload alt="2B1Q" style="zoom:67%;"></li>
+</ul>
+</li>
+<li><p>8B6T</p>
+<ul>
+<li><p>8个二元、6个三元</p>
+</li>
+<li><p>平均信号速率是<br>$$<br>S_{ave} = \frac{1}{2} \times N \times \frac{6}{8}<br>$$</p>
+<img src="/2021/07/16/%E8%AE%A1%E7%BD%91%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0_MarkdownNotes_1.0/%E7%AC%AC2%E9%83%A8%E5%88%86_%E7%89%A9%E7%90%86%E5%B1%82%E5%92%8C%E4%BB%8B%E8%B4%A8/%E7%AC%AC4%E7%AB%A0_%E6%95%B0%E5%AD%97%E4%BC%A0%E8%BE%93/%E7%AC%AC4%E7%AB%A0_%E6%95%B0%E5%AD%97%E4%BC%A0%E8%BE%93/image-20210619214646161-1624110407159.png" srcset="/img/loading.gif" lazyload alt="8B6T" style="zoom:67%;"></li>
+</ul>
+</li>
+</ul>
+<h4 id="MLT-3"><a href="#MLT-3" class="headerlink" title="MLT-3"></a>MLT-3</h4><ul>
+<li>使用三个电平（+V、0、-V）和三个跳变规则在电平间变动。</li>
+<li>规则：<ul>
+<li><p>如果下一个位是0,没有跳变。</p>
+</li>
+<li><p>如果下一个位是1而且当前电平不是0,下一个电平是0。</p>
+</li>
+<li><p>如果下一个位是1而且当前电平是0,下一个电平是最后一个非零电平的相反值。</p>
+<img src="/2021/07/16/%E8%AE%A1%E7%BD%91%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0_MarkdownNotes_1.0/%E7%AC%AC2%E9%83%A8%E5%88%86_%E7%89%A9%E7%90%86%E5%B1%82%E5%92%8C%E4%BB%8B%E8%B4%A8/%E7%AC%AC4%E7%AB%A0_%E6%95%B0%E5%AD%97%E4%BC%A0%E8%BE%93/%E7%AC%AC4%E7%AB%A0_%E6%95%B0%E5%AD%97%E4%BC%A0%E8%BE%93/image-20210619215011507.png" srcset="/img/loading.gif" lazyload alt="MLT-3" style="zoom:67%;"></li>
+</ul>
+</li>
+</ul>
+<h2 id="三-块编码（了解）"><a href="#三-块编码（了解）" class="headerlink" title="三. 块编码（了解）"></a>三. 块编码（了解）</h2><p><strong>块编码通常称为mB/nB 编码技术，用 n-bit位组替换m-bit.</strong></p>
+<img src="/2021/07/16/%E8%AE%A1%E7%BD%91%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0_MarkdownNotes_1.0/%E7%AC%AC2%E9%83%A8%E5%88%86_%E7%89%A9%E7%90%86%E5%B1%82%E5%92%8C%E4%BB%8B%E8%B4%A8/%E7%AC%AC4%E7%AB%A0_%E6%95%B0%E5%AD%97%E4%BC%A0%E8%BE%93/%E7%AC%AC4%E7%AB%A0_%E6%95%B0%E5%AD%97%E4%BC%A0%E8%BE%93/image-20210619215503222-1624110904290.png" srcset="/img/loading.gif" lazyload alt="block coding concept" style="zoom:67%;">
+
+<h3 id="4B-5B"><a href="#4B-5B" class="headerlink" title="4B/5B"></a>4B/5B</h3><ul>
+<li>4个二元/5个二元（four binary/five binary, 4B/5B）编码方案设计出来和NRZ-I组合使用。</li>
+<li>4B/5B编码方案解决了同步问题，克服了NRZ-I的缺陷，但是它增加了NRZ-I的信号速率，冗余位增加20%的波特</li>
+</ul>
+<h3 id="8B-10B"><a href="#8B-10B" class="headerlink" title="8B/10B"></a>8B/10B</h3><ul>
+<li>8B/10B块编码实际上是5B/6B编 码和3B/4B编码的组合。</li>
+<li>比起4B/5B,它提供了更强的差错检测能力。</li>
+</ul>
+<h2 id="四-扰码"><a href="#四-扰码" class="headerlink" title="四.  扰码"></a>四.  扰码</h2><p><strong>B8ZS 和 HDB3</strong></p>
+<ul>
+<li>两相编码使用于LAN中间站的专用链路，不适用于长距离通信</li>
+<li>块编码和NRZ编码的组合有DC分量，也不适合于长距离通信</li>
+<li>双极性AMI有窄带宽，且没有DC分量，当连续0的长序列会失去同步。</li>
+</ul>
+<h3 id="B8ZS"><a href="#B8ZS" class="headerlink" title="B8ZS"></a>B8ZS</h3><ul>
+<li>8零置换的双极编码方案：<ul>
+<li><p><strong>把8个连续零置换成000VB0VB</strong></p>
+<img src="/2021/07/16/%E8%AE%A1%E7%BD%91%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0_MarkdownNotes_1.0/%E7%AC%AC2%E9%83%A8%E5%88%86_%E7%89%A9%E7%90%86%E5%B1%82%E5%92%8C%E4%BB%8B%E8%B4%A8/%E7%AC%AC4%E7%AB%A0_%E6%95%B0%E5%AD%97%E4%BC%A0%E8%BE%93/%E7%AC%AC4%E7%AB%A0_%E6%95%B0%E5%AD%97%E4%BC%A0%E8%BE%93/image-20210619230320207-1624115001527.png" srcset="/img/loading.gif" lazyload alt="Two cases of B8ZS scrambling technique" style="zoom:67%;"></li>
+</ul>
+</li>
+</ul>
+<h3 id="HDB3"><a href="#HDB3" class="headerlink" title="HDB3"></a>HDB3</h3><ul>
+<li><p>高密度双极3零方案：</p>
+<ol>
+<li>如果最后一次置换后的非零脉冲数是奇数， 置换模式是000V,这样使得非零脉冲总数为偶数。</li>
+<li>如果最后一次置换后的非零脉冲数是偶数， 置换模式是B00V,这样使得非零脉冲总数为偶数。</li>
+</ol>
+</li>
+<li><p><strong>HDB3技术根据最后一次置换后非零脉冲数把四个连续零置换成000V或B00V。</strong></p>
+<img src="/2021/07/16/%E8%AE%A1%E7%BD%91%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0_MarkdownNotes_1.0/%E7%AC%AC2%E9%83%A8%E5%88%86_%E7%89%A9%E7%90%86%E5%B1%82%E5%92%8C%E4%BB%8B%E8%B4%A8/%E7%AC%AC4%E7%AB%A0_%E6%95%B0%E5%AD%97%E4%BC%A0%E8%BE%93/%E7%AC%AC4%E7%AB%A0_%E6%95%B0%E5%AD%97%E4%BC%A0%E8%BE%93/image-20210619231104052.png" srcset="/img/loading.gif" lazyload alt="Different situations in HDB3 scrambling technique" style="zoom:67%;"></li>
+</ul>
+<h2 id="五-脉码调制-PCM"><a href="#五-脉码调制-PCM" class="headerlink" title="五.  脉码调制 PCM"></a>五.  脉码调制 PCM</h2><p><strong>采样、量化等级、量化误差</strong></p>
+<ul>
+<li>PCM编码器有三个过程：<ol>
+<li>对模拟信号进行采样；</li>
+<li>对采样后信号进行量化；</li>
+<li>量化后的值编码成位流。</li>
+</ol>
+</li>
+</ul>
+<h3 id="采样"><a href="#采样" class="headerlink" title="采样"></a>采样</h3><ul>
+<li><p>每隔T<sub>s</sub>秒对模拟信号进行采样，T<sub>s</sub>是样本间隔或周期。</p>
+</li>
+<li><p>采样间隔的倒数称为采样率或采样频率,定义成f<sub>s</sub></p>
+</li>
+<li><p>$$<br>f_s = \frac{1}{T_s}<br>$$</p>
+</li>
+<li><p>三种采样方法：</p>
+<ul>
+<li><p>理想采样：对来自模拟信号的脉冲进行采样。</p>
+</li>
+<li><p>自然采样：当采样发生时髙速开关开启很短的时间，样本序列保持了模拟信号的形状。</p>
+</li>
+<li><p>方顶采样：采样和保持技术，通过适用电路产生方顶样本。</p>
+<img src="/2021/07/16/%E8%AE%A1%E7%BD%91%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0_MarkdownNotes_1.0/%E7%AC%AC2%E9%83%A8%E5%88%86_%E7%89%A9%E7%90%86%E5%B1%82%E5%92%8C%E4%BB%8B%E8%B4%A8/%E7%AC%AC4%E7%AB%A0_%E6%95%B0%E5%AD%97%E4%BC%A0%E8%BE%93/%E7%AC%AC4%E7%AB%A0_%E6%95%B0%E5%AD%97%E4%BC%A0%E8%BE%93/image-20210619231656433-1624115817281.png" srcset="/img/loading.gif" lazyload alt="Figure 4.22  Three different sampling methods for PCM" style="zoom:67%;"></li>
+</ul>
+</li>
+<li><p>采样速率：</p>
+<ul>
+<li><p><strong>根据奈奎斯特定理，采样速率必须至少是信号所含最高频率的2倍。</strong></p>
+<img src="/2021/07/16/%E8%AE%A1%E7%BD%91%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0_MarkdownNotes_1.0/%E7%AC%AC2%E9%83%A8%E5%88%86_%E7%89%A9%E7%90%86%E5%B1%82%E5%92%8C%E4%BB%8B%E8%B4%A8/%E7%AC%AC4%E7%AB%A0_%E6%95%B0%E5%AD%97%E4%BC%A0%E8%BE%93/%E7%AC%AC4%E7%AB%A0_%E6%95%B0%E5%AD%97%E4%BC%A0%E8%BE%93/image-20210619231946521-1624115989507.png" srcset="/img/loading.gif" lazyload alt="image-20210619231946521" style="zoom:67%;"></li>
+</ul>
+</li>
+</ul>
+<h3 id="量化"><a href="#量化" class="headerlink" title="量化"></a>量化</h3><ul>
+<li><p>量化步骤：</p>
+<ol>
+<li><p>我们假定原始模拟信号有介于V<sub>min</sub>和V<sub>max</sub>的瞬时振幅。</p>
+</li>
+<li><p>我们把范围分成L个区间，每个区间髙度为 Delta。<br>$$<br>\Delta = \frac{V_{max} - V_{min}}{L}<br>$$</p>
+</li>
+<li><p>我们分配0到L-1的量化值给每个区间的中点。</p>
+</li>
+<li><p>样本振幅值近似为量化值。</p>
+</li>
+</ol>
+</li>
+<li><p>量化等级：</p>
+<ul>
+<li>L（等级数）的选择取决于模拟信号振幅范围以及我们需要准确恢复信号的程度。</li>
+</ul>
+</li>
+<li><p>量化误差：</p>
+<ul>
+<li><p>量化误差改变了信号的信噪比，根据香农理论，这反过来减小了上限容量。</p>
+</li>
+<li><p>量化误差（quantization error）对信号SNR<sub>dB</sub>的影响取决于量化级别L或每个样本位数n<sub>b</sub>。如下所示：<br>$$<br>SNR_{dB} = 6.02n_b + 1.76<br>$$<br><strong>结论：增加级别数就会增加SNR.</strong></p>
+</li>
+</ul>
+<p><strong>PCM带宽</strong><br>$$<br>B_{min} = n_{b} + B_{analog}<br>$$<br>数字信号的最小带宽是模拟信号带宽的n<sub>b</sub>倍</p>
+</li>
+</ul>
+<h3 id="Delta调制"><a href="#Delta调制" class="headerlink" title="Delta调制"></a>Delta调制</h3><ul>
+<li><p>PCM得到每个样本的信号振幅值，DM 从前一个样本中得到变化。</p>
+<img src="/2021/07/16/%E8%AE%A1%E7%BD%91%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0_MarkdownNotes_1.0/%E7%AC%AC2%E9%83%A8%E5%88%86_%E7%89%A9%E7%90%86%E5%B1%82%E5%92%8C%E4%BB%8B%E8%B4%A8/%E7%AC%AC4%E7%AB%A0_%E6%95%B0%E5%AD%97%E4%BC%A0%E8%BE%93/%E7%AC%AC4%E7%AB%A0_%E6%95%B0%E5%AD%97%E4%BC%A0%E8%BE%93/image-20210619233055903.png" srcset="/img/loading.gif" lazyload alt="image-20210619233055903" style="zoom:67%;"></li>
+</ul>
+<h2 id="六-传输模式"><a href="#六-传输模式" class="headerlink" title="六.  传输模式"></a>六.  传输模式</h2><p><strong>异步传输、同步传输、并行传输、串行传输的概念</strong></p>
+<img src="/2021/07/16/%E8%AE%A1%E7%BD%91%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0_MarkdownNotes_1.0/%E7%AC%AC2%E9%83%A8%E5%88%86_%E7%89%A9%E7%90%86%E5%B1%82%E5%92%8C%E4%BB%8B%E8%B4%A8/%E7%AC%AC4%E7%AB%A0_%E6%95%B0%E5%AD%97%E4%BC%A0%E8%BE%93/%E7%AC%AC4%E7%AB%A0_%E6%95%B0%E5%AD%97%E4%BC%A0%E8%BE%93/image-20210619233144204.png" srcset="/img/loading.gif" lazyload alt="image-20210619233144204" style="zoom:67%;">
+
+<h3 id="并行传输"><a href="#并行传输" class="headerlink" title="并行传输"></a>并行传输</h3><ul>
+<li><p>每次使用n条线路传送n位</p>
+</li>
+<li><p>并行传输的优点是速度</p>
+</li>
+<li><p>缺点是成本高，需要n条线路</p>
+<img src="/2021/07/16/%E8%AE%A1%E7%BD%91%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0_MarkdownNotes_1.0/%E7%AC%AC2%E9%83%A8%E5%88%86_%E7%89%A9%E7%90%86%E5%B1%82%E5%92%8C%E4%BB%8B%E8%B4%A8/%E7%AC%AC4%E7%AB%A0_%E6%95%B0%E5%AD%97%E4%BC%A0%E8%BE%93/%E7%AC%AC4%E7%AB%A0_%E6%95%B0%E5%AD%97%E4%BC%A0%E8%BE%93/image-20210619233204250.png" srcset="/img/loading.gif" lazyload style="zoom:67%;"></li>
+<li><img src="/2021/07/16/%E8%AE%A1%E7%BD%91%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0_MarkdownNotes_1.0/%E7%AC%AC2%E9%83%A8%E5%88%86_%E7%89%A9%E7%90%86%E5%B1%82%E5%92%8C%E4%BB%8B%E8%B4%A8/%E7%AC%AC4%E7%AB%A0_%E6%95%B0%E5%AD%97%E4%BC%A0%E8%BE%93/%E7%AC%AC4%E7%AB%A0_%E6%95%B0%E5%AD%97%E4%BC%A0%E8%BE%93/image-20210619233204250.png" srcset="/img/loading.gif" lazyload alt="image-20210619233204250" style="zoom:67%;"></li>
+</ul>
+<h3 id="串行传输"><a href="#串行传输" class="headerlink" title="串行传输"></a>串行传输</h3><ul>
+<li><p>位是一个一个依次传输的。</p>
+</li>
+<li><p>串行传输的成本大约只是并行传输的1/n。</p>
+</li>
+<li><p>两个通信设备之间只需要一条通道</p>
+</li>
+<li><p>串行传输可以使用三种方式之一：异步、同步和等时。</p>
+<img src="/2021/07/16/%E8%AE%A1%E7%BD%91%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0_MarkdownNotes_1.0/%E7%AC%AC2%E9%83%A8%E5%88%86_%E7%89%A9%E7%90%86%E5%B1%82%E5%92%8C%E4%BB%8B%E8%B4%A8/%E7%AC%AC4%E7%AB%A0_%E6%95%B0%E5%AD%97%E4%BC%A0%E8%BE%93/%E7%AC%AC4%E7%AB%A0_%E6%95%B0%E5%AD%97%E4%BC%A0%E8%BE%93/image-20210619233228483.png" srcset="/img/loading.gif" lazyload alt="image-20210619233228483" style="zoom:67%;"></li>
+</ul>
+<h3 id="异步传输"><a href="#异步传输" class="headerlink" title="异步传输"></a>异步传输</h3><ul>
+<li><p>在传输中信号的时序并不重要，信息的接收和转换通过约定的模式进行。</p>
+</li>
+<li><p>约定模式基于将位流组成字节的方式建立，作为一个单位沿着链路传输</p>
+</li>
+<li><p>因为没有同步时钟，所以增加：</p>
+<ul>
+<li>起始位：在每一个字节的开始处增加一个位（通常是0）。通知接收方有一个新的组到达。</li>
+<li>停止位：在字节的结束位置会增加一个或者多个位（通常是1）。为了让接收方知道字节已经结束。</li>
+</ul>
+</li>
+<li><p><strong>在异步传输过程中，需要在每个字节开始时发送1个起始位，结束时发送1个或者多个停止位。在每个字节之间会有一个时间间隔</strong>。</p>
+</li>
+<li><p><strong>异步在这里是指在字节级上的异步，但是每位仍然要同步，它们的持续时间是相同的。</strong></p>
+<img src="/2021/07/16/%E8%AE%A1%E7%BD%91%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0_MarkdownNotes_1.0/%E7%AC%AC2%E9%83%A8%E5%88%86_%E7%89%A9%E7%90%86%E5%B1%82%E5%92%8C%E4%BB%8B%E8%B4%A8/%E7%AC%AC4%E7%AB%A0_%E6%95%B0%E5%AD%97%E4%BC%A0%E8%BE%93/%E7%AC%AC4%E7%AB%A0_%E6%95%B0%E5%AD%97%E4%BC%A0%E8%BE%93/image-20210619233523961-1624116925700.png" srcset="/img/loading.gif" lazyload alt="image-20210619233523961" style="zoom:67%;"></li>
+</ul>
+<h3 id="同步传输"><a href="#同步传输" class="headerlink" title="同步传输"></a>同步传输</h3><ul>
+<li><p>数据以一种不间断的1和0位串进行传输，接收方将位流分割成重构信息所需的一个个字节。</p>
+</li>
+<li><p><strong>在同步传输模式中，依次发送位流而不含起始位、停止位和间隙。接收方负责将位进行分组。</strong></p>
+</li>
+<li><p>同步传输的优点是速度快</p>
+</li>
+<li><p>同步传输通常多用于传输大块二进制数据</p>
+<img src="/2021/07/16/%E8%AE%A1%E7%BD%91%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0_MarkdownNotes_1.0/%E7%AC%AC2%E9%83%A8%E5%88%86_%E7%89%A9%E7%90%86%E5%B1%82%E5%92%8C%E4%BB%8B%E8%B4%A8/%E7%AC%AC4%E7%AB%A0_%E6%95%B0%E5%AD%97%E4%BC%A0%E8%BE%93/%E7%AC%AC4%E7%AB%A0_%E6%95%B0%E5%AD%97%E4%BC%A0%E8%BE%93/image-20210619233611171-1624116975669.png" srcset="/img/loading.gif" lazyload alt="image-20210619233611171" style="zoom:67%;"></li>
+</ul>
+
+            </div>
+            <hr>
+            <div>
+              <div class="post-metas mb-3">
+                
+                
+              </div>
+              
+                <p class="note note-warning">
+                  
+                    本博客所有文章除特别声明外，均采用 <a target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" rel="nofollow noopener noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！
+                  
+                </p>
+              
+              
+                <div class="post-prevnext">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/2021/07/16/%E8%AE%A1%E7%BD%91%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0_MarkdownNotes_1.0/%E7%AC%AC2%E9%83%A8%E5%88%86_%E7%89%A9%E7%90%86%E5%B1%82%E5%92%8C%E4%BB%8B%E8%B4%A8/%E7%AC%AC5%E7%AB%A0_%E6%A8%A1%E6%8B%9F%E4%BC%A0%E8%BE%93/%E7%AC%AC5%E7%AB%A0_%E6%A8%A1%E6%8B%9F%E4%BC%A0%E8%BE%93/">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile"></span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2021/07/16/%E8%AE%A1%E7%BD%91%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0_MarkdownNotes_1.0/%E7%AC%AC2%E9%83%A8%E5%88%86_%E7%89%A9%E7%90%86%E5%B1%82%E5%92%8C%E4%BB%8B%E8%B4%A8/%E7%AC%AC3%E7%AB%A0_%E6%95%B0%E6%8D%AE%E4%B8%8E%E4%BF%A1%E5%8F%B7/%E7%AC%AC3%E7%AB%A0_%E6%95%B0%E6%8D%AE%E4%B8%8E%E4%BF%A1%E5%8F%B7/">
+                        <span class="hidden-mobile"></span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+          </article>
+        </div>
+      </div>
+    </div>
+    
+      <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
+        <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目录</p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+      </div>
+    
+  </div>
+</div>
+
+<!-- Custom -->
+
+
+    
+
+    
+      <a id="scroll-top-button" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v"
+                 for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+
+    
+  </main>
+
+  <footer class="text-center mt-5 py-3">
+  <div class="footer-content">
+     <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+  </div>
+  
+
+  
+
+  
+</footer>
+
+
+  <!-- SCRIPTS -->
+  
+  <script  src="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js" ></script>
+<script  src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+<!-- Plugins -->
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+  
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/tocbot@4.12.3/dist/tocbot.min.js" ></script>
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js" ></script>
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/anchor-js@4.3.1/anchor.min.js" ></script>
+
+
+
+  <script defer src="https://cdn.jsdelivr.net/npm/clipboard@2.0.8/dist/clipboard.min.js" ></script>
+
+
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+  <script defer src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" ></script>
+
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12/lib/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var title = document.getElementById('subtitle').title;
+      
+      typing(title)
+      
+    })(window, document);
+  </script>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+
+
+
+
+<!-- 主题的启动项 保持在最底部 -->
+<script  src="/js/boot.js" ></script>
+
+
+</body>
+</html>

@@ -1,0 +1,792 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=&#34;auto&#34;>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/favicon.jpg">
+  <link rel="icon" href="/img/favicon.jpg">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="description" content="𝐍&#39;𝐨𝐮𝐛𝐥𝐢é 𝐩𝐚𝐬 𝐝𝐞 𝐭&#39;𝐚𝐢𝐦𝐞𝐫">
+  <meta name="author" content="prinscarce">
+  <meta name="keywords" content="">
+  
+  <title>prinscarce</title>
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" />
+
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-markdown-css@4.0.0/github-markdown.min.css" />
+  <link  rel="stylesheet" href="/lib/hint/hint.min.css" />
+
+  
+    
+    
+      
+      <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@10.7.2/styles/github-gist.min.css" />
+    
+  
+
+  
+    <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css" />
+  
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_ba1fz6golrf.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_kmeydafke9r.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+<!-- 自定义样式保持在最底部 -->
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    var CONFIG = {"hostname":"prinscarce.github.io","root":"/","version":"1.8.11","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":true,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null}},"search_path":"/local-search.xml"};
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+
+<body>
+  <header style="height: 70vh;">
+    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand"
+       href="/">&nbsp;<strong>serendipity</strong>&nbsp;</a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                首页
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                归档
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                分类
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                标签
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                关于
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" data-toggle="modal" data-target="#modalSearch">&nbsp;<i
+                class="iconfont icon-search"></i>&nbsp;</a>
+          </li>
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+    <div class="banner" id="banner" parallax=true
+         style="background: url('/img/default.png') no-repeat center center;
+           background-size: cover;">
+      <div class="full-bg-img">
+        <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+          <div class="page-header text-center fade-in-up">
+            <span class="h2" id="subtitle" title="">
+              
+            </span>
+
+            
+              <div class="mt-3">
+  
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-author" aria-hidden="true"></i>
+      prinscarce
+    </span>
+  
+  
+    <span class="post-meta">
+      <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+      <time datetime="2021-07-16 14:15" pubdate>
+        2021年7月16日 下午
+      </time>
+    </span>
+  
+</div>
+
+<div class="mt-1">
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-chart"></i>
+      3.2k 字
+    </span>
+  
+
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-clock-fill"></i>
+      
+      
+      34
+       分钟
+    </span>
+  
+
+  
+  
+    
+      <!-- 不蒜子统计文章PV -->
+      <span id="busuanzi_container_page_pv" style="display: none">
+        <i class="iconfont icon-eye" aria-hidden="true"></i>
+        <span id="busuanzi_value_page_pv"></span> 次
+      </span>
+    
+  
+</div>
+
+            
+          </div>
+
+          
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div class="py-5" id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none"></h1>
+            
+            <div class="markdown-body">
+              <!--
+
+ * @Title:  UDP、TCP 和 SCTP
+ * @Description: 
+ * @Author: SoulCompiler/horizon/prinscarce
+ * @Email: prinscarce@outlook.com
+ * @Blog: prinscarce.github.io
+ * @LastEditors: prinscarce
+   -->
+
+<h1 id="第-23-章-UDP、TCP-和-SCTP"><a href="#第-23-章-UDP、TCP-和-SCTP" class="headerlink" title="第  23 章 UDP、TCP 和 SCTP"></a>第  23 章 UDP、TCP 和 SCTP</h1><h2 id="一-端口（重要的知名端口）、套接字"><a href="#一-端口（重要的知名端口）、套接字" class="headerlink" title="一.端口（重要的知名端口）、套接字"></a>一.端口（重要的知名端口）、套接字</h2><h3 id="端口"><a href="#端口" class="headerlink" title="端口"></a>端口</h3><ul>
+<li>服务器使用全局端口号：它们称为熟知端口号（well-known port number）</li>
+<li>一个端口号确定了主机上的一个进程</li>
+<li>划分<ul>
+<li>1~1023: 熟知端口</li>
+<li>1024~49151: 注册端口, IANA 不分配不控制, 但可以注册来防止重复</li>
+<li>49152~65535: 动态端口, 可以有任何进程使用, 不需注册</li>
+</ul>
+</li>
+</ul>
+<h3 id="套接字"><a href="#套接字" class="headerlink" title="套接字"></a>套接字</h3><ul>
+<li>套接字地址: 由 IP 地址和端口号组成, 唯一确定了一台主机上的一个进程</li>
+<li>一个<strong>IP地址</strong>和一个<strong>端口号</strong>结合起来称为套接字地址。</li>
+<li>传输层协议需要一对套接字地址：客户套接字地址和服务器套接字地址。</li>
+<li>IP头部包含IP地址，而UDP或TCP头部包含端口号。</li>
+</ul>
+<h2 id="二-UDP-协议"><a href="#二-UDP-协议" class="headerlink" title="二. UDP 协议"></a>二. UDP 协议</h2><blockquote>
+<p>UDP: User Datagram Protocol, 用户数据报协议</p>
+</blockquote>
+<p>UDP 协议的概念、数据报结构、<strong>校验和的计算</strong>、UDP 的操作</p>
+<h3 id="UDP-协议的概念"><a href="#UDP-协议的概念" class="headerlink" title="UDP 协议的概念"></a>UDP 协议的概念</h3><ul>
+<li>无连接不可靠传输层协议。</li>
+<li>面向报文</li>
+<li>无拥塞控制,适合实时应用</li>
+<li>提供进程到进程通信而不是主机到主机通信。</li>
+<li>首部开销少8B,TCP20B</li>
+<li>非常有限的差错检验。</li>
+<li><img src="/2021/07/16/%E8%AE%A1%E7%BD%91%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0_MarkdownNotes_1.0/%E7%AC%AC5%E9%83%A8%E5%88%86_%E4%BC%A0%E8%BE%93%E5%B1%82/%E7%AC%AC23%E7%AB%A0_UDP%E3%80%81TCP%20%E5%92%8CSCTP/%E7%AC%AC23%E7%AB%A0_UDP%E3%80%81TCP%20%E5%92%8CSCTP/20210622002944.png" srcset="/img/loading.gif" lazyload alt="udp port" style="zoom:67%;"></li>
+</ul>
+<h3 id="数据报结构"><a href="#数据报结构" class="headerlink" title="数据报结构"></a>数据报结构</h3><ul>
+<li>数据报结构图：</li>
+<li><img src="/2021/07/16/%E8%AE%A1%E7%BD%91%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0_MarkdownNotes_1.0/%E7%AC%AC5%E9%83%A8%E5%88%86_%E4%BC%A0%E8%BE%93%E5%B1%82/%E7%AC%AC23%E7%AB%A0_UDP%E3%80%81TCP%20%E5%92%8CSCTP/%E7%AC%AC23%E7%AB%A0_UDP%E3%80%81TCP%20%E5%92%8CSCTP/20210622003102.png" srcset="/img/loading.gif" lazyload alt="header" style="zoom:67%;"></li>
+<li>头部固定 8 字节</li>
+<li>源端口号: 如果是源主机是客户机, 则大概率是临时端口号; 服务器则大概率是熟知端口号 2B</li>
+<li>目的端口号: 类似上面, 不过反过来 2B</li>
+<li>总长度: 头部 (8 字节) + 数据长度 2B</li>
+<li>校验和 2B</li>
+<li>注意在真正的 UDP 头部中, 没有源地址和目的地址 (这是 IP 头部的东西), 但是校验和会用到它们</li>
+<li>UPD长度=IP长度-IP头部长度</li>
+</ul>
+<h3 id="校验和的计算"><a href="#校验和的计算" class="headerlink" title="校验和的计算"></a>校验和的计算</h3><ul>
+<li><p>校验包括三个部分：伪头部、UDP头部和从应用层来的数据。</p>
+<img src="/2021/07/16/%E8%AE%A1%E7%BD%91%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0_MarkdownNotes_1.0/%E7%AC%AC5%E9%83%A8%E5%88%86_%E4%BC%A0%E8%BE%93%E5%B1%82/%E7%AC%AC23%E7%AB%A0_UDP%E3%80%81TCP%20%E5%92%8CSCTP/%E7%AC%AC23%E7%AB%A0_UDP%E3%80%81TCP%20%E5%92%8CSCTP/20210622003643.png" srcset="/img/loading.gif" lazyload alt="p header" style="zoom:67%;"></li>
+<li><p>实际上是<strong>伪头部</strong>与头部共同的校验和</p>
+</li>
+<li><p>伪头部: 类似 IP 头部的最后 12 字节, 见上图</p>
+</li>
+<li><p>数据部分通过填充 0 补齐到 16 位的整数倍, 但<strong>在发送时会被移除, 不进行填充</strong></p>
+</li>
+<li><p>在计算完校验和后, 伪头部和填充就被移除, 它们不会交给 IP</p>
+</li>
+<li><p>计算方法和之前一样, 16 位分组, 求和, 循环进位, 最后取反码</p>
+</li>
+<li><p>校验和是可选的, 若不计算则可在这个字段填充全 1 (因为真正的校验和不可能为全 1, 这说明和为 0)</p>
+</li>
+</ul>
+<img src="/2021/07/16/%E8%AE%A1%E7%BD%91%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0_MarkdownNotes_1.0/%E7%AC%AC5%E9%83%A8%E5%88%86_%E4%BC%A0%E8%BE%93%E5%B1%82/%E7%AC%AC23%E7%AB%A0_UDP%E3%80%81TCP%20%E5%92%8CSCTP/%E7%AC%AC23%E7%AB%A0_UDP%E3%80%81TCP%20%E5%92%8CSCTP/image-20210623135133035.png" srcset="/img/loading.gif" lazyload alt="image-20210623135133035" style="zoom:67%;">
+
+<h3 id="UDP的操作"><a href="#UDP的操作" class="headerlink" title="UDP的操作"></a>UDP的操作</h3><ul>
+<li>无连接服务：<ul>
+<li>UDP发送出去的每一个用户数据报都是一个独立的数据报。</li>
+<li>不同的用户数据报之间没有关系，即使它们都来自相同的源进程并发送到相同的目的程序。</li>
+<li>用户数据报不进行编号。</li>
+</ul>
+</li>
+<li>流量控制和差错控制：<ul>
+<li>没有流量控制，因而也没有窗口机制。</li>
+<li>没有差错控制机制。</li>
+<li>使用UDP的进程必须要提供这些机制。</li>
+</ul>
+</li>
+<li>封装和拆封：<ul>
+<li>将报文在IP数据报中进行封装和拆封。</li>
+</ul>
+</li>
+<li>排队：<ul>
+<li>当一个进程想与多个进程通信时，它也只得到一个端口号，而最后也只有一个出队列和一个入队列。</li>
+<li>客户进程使用在请求中指明的源端口号将报文发送到出队列。UDP逐个将报文取出，加上UDP头部递交给IP。</li>
+<li>当报文到达客户端时，UDP要检査一下以确认对应于该用户数据报中目的端口号字段指明的端口号是否创建了入队列。如果有这样的入队列，UDP就将接收到的用户数据报放在该队列的末尾。如果没有这样的队列，UDP就丢弃该用户数据报，并请求ICMP协议向服务器发送端口不可达报文。当报文到达服务器时同理。</li>
+</ul>
+</li>
+</ul>
+<h2 id="三-TCP"><a href="#三-TCP" class="headerlink" title="三. TCP"></a>三. TCP</h2><p><strong>TCP 的特点与服务、段格式、三次握手（建立连接和拆除连接）、TCP 流量控制 （信贷滑窗协议）、TCP 差错控制、TCP 拥塞控制（慢启动过程、拥塞避免过程）</strong></p>
+<blockquote>
+<p>TCP: Transmission Control Protocol, 传输控制协议</p>
+</blockquote>
+<h3 id="特点与服务"><a href="#特点与服务" class="headerlink" title="特点与服务"></a>特点与服务</h3><ul>
+<li>面向连接 可靠 传输层协议</li>
+<li>点对点,提供全双工通信</li>
+<li>有流量控制和差错控制</li>
+<li>面向字节流</li>
+<li>服务:<ul>
+<li>提供进程到进程的通信<ul>
+<li>TCP用端口号提供进程到进程的通信。</li>
+</ul>
+</li>
+<li>提供流传递服务, 类似于一个假想的管道, 存在缓冲区<ul>
+<li>TCP允许发送进程以字节流形式传递数据，并且接收进程也以字节流形式接收数据。</li>
+<li>每一个方向都存在一个缓冲区：发送缓冲区和接收缓冲区。</li>
+<li>实现缓冲的一种方法是使用一字节存储单元的循环数组。</li>
+</ul>
+</li>
+<li>全双工通信<ul>
+<li>数据可以在同一时间双向流动。</li>
+<li>每一方TCP都有发送和接收缓冲区，它们能在双向发送和接收段。</li>
+</ul>
+</li>
+<li>面向连接<ul>
+<li>在两个TCP之间建立一个连接；</li>
+<li>在两个方向交换数据；</li>
+<li>连接终止。</li>
+<li>这是一个虚连接，而不是一个物理连接。</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>使用序列号 seq, 值为该段包含的第一个(数据)字节的序号</li>
+<li>使用确认号 ack, 值为接收方预期接受的下一个字节的序号</li>
+</ul>
+<img src="/2021/07/16/%E8%AE%A1%E7%BD%91%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0_MarkdownNotes_1.0/%E7%AC%AC5%E9%83%A8%E5%88%86_%E4%BC%A0%E8%BE%93%E5%B1%82/%E7%AC%AC23%E7%AB%A0_UDP%E3%80%81TCP%20%E5%92%8CSCTP/%E7%AC%AC23%E7%AB%A0_UDP%E3%80%81TCP%20%E5%92%8CSCTP/image-20210623135707166.png" srcset="/img/loading.gif" lazyload alt="image-20210623135707166" style="zoom:67%;">
+
+<h3 id="段格式"><a href="#段格式" class="headerlink" title="段格式"></a>段格式</h3><img src="/2021/07/16/%E8%AE%A1%E7%BD%91%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0_MarkdownNotes_1.0/%E7%AC%AC5%E9%83%A8%E5%88%86_%E4%BC%A0%E8%BE%93%E5%B1%82/%E7%AC%AC23%E7%AB%A0_UDP%E3%80%81TCP%20%E5%92%8CSCTP/%E7%AC%AC23%E7%AB%A0_UDP%E3%80%81TCP%20%E5%92%8CSCTP/image-20210623140315572.png" srcset="/img/loading.gif" lazyload alt="image-20210623140315572" style="zoom:67%;">
+
+<ul>
+<li>源端口地址, 目的端口地址: 和 UDP 中的一样,一共4B</li>
+<li>序列号 seq: 段中数据的第一个字节的序号, 连接建立时双方各自通过随机数产生初始序列号 (ISN)</li>
+<li>确认号 ack: 段的接收方期望接受的下一个字节号</li>
+<li>数据偏移(头部长度): 单位为<strong>4字节</strong>, 也就是说该字段的值为头部长度除以 4</li>
+<li>保留: 就是保留</li>
+<li>六个控制位<ul>
+<li>URG: 紧急指针有效, 为高优先级</li>
+<li>ACK: 确认字段的值有效</li>
+<li>PSH: 将数据推向前 (接收方的处理)</li>
+<li>RST: 连接复位 (GFW经常就靠这个阻断你的连接)</li>
+<li>SYN: 在连接时对序列号进行同步</li>
+<li>FIN: 终止连接</li>
+</ul>
+</li>
+<li>窗口: 定义了接收窗口 (rwnd, Receive<strong>r</strong> Window) 的大小, 见阻塞控制</li>
+<li>校验和: 计算方法一样, 也有伪头部, 伪头部 12B+ 头部 + 数据, 但是书上没说 TCP 的伪头部是啥</li>
+<li>紧急指针: URG=1,指向紧急字节的最后一个字节, 紧急字节总是位于段的开始, 收到后会被直接送往进程, 无需等待</li>
+</ul>
+<h6 id="连接建立"><a href="#连接建立" class="headerlink" title="连接建立"></a>连接建立</h6><ul>
+<li>TCP 的连接和建立都是采用客户服务器方式。</li>
+<li>主动发起连接建立的应用进程叫做客户(client)。</li>
+<li>被动等待连接建立的应用进程叫做服务器(server)。 </li>
+</ul>
+<h3 id="三次握手（建立连接和拆除连接）"><a href="#三次握手（建立连接和拆除连接）" class="headerlink" title="三次握手（建立连接和拆除连接）"></a>三次握手（建立连接和拆除连接）</h3><ul>
+<li><p>建立连接三次握手过程图：</p>
+</li>
+<li><img src="/2021/07/16/%E8%AE%A1%E7%BD%91%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0_MarkdownNotes_1.0/%E7%AC%AC5%E9%83%A8%E5%88%86_%E4%BC%A0%E8%BE%93%E5%B1%82/%E7%AC%AC23%E7%AB%A0_UDP%E3%80%81TCP%20%E5%92%8CSCTP/%E7%AC%AC23%E7%AB%A0_UDP%E3%80%81TCP%20%E5%92%8CSCTP/20210622104459.png" srcset="/img/loading.gif" lazyload alt="tcp establish" style="zoom:67%;">
+
+<p>采用三次握手</p>
+<ul>
+<li>客户端: SYN =1,seq=x,(仅包含己方 seq, SYN 段不携带数据, 但占用序列号)</li>
+<li>服务器: SYN=1,ACK=1,seq=y,ack=x+1, (包含服务器的 seq 和 ack, 和单纯的 SYN 一样占用序列号)</li>
+<li>客户端: ACK=1,seq=x+1,ack=y+1 (若 ACK 段不携带数据, 则不占用序列号)</li>
+</ul>
+<p>存在 SYN 洪泛攻击的问题</p>
+<ul>
+<li>攻击方伪造大量的 SYN, 伪装成正常的连接请求</li>
+<li>由于服务器需要为每一个请求分配资源, 因此很快被耗尽</li>
+<li>最终服务器无法接受新的正常用户的请求 -&gt; 拒绝服务攻击 (DoS, Denial of Service)</li>
+</ul>
+<blockquote>
+<p>DDoS, Distributed Denial of Service, 就是分布式拒绝服务攻击</p>
+</blockquote>
+</li>
+<li><p>拆除连接三次握手过程图：</p>
+</li>
+<li><img src="/2021/07/16/%E8%AE%A1%E7%BD%91%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0_MarkdownNotes_1.0/%E7%AC%AC5%E9%83%A8%E5%88%86_%E4%BC%A0%E8%BE%93%E5%B1%82/%E7%AC%AC23%E7%AB%A0_UDP%E3%80%81TCP%20%E5%92%8CSCTP/%E7%AC%AC23%E7%AB%A0_UDP%E3%80%81TCP%20%E5%92%8CSCTP/20210622105351.png" srcset="/img/loading.gif" lazyload alt="3 wave" style="zoom:67%;"></li>
+<li><p>拆除连接三个步骤：</p>
+<ol>
+<li>从客户进程接收到一个关闭命令后，客户的TCP发送第一个段：FIN段， 即其中的FIN位置位。<ul>
+<li>如果FIN段不携带数据，则该段占用一个序列号。</li>
+</ul>
+</li>
+<li>服务器TCP接收到FIN段后，通知它的进程，并发送第二个段：FIN + ACK段，证实它接收到来自客户端的FIN段，同时通告另一端连接关闭。<ul>
+<li>如果FIN + ACK段没有携带数据，则该段仅占用一个序列号。</li>
+</ul>
+</li>
+<li>客户端的TCP发送最后一段：ACK段，证实它接收到来自服务器的FIN段。这个段包含确认号，它是接收到来自服务器FIN段的序号加1。<ul>
+<li>这个段不携带数据也不占用序列号。</li>
+</ul>
+</li>
+</ol>
+</li>
+<li><p>主动方: FIN, 可携带数据, 占用一个序列号</p>
+</li>
+<li><p>被动方: FIN+ACK, 可携带数据, 占用一个序列号</p>
+</li>
+<li><p>主动方: ACK, 不占用序列号</p>
+</li>
+</ul>
+<h5 id="四次挥手"><a href="#四次挥手" class="headerlink" title="四次挥手"></a>四次挥手</h5><img src="/2021/07/16/%E8%AE%A1%E7%BD%91%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0_MarkdownNotes_1.0/%E7%AC%AC5%E9%83%A8%E5%88%86_%E4%BC%A0%E8%BE%93%E5%B1%82/%E7%AC%AC23%E7%AB%A0_UDP%E3%80%81TCP%20%E5%92%8CSCTP/%E7%AC%AC23%E7%AB%A0_UDP%E3%80%81TCP%20%E5%92%8CSCTP/20210622105644.png" srcset="/img/loading.gif" lazyload alt="4 wave" style="zoom:67%;">
+
+<blockquote>
+<p>半关闭</p>
+</blockquote>
+<ul>
+<li>主动方: FIN=1,seq=u</li>
+<li>被动方: ACK=1,seq=v,ack=u+1<ul>
+<li>此时进入<strong>半关闭</strong></li>
+<li>主动方不能够再发送数据, 但可以接收数据</li>
+<li>被动方还能够继续发送数据</li>
+</ul>
+</li>
+<li>被动方: FIN=1,ACK=1,seq=w,ack=u+1</li>
+<li>主动方: ACK=1,seq=u+1,ack=w+1</li>
+</ul>
+<h3 id="TCP-流量控制-（信贷滑窗协议）"><a href="#TCP-流量控制-（信贷滑窗协议）" class="headerlink" title="TCP 流量控制 （信贷滑窗协议）"></a>TCP 流量控制 （信贷滑窗协议）</h3><ul>
+<li>TCP使用的滑动窗口协议界于回退N帧与选择重发之间的滑动窗口。</li>
+<li>TCP的滑动窗口与数据链路所用的滑动窗口有两大点不同：<ul>
+<li>TCP的滑动窗口是面向<strong>字节</strong>的，而数据链路层讨论的滑动窗口是面向帧的。</li>
+<li>TCP的滑动窗口是可变大小，而数据链路层讨论的滑动窗口是固定大小。</li>
+</ul>
+</li>
+</ul>
+<img src="/2021/07/16/%E8%AE%A1%E7%BD%91%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0_MarkdownNotes_1.0/%E7%AC%AC5%E9%83%A8%E5%88%86_%E4%BC%A0%E8%BE%93%E5%B1%82/%E7%AC%AC23%E7%AB%A0_UDP%E3%80%81TCP%20%E5%92%8CSCTP/%E7%AC%AC23%E7%AB%A0_UDP%E3%80%81TCP%20%E5%92%8CSCTP/image-20210623142307905.png" srcset="/img/loading.gif" lazyload alt="image-20210623142307905" style="zoom:67%;">
+
+<h3 id="TCP-差错控制"><a href="#TCP-差错控制" class="headerlink" title="TCP 差错控制"></a>TCP 差错控制</h3><ul>
+<li><p>TCP中的差错检测和 纠正是通过三种简单工具来完成：校验和、确认和超时。</p>
+</li>
+<li><p><strong>校验和</strong>：</p>
+<ul>
+<li>每个段都包括校验和字段，用来检査受到损坏的段。</li>
+<li>如果段被损坏，它将被目的端TCP丢弃，并认为是丢失了。</li>
+<li>TCP在每段中强制使用一个16位的校验和。</li>
+</ul>
+</li>
+<li><p><strong>确认</strong>：</p>
+<ul>
+<li>使用确认方法来证实收到了数据段。</li>
+<li>不携带数据但占用序列号的一些控制段也要确认，但ACK段不需要确认。</li>
+</ul>
+</li>
+<li><p><strong>重传</strong>：</p>
+<ul>
+<li><p>出现损坏, 丢失或延迟时重传段</p>
+</li>
+<li><p>在实现中, 分为重传计时器到时和连续收到 3 个 ACK</p>
+</li>
+<li><p>重传计时器到时:</p>
+<ul>
+<li>已发送未确认的(占用序列号的)段有一个定时器<ul>
+<li>称为 RTO 计时器 (Retransmission Time-Out)</li>
+<li>其值根据往返时间动态更新</li>
+<li>对 ACK 段不设置定时器</li>
+</ul>
+</li>
+<li>定时器到时时重发最早的重要的段</li>
+</ul>
+</li>
+<li><p>连续收到三个 ACK:</p>
+<ul>
+<li>触发<strong>快速重传</strong></li>
+<li>立即发送缺少的段</li>
+</ul>
+</li>
+<li><p>失序的段</p>
+<ul>
+<li>暂时保留, 直到缺少的那个段到达</li>
+<li>TCP 保证提交给进程的数据是顺序正确的</li>
+</ul>
+<img src="/2021/07/16/%E8%AE%A1%E7%BD%91%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0_MarkdownNotes_1.0/%E7%AC%AC5%E9%83%A8%E5%88%86_%E4%BC%A0%E8%BE%93%E5%B1%82/%E7%AC%AC23%E7%AB%A0_UDP%E3%80%81TCP%20%E5%92%8CSCTP/%E7%AC%AC23%E7%AB%A0_UDP%E3%80%81TCP%20%E5%92%8CSCTP/20210622111546.png" srcset="/img/loading.gif" lazyload alt="RTO" style="zoom:67%;"></li>
+</ul>
+</li>
+<li><blockquote>
+<p>重传计时器超时重传</p>
+</blockquote>
+<p><a target="_blank" rel="noopener" href="https://gitee.com/HorizonChaser/pic-bed/raw/master/img/20210622111612.png"><img src="/2021/07/16/%E8%AE%A1%E7%BD%91%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0_MarkdownNotes_1.0/%E7%AC%AC5%E9%83%A8%E5%88%86_%E4%BC%A0%E8%BE%93%E5%B1%82/%E7%AC%AC23%E7%AB%A0_UDP%E3%80%81TCP%20%E5%92%8CSCTP/%E7%AC%AC23%E7%AB%A0_UDP%E3%80%81TCP%20%E5%92%8CSCTP/20210622111612.png" srcset="/img/loading.gif" lazyload alt="3 ACK"></a></p>
+<blockquote>
+<p>快速重传, 重传时 seq 301~400 的计时器还没到时, 但依然重传</p>
+</blockquote>
+</li>
+</ul>
+<h3 id="TCP-拥塞控制"><a href="#TCP-拥塞控制" class="headerlink" title="TCP 拥塞控制"></a>TCP 拥塞控制</h3><ul>
+<li>在这里确定 cwnd 大小 (Congestion Window, 拥塞窗口)</li>
+<li>采用三个阶段: 慢速启动, 拥塞避免, 拥塞检测</li>
+<li>慢速启动: 指数增长<ul>
+<li>开始时 cwnd = 1 MSS (最大段长度, 在连接建立时确定, 相当于这时窗口大小为一个段)</li>
+<li>每一个段的确认都会使 cwnd+1, <strong>按照指数规律增长</strong></li>
+<li>到达<strong>阈值</strong>时, 结束慢速启动阶段</li>
+</ul>
+</li>
+<li>拥塞避免: 加性增加<ul>
+<li>每次窗口中所有段均被确认后才有 cwnd+1</li>
+<li>直到检测到拥塞</li>
+</ul>
+</li>
+<li>拥塞检测: 乘性减少<ul>
+<li>若重传计时器到时, 说明拥塞可能很严重: 段丢失且一直没收到相关信息<ul>
+<li>强烈反应<ul>
+<li>阈值设置为 cwnd 的一半</li>
+<li>cwnd = 1 MSS</li>
+<li>开始慢速启动阶段</li>
+</ul>
+</li>
+<li>相当于阈值变为实际上限的一半, 然后重启传输 (速度方面)</li>
+</ul>
+</li>
+<li>若接收到三个 ACK, 说明可能有轻度拥塞, 一些段可能已经成功到达, 仅有部分缺失<ul>
+<li>轻度反应<ul>
+<li>阈值设置为 cwnd 的一半</li>
+<li>cwnd = 阈值 (部分实现是 阈值+3)</li>
+<li>开始拥塞避免阶段 (就是加性增加)</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p><a target="_blank" rel="noopener" href="https://gitee.com/HorizonChaser/pic-bed/raw/master/img/20210622114245.png"><img src="/2021/07/16/%E8%AE%A1%E7%BD%91%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0_MarkdownNotes_1.0/%E7%AC%AC5%E9%83%A8%E5%88%86_%E4%BC%A0%E8%BE%93%E5%B1%82/%E7%AC%AC23%E7%AB%A0_UDP%E3%80%81TCP%20%E5%92%8CSCTP/%E7%AC%AC23%E7%AB%A0_UDP%E3%80%81TCP%20%E5%92%8CSCTP/20210622114245.png" srcset="/img/loading.gif" lazyload alt="c-control"></a></p>
+<blockquote>
+<p>SS: 慢速启动 (指数增长)<br>AI: 加性增加<br>MD: 乘性减少<br>Threshold: 阈值</p>
+</blockquote>
+<h4 id="TCP-流量控制-IMP"><a href="#TCP-流量控制-IMP" class="headerlink" title="TCP 流量控制 [IMP]"></a>TCP 流量控制 [IMP]</h4><p><a target="_blank" rel="noopener" href="https://gitee.com/HorizonChaser/pic-bed/raw/master/img/20210622124037.png"><img src="/2021/07/16/%E8%AE%A1%E7%BD%91%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0_MarkdownNotes_1.0/%E7%AC%AC5%E9%83%A8%E5%88%86_%E4%BC%A0%E8%BE%93%E5%B1%82/%E7%AC%AC23%E7%AB%A0_UDP%E3%80%81TCP%20%E5%92%8CSCTP/%E7%AC%AC23%E7%AB%A0_UDP%E3%80%81TCP%20%E5%92%8CSCTP/20210622124037.png" srcset="/img/loading.gif" lazyload alt="Window"></a></p>
+<ul>
+<li>采用滑动窗口, 面向字节, 又称信贷滑窗协议</li>
+<li>窗口大小为头部中的接收窗口 (rwnd) 与 cwnd 较小值<ul>
+<li>rwnd 表明了接收方当前可用的窗口大小</li>
+</ul>
+</li>
+<li>在窗口中, 左侧为已发送但未确认的, 右侧为可立刻发送的</li>
+<li>在窗口外, 左侧为已发送且已确认的, 右侧为未发送且尚不可发送的</li>
+<li>发送方接收到 ACK 后, 可以合拢窗口: 左侧向右移动</li>
+<li>当 rwnd 或 cwnd 更新时, 可以张开窗口: 右侧向右移动, 但不建议收缩 (右侧向左移动)</li>
+<li>窗口左边沿不能向左移动</li>
+</ul>
+
+            </div>
+            <hr>
+            <div>
+              <div class="post-metas mb-3">
+                
+                
+              </div>
+              
+                <p class="note note-warning">
+                  
+                    本博客所有文章除特别声明外，均采用 <a target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" rel="nofollow noopener noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！
+                  
+                </p>
+              
+              
+                <div class="post-prevnext">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/2021/07/16/%E8%AE%A1%E7%BD%91%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0_MarkdownNotes_1.0/%E7%AC%AC5%E9%83%A8%E5%88%86_%E4%BC%A0%E8%BE%93%E5%B1%82/%E7%AC%AC24%E7%AB%A0_%E6%8B%A5%E5%A1%9E%E6%8E%A7%E5%88%B6%E5%92%8C%E6%9C%8D%E5%8A%A1%E8%B4%A8%E9%87%8F/%E7%AC%AC24%E7%AB%A0_%E6%8B%A5%E5%A1%9E%E6%8E%A7%E5%88%B6%E5%92%8C%E6%9C%8D%E5%8A%A1%E8%B4%A8%E9%87%8F/">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile"></span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2021/07/16/%E8%AE%A1%E7%BD%91%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0_MarkdownNotes_1.0/%E7%AC%AC4%E9%83%A8%E5%88%86_%E7%BD%91%E7%BB%9C%E5%B1%82/%E7%AC%AC22%E7%AB%A0_%E4%BC%A0%E9%80%92%E3%80%81%E8%BD%AC%E5%8F%91%E5%92%8C%E8%B7%AF%E7%94%B1%E9%80%89%E6%8B%A9/%E7%AC%AC22%E7%AB%A0_%E4%BC%A0%E9%80%92%E3%80%81%E8%BD%AC%E5%8F%91%E5%92%8C%E8%B7%AF%E7%94%B1%E9%80%89%E6%8B%A9/">
+                        <span class="hidden-mobile"></span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+          </article>
+        </div>
+      </div>
+    </div>
+    
+      <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
+        <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目录</p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+      </div>
+    
+  </div>
+</div>
+
+<!-- Custom -->
+
+
+    
+
+    
+      <a id="scroll-top-button" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v"
+                 for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+
+    
+  </main>
+
+  <footer class="text-center mt-5 py-3">
+  <div class="footer-content">
+     <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+  </div>
+  
+
+  
+
+  
+</footer>
+
+
+  <!-- SCRIPTS -->
+  
+  <script  src="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js" ></script>
+<script  src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+<!-- Plugins -->
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+  
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/tocbot@4.12.3/dist/tocbot.min.js" ></script>
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js" ></script>
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/anchor-js@4.3.1/anchor.min.js" ></script>
+
+
+
+  <script defer src="https://cdn.jsdelivr.net/npm/clipboard@2.0.8/dist/clipboard.min.js" ></script>
+
+
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+  <script defer src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" ></script>
+
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12/lib/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var title = document.getElementById('subtitle').title;
+      
+      typing(title)
+      
+    })(window, document);
+  </script>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+
+
+
+
+<!-- 主题的启动项 保持在最底部 -->
+<script  src="/js/boot.js" ></script>
+
+
+</body>
+</html>

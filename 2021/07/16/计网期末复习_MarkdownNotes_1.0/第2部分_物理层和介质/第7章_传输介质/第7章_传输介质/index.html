@@ -1,0 +1,532 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=&#34;auto&#34;>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/favicon.jpg">
+  <link rel="icon" href="/img/favicon.jpg">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="description" content="𝐍&#39;𝐨𝐮𝐛𝐥𝐢é 𝐩𝐚𝐬 𝐝𝐞 𝐭&#39;𝐚𝐢𝐦𝐞𝐫">
+  <meta name="author" content="prinscarce">
+  <meta name="keywords" content="">
+  
+  <title>prinscarce</title>
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" />
+
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-markdown-css@4.0.0/github-markdown.min.css" />
+  <link  rel="stylesheet" href="/lib/hint/hint.min.css" />
+
+  
+    
+    
+      
+      <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@10.7.2/styles/github-gist.min.css" />
+    
+  
+
+  
+    <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css" />
+  
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_ba1fz6golrf.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_kmeydafke9r.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+<!-- 自定义样式保持在最底部 -->
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    var CONFIG = {"hostname":"prinscarce.github.io","root":"/","version":"1.8.11","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":true,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null}},"search_path":"/local-search.xml"};
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+
+<body>
+  <header style="height: 70vh;">
+    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand"
+       href="/">&nbsp;<strong>serendipity</strong>&nbsp;</a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                首页
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                归档
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                分类
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                标签
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                关于
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" data-toggle="modal" data-target="#modalSearch">&nbsp;<i
+                class="iconfont icon-search"></i>&nbsp;</a>
+          </li>
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+    <div class="banner" id="banner" parallax=true
+         style="background: url('/img/default.png') no-repeat center center;
+           background-size: cover;">
+      <div class="full-bg-img">
+        <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+          <div class="page-header text-center fade-in-up">
+            <span class="h2" id="subtitle" title="">
+              
+            </span>
+
+            
+              <div class="mt-3">
+  
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-author" aria-hidden="true"></i>
+      prinscarce
+    </span>
+  
+  
+    <span class="post-meta">
+      <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+      <time datetime="2021-07-16 14:14" pubdate>
+        2021年7月16日 下午
+      </time>
+    </span>
+  
+</div>
+
+<div class="mt-1">
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-chart"></i>
+      619 字
+    </span>
+  
+
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-clock-fill"></i>
+      
+      
+      6
+       分钟
+    </span>
+  
+
+  
+  
+    
+      <!-- 不蒜子统计文章PV -->
+      <span id="busuanzi_container_page_pv" style="display: none">
+        <i class="iconfont icon-eye" aria-hidden="true"></i>
+        <span id="busuanzi_value_page_pv"></span> 次
+      </span>
+    
+  
+</div>
+
+            
+          </div>
+
+          
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div class="py-5" id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none"></h1>
+            
+            <div class="markdown-body">
+              <!--
+
+ * @Title: 传输介质
+ * @Description: 
+ * @Author: SoulCompiler/prinscarce
+ * @Email: prinscarce@outlook.com
+ * @Blog: prinscarce.github.io
+ * @LastEditors: prinscarce
+   -->
+
+<h1 id="第7章-传输介质"><a href="#第7章-传输介质" class="headerlink" title="第7章 传输介质"></a>第7章 传输介质</h1><h2 id="一-导向介质"><a href="#一-导向介质" class="headerlink" title="一. 导向介质"></a>一. 导向介质</h2><p><strong>双绞线及其特点、同轴电缆和光纤的概念</strong></p>
+<p>有向介质是指那些在设备之间提供通路的介质，包括双绞线、同轴电缆和光缆。</p>
+<img src="/2021/07/16/%E8%AE%A1%E7%BD%91%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0_MarkdownNotes_1.0/%E7%AC%AC2%E9%83%A8%E5%88%86_%E7%89%A9%E7%90%86%E5%B1%82%E5%92%8C%E4%BB%8B%E8%B4%A8/%E7%AC%AC7%E7%AB%A0_%E4%BC%A0%E8%BE%93%E4%BB%8B%E8%B4%A8/%E7%AC%AC7%E7%AB%A0_%E4%BC%A0%E8%BE%93%E4%BB%8B%E8%B4%A8/image-20210620160931787.png" srcset="/img/loading.gif" lazyload alt="图 7.2  传输介质的分类" style="zoom:67%;">
+
+<h3 id="双绞线"><a href="#双绞线" class="headerlink" title="双绞线"></a>双绞线</h3><ul>
+<li>由两根导线(通常是铜线)构成，其中的每一根导线都有自己的塑料绝缘层，两者绞在一起</li>
+<li>分为非屏蔽双绞线(UTP )和屏蔽双绞线( STP)</li>
+<li>对于模拟传输，要用放大器放大衰减信号；对于数字传输，要用中继器将失真的信号整形</li>
+<li>特点：<ul>
+<li><p>绞合可以使两条线路同等地受到外部影响，这意味着接收方不会通过计算两者之间的差值接收到有害信号。</p>
+<img src="/2021/07/16/%E8%AE%A1%E7%BD%91%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0_MarkdownNotes_1.0/%E7%AC%AC2%E9%83%A8%E5%88%86_%E7%89%A9%E7%90%86%E5%B1%82%E5%92%8C%E4%BB%8B%E8%B4%A8/%E7%AC%AC7%E7%AB%A0_%E4%BC%A0%E8%BE%93%E4%BB%8B%E8%B4%A8/%E7%AC%AC7%E7%AB%A0_%E4%BC%A0%E8%BE%93%E4%BB%8B%E8%B4%A8/image-20210620162147912.png" srcset="/img/loading.gif" lazyload alt="image-20210620162147912" style="zoom:67%;"></li>
+</ul>
+</li>
+</ul>
+<h3 id="同轴电缆"><a href="#同轴电缆" class="headerlink" title="同轴电缆"></a>同轴电缆</h3><ul>
+<li>概念：<ul>
+<li><p>可以传输更高频率范围的信号</p>
+</li>
+<li><p>使用一根位于中央的实心或者多股绞合的核心金属丝导体（通常是铜的），导体封装在绝缘护套中，然后再把它封装在金属箔、金属网或者两者的组合成的外部导体中。</p>
+</li>
+<li><p>外部金属包装既可以屏蔽噪声，又可以作为第二导体，构成回路。</p>
+<img src="/2021/07/16/%E8%AE%A1%E7%BD%91%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0_MarkdownNotes_1.0/%E7%AC%AC2%E9%83%A8%E5%88%86_%E7%89%A9%E7%90%86%E5%B1%82%E5%92%8C%E4%BB%8B%E8%B4%A8/%E7%AC%AC7%E7%AB%A0_%E4%BC%A0%E8%BE%93%E4%BB%8B%E8%B4%A8/%E7%AC%AC7%E7%AB%A0_%E4%BC%A0%E8%BE%93%E4%BB%8B%E8%B4%A8/image-20210620162218490.png" srcset="/img/loading.gif" lazyload alt="image-20210620162218490" style="zoom:67%;"></li>
+</ul>
+</li>
+</ul>
+<h3 id="光缆"><a href="#光缆" class="headerlink" title="光缆"></a>光缆</h3><ul>
+<li><p>特点：</p>
+<ol>
+<li><p>传输损耗小</p>
+</li>
+<li><p>抗雷电和电磁干扰性能好</p>
+</li>
+<li><p>不易被窃听或截取数据</p>
+</li>
+<li><p>体积小，重量轻</p>
+<img src="/2021/07/16/%E8%AE%A1%E7%BD%91%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0_MarkdownNotes_1.0/%E7%AC%AC2%E9%83%A8%E5%88%86_%E7%89%A9%E7%90%86%E5%B1%82%E5%92%8C%E4%BB%8B%E8%B4%A8/%E7%AC%AC7%E7%AB%A0_%E4%BC%A0%E8%BE%93%E4%BB%8B%E8%B4%A8/%E7%AC%AC7%E7%AB%A0_%E4%BC%A0%E8%BE%93%E4%BB%8B%E8%B4%A8/image-20210620162245690.png" srcset="/img/loading.gif" lazyload alt="image-20210620162245690" style="zoom:67%;"></li>
+</ol>
+</li>
+</ul>
+<h2 id="二-无线传输介质"><a href="#二-无线传输介质" class="headerlink" title="二.  无线传输介质"></a>二.  无线传输介质</h2><p><strong>无线波谱、无线电波、微波和红外波</strong></p>
+<h3 id="无线波谱"><a href="#无线波谱" class="headerlink" title="无线波谱"></a>无线波谱</h3><ul>
+<li><p>无线波谱图：</p>
+<img src="/2021/07/16/%E8%AE%A1%E7%BD%91%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0_MarkdownNotes_1.0/%E7%AC%AC2%E9%83%A8%E5%88%86_%E7%89%A9%E7%90%86%E5%B1%82%E5%92%8C%E4%BB%8B%E8%B4%A8/%E7%AC%AC7%E7%AB%A0_%E4%BC%A0%E8%BE%93%E4%BB%8B%E8%B4%A8/%E7%AC%AC7%E7%AB%A0_%E4%BC%A0%E8%BE%93%E4%BB%8B%E8%B4%A8/image-20210620162346608.png" srcset="/img/loading.gif" lazyload alt="image-20210620162346608" style="zoom:67%;"></li>
+</ul>
+<h3 id="无线电波"><a href="#无线电波" class="headerlink" title="无线电波"></a>无线电波</h3><ul>
+<li><p>通常将频率范围在3~1GHz之间的电磁波称为无线电波。</p>
+</li>
+<li><p>大部分无线电波是全方向的。</p>
+</li>
+<li><p>可以传输很长的距离。</p>
+</li>
+<li><p>低、中频率的电波，可以穿透墙体。</p>
+</li>
+<li><p><strong>无线电波用于多播通信，如收音机、电视以及寻呼系统。</strong></p>
+<img src="/2021/07/16/%E8%AE%A1%E7%BD%91%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0_MarkdownNotes_1.0/%E7%AC%AC2%E9%83%A8%E5%88%86_%E7%89%A9%E7%90%86%E5%B1%82%E5%92%8C%E4%BB%8B%E8%B4%A8/%E7%AC%AC7%E7%AB%A0_%E4%BC%A0%E8%BE%93%E4%BB%8B%E8%B4%A8/%E7%AC%AC7%E7%AB%A0_%E4%BC%A0%E8%BE%93%E4%BB%8B%E8%B4%A8/image-20210620162431480.png" srcset="/img/loading.gif" lazyload alt="image-20210620162431480" style="zoom:67%;"></li>
+</ul>
+<h3 id="微波"><a href="#微波" class="headerlink" title="微波"></a>微波</h3><ul>
+<li>频率范围在1~300GHz的电磁波称为微波。</li>
+<li>微波是单向的。</li>
+<li>微波传播属于视线传播。</li>
+<li>甚高频微波不能穿透墙体。</li>
+<li><strong>微波用于单播通信，如移动电话、卫星网络和无线局域网。</strong></li>
+</ul>
+<h3 id="红外波"><a href="#红外波" class="headerlink" title="红外波"></a>红外波</h3><ul>
+<li>红外信号的频率范围为300GHz<del>400THz （波长为1 mm</del>770nm）。</li>
+<li>用于短距离通信。</li>
+<li>频率很髙，不能穿透墙体。</li>
+<li>在建筑物外面不能使用红外波，因为太阳射线中包含可能干扰通信的红外波。</li>
+<li><strong>红外信号可以在封闭区域用于短距离通信，使用视线传播。</strong></li>
+</ul>
+
+            </div>
+            <hr>
+            <div>
+              <div class="post-metas mb-3">
+                
+                
+              </div>
+              
+                <p class="note note-warning">
+                  
+                    本博客所有文章除特别声明外，均采用 <a target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" rel="nofollow noopener noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！
+                  
+                </p>
+              
+              
+                <div class="post-prevnext">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/2021/07/16/%E8%AE%A1%E7%BD%91%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0_MarkdownNotes_1.0/%E7%AC%AC2%E9%83%A8%E5%88%86_%E7%89%A9%E7%90%86%E5%B1%82%E5%92%8C%E4%BB%8B%E8%B4%A8/%E7%AC%AC8%E7%AB%A0_%E4%BA%A4%E6%8D%A2(%E4%BC%A0%E8%BE%93%E6%97%B6%E5%BB%B6%E5%88%86%E6%9E%90)/%E7%AC%AC8%E7%AB%A0_%E4%BA%A4%E6%8D%A2(%E4%BC%A0%E8%BE%93%E6%97%B6%E5%BB%B6%E5%88%86%E6%9E%90)/">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile"></span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2021/07/16/%E8%AE%A1%E7%BD%91%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0_MarkdownNotes_1.0/%E7%AC%AC2%E9%83%A8%E5%88%86_%E7%89%A9%E7%90%86%E5%B1%82%E5%92%8C%E4%BB%8B%E8%B4%A8/%E7%AC%AC6%E7%AB%A0_%E5%B8%A6%E5%AE%BD%E5%88%A9%E7%94%A8/%E7%AC%AC6%E7%AB%A0_%E5%B8%A6%E5%AE%BD%E5%88%A9%E7%94%A8/">
+                        <span class="hidden-mobile"></span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+          </article>
+        </div>
+      </div>
+    </div>
+    
+      <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
+        <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目录</p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+      </div>
+    
+  </div>
+</div>
+
+<!-- Custom -->
+
+
+    
+
+    
+      <a id="scroll-top-button" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v"
+                 for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+
+    
+  </main>
+
+  <footer class="text-center mt-5 py-3">
+  <div class="footer-content">
+     <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+  </div>
+  
+
+  
+
+  
+</footer>
+
+
+  <!-- SCRIPTS -->
+  
+  <script  src="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js" ></script>
+<script  src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+<!-- Plugins -->
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+  
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/tocbot@4.12.3/dist/tocbot.min.js" ></script>
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js" ></script>
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/anchor-js@4.3.1/anchor.min.js" ></script>
+
+
+
+  <script defer src="https://cdn.jsdelivr.net/npm/clipboard@2.0.8/dist/clipboard.min.js" ></script>
+
+
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+  <script defer src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" ></script>
+
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12/lib/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var title = document.getElementById('subtitle').title;
+      
+      typing(title)
+      
+    })(window, document);
+  </script>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+
+
+
+
+<!-- 主题的启动项 保持在最底部 -->
+<script  src="/js/boot.js" ></script>
+
+
+</body>
+</html>
