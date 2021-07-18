@@ -1,0 +1,175 @@
+<!--
+
+ * @Title: 多路访问
+ * @Description: 
+ * @Author: SoulCompiler/prinscarce
+ * @Email: prinscarce@outlook.com
+ * @Blog: prinscarce.github.io
+ * @LastEditors: prinscarce
+   -->
+
+<h1 id="第-12-章-多路访问"><a href="#第-12-章-多路访问" class="headerlink" title="第 12 章 多路访问"></a>第 12 章 多路访问</h1><h2 id="一-随机访问"><a href="#一-随机访问" class="headerlink" title="一.  随机访问"></a>一.  随机访问</h2><p><strong>纯ALOHA、时隙ALOHA、CSMA（三种持续方法：1-持续、非持续、p-持续）、CSMA/CD（最短帧长）、CSMA/CA</strong></p>
+<h3 id="1️⃣-ALOHA协议"><a href="#1️⃣-ALOHA协议" class="headerlink" title="1️⃣ ALOHA协议"></a>1️⃣ ALOHA协议</h3><ul>
+<li>ALOHA协议是由美国夏威夷大学开发的一种网络协议。处于OSI模型中的数据链路层。它属于随机存取协议（Random Access Protocol）中的一种。它分为<code>纯ALOHA协议和分段ALOHA协议</code>（或时隙ALOHA协议）。</li>
+</ul>
+<h4 id="纯ALOHA"><a href="#纯ALOHA" class="headerlink" title="纯ALOHA"></a>纯ALOHA</h4><ul>
+<li>概念：<ul>
+<li>只要每个站点有帧要发送，它就发送帧。</li>
+</ul>
+</li>
+<li>每帧都有定时器, 超时未收到接收方的确认帧则等待一段时间 (称为补偿时间 T<del>B</del>）后重发</li>
+<li>脆弱时间：2T<sub>fr</sub></li>
+<li><strong>吞吐量：$S = G \times e^{-2G}$。当G = 1/2时，最大吞吐量S <sub>max</sub> = 0.184</strong></li>
+<li><em>G</em> 为一个帧传输时间内系统产生的帧的平均数</li>
+<li>若传输的最长时间为T<del>P</del>, 帧平均传输时间为T<del>fr</del>,<ul>
+<li>则$ T_B=R \times (T_P \ 或 \ T_{fr}) R \in [0,\ 2^k-1]$, 取决于实现</li>
+<li>称为二进制指数退避</li>
+</ul>
+</li>
+</ul>
+<h5 id="时隙-ALOHA"><a href="#时隙-ALOHA" class="headerlink" title="时隙 ALOHA"></a>时隙 ALOHA</h5><img src="20200320213738438.png" alt="在这里插入图片描述" style="zoom:67%;" />
+
+<h4 id="时隙ALOHA"><a href="#时隙ALOHA" class="headerlink" title="时隙ALOHA"></a>时隙ALOHA</h4><ul>
+<li>概念：<ul>
+<li>把时间分割成T<sub>fr</sub>秒的时隙，并强制站点只有在时隙开始之时才能发送。</li>
+</ul>
+</li>
+<li>脆弱时间：T<sub>fr</sub></li>
+<li>吞吐量：$S = G \times e^{-G}$。当G = 1时，最大吞吐量S <sub>max</sub> = 0.368</li>
+</ul>
+<img src="20200320214209487.png" alt="在这里插入图片描述" style="zoom:67%;" />
+
+<h4 id="对比纯ALOHA和时隙ALOHA"><a href="#对比纯ALOHA和时隙ALOHA" class="headerlink" title="对比纯ALOHA和时隙ALOHA"></a>对比纯ALOHA和时隙ALOHA</h4><ol>
+<li>纯ALOHA比时隙ALOHA 吞吐量更低，效率更低</li>
+<li>纯ALOHA想发就发，时隙ALOHA只有在时间片段开始时才能发</li>
+</ol>
+<h3 id="2️⃣-载波侦听多路访问-CSMA"><a href="#2️⃣-载波侦听多路访问-CSMA" class="headerlink" title="2️⃣ 载波侦听多路访问(CSMA)"></a>2️⃣ 载波侦听多路访问(CSMA)</h3><ul>
+<li>全称Carrier Sense Multiple Access (CSMA)，是一种允许多个设备在同一信道发送信号的协议，其中的设备监听其它设备是否忙碌，只有在线路空闲时才发送。</li>
+<li>概念：<ul>
+<li>每一个站点在发送之前首先要监听介质(或者检査介质的状态)。</li>
+</ul>
+</li>
+<li>虽然CSMA能够减少冲突的槪率，但是它不能消除冲突，因为还有传播的延迟。</li>
+<li>脆弱时间：传播时间T <sub>p</sub>。这是一个信号从介质的末端到另一端的传播时间。</li>
+</ul>
+<img src="20200320215004525.png" alt="在这里插入图片描述" style="zoom:67%;" />
+
+<p>三种持续方法：</p>
+<h4 id="1-持续："><a href="#1-持续：" class="headerlink" title="1-持续："></a>1-持续：</h4><ul>
+<li><code>忙:一直监听</code></li>
+<li>如果站点发现线路空闲，那么它就立即发送帧(概率是1 ) 。</li>
+</ul>
+<img src="20200320215439238.png" alt="在这里插入图片描述" style="zoom:67%;" />
+
+<h4 id="非持续："><a href="#非持续：" class="headerlink" title="非持续："></a>非持续：</h4><ul>
+<li><code>忙:随机时间后监听</code></li>
+<li>要发送帧的站点侦听线路，如果线路空闲，它就立即发送。如果线路不空闲，站点就等待一个随机时间，然后再次侦听线路。</li>
+</ul>
+<img src="20200320215750381.png" alt="在这里插入图片描述" style="zoom:67%;" />
+
+<h4 id="p-持续："><a href="#p-持续：" class="headerlink" title="p-持续："></a>p-持续：</h4><ol>
+<li><code>空闲:p概率传输，1-p概率等待下次时间传输;忙:随机时间后监听</code></li>
+<li>如果概率是p，站点发送帧。</li>
+<li>如果概率是q=1-p.站点会等待下一个时隙的开始并再次检査线路。<br> a. 如果线路空闲，它将进入步骤1。<br> b. 如果线路繁忙，它会当做一个冲突已经发生了并使用补偿程序。</li>
+</ol>
+<img src="20200320220143493.png" alt="在这里插入图片描述" style="zoom:67%;" />
+
+<h4 id="三种CSMA对比总结"><a href="#三种CSMA对比总结" class="headerlink" title="三种CSMA对比总结"></a><strong>三种CSMA对比总结</strong></h4><img src="20200320220510354.png" alt="在这里插入图片描述" style="zoom:67%;" />
+
+<h3 id="3️⃣带冲突检测的载波侦听多路访问-CSMA-CD"><a href="#3️⃣带冲突检测的载波侦听多路访问-CSMA-CD" class="headerlink" title="3️⃣带冲突检测的载波侦听多路访问(CSMA/CD)"></a>3️⃣带冲突检测的载波侦听多路访问(CSMA/CD)</h3><ul>
+<li>概念：<ul>
+<li>任意站点都可以发送帧，然后就监控介质看传送是否成功。如果成功，站点完成发送；如果不成功，就说明存在冲突，需要重新发送此帧。</li>
+</ul>
+</li>
+<li>帧的最小长度：<ul>
+<li>在发送帧的最后一位前，发送站点必须检测冲突，如有任何冲突要放弃传输。</li>
+<li>帧传输时间T<sub>fr</sub>必须至少是最大传播时间T<sub>p</sub>的两倍。</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li><p>简介:</p>
+</li>
+<li><p><strong>边发送边监听的半双工网络</strong></p>
+<img src="20200320231105488.png" alt="在这里插入图片描述" style="zoom:67%;" /></li>
+</ul>
+<h4 id="传播时延对载波监听的影响"><a href="#传播时延对载波监听的影响" class="headerlink" title="传播时延对载波监听的影响"></a><strong>传播时延对载波监听的影响</strong></h4><ul>
+<li><p>最多两倍的总线端到端的传播时延(2t)知道发生碰撞</p>
+<img src="20200320231607656.png" alt="在这里插入图片描述" style="zoom:67%;" /></li>
+</ul>
+<h4 id="截断二进制指数规避算法"><a href="#截断二进制指数规避算法" class="headerlink" title="截断二进制指数规避算法"></a><strong>截断二进制指数规避算法</strong></h4><img src="20200320232120485.png" alt="在这里插入图片描述" style="zoom:67%;" />
+
+<h4 id="最小帧长问题"><a href="#最小帧长问题" class="headerlink" title="最小帧长问题"></a><strong>最小帧长问题</strong></h4><img src="20200320232331351.png" alt="在这里插入图片描述" style="zoom:67%;" />
+
+<h3 id="4️⃣带冲突避免的载波侦听多路访问-CSMA-CA"><a href="#4️⃣带冲突避免的载波侦听多路访问-CSMA-CA" class="headerlink" title="4️⃣带冲突避免的载波侦听多路访问(CSMA/CA)"></a>4️⃣带冲突避免的载波侦听多路访问(CSMA/CA)</h3><ul>
+<li>概念：<ul>
+<li>一个站点在传输过程中检测到冲突时，要有能力去接收信号。</li>
+<li>当没有冲突时，站点接收到一种信号：它自身的信号。</li>
+<li>当冲突发生时，站点接收到两种信号：它自身的信号和第二个站点传输的信号。</li>
+</ul>
+</li>
+</ul>
+<h4 id="CSMA-CA工作原理"><a href="#CSMA-CA工作原理" class="headerlink" title="CSMA/CA工作原理"></a>CSMA/CA工作原理</h4><img src="202003211904410.png" alt="在这里插入图片描述" style="zoom:67%;" />
+
+<h4 id="CSMA-CA与CSMA-CD比较"><a href="#CSMA-CA与CSMA-CD比较" class="headerlink" title="CSMA/CA与CSMA/CD比较"></a>CSMA/CA与CSMA/CD比较</h4><img src="20200321191055967.png" alt="在这里插入图片描述" style="zoom:67%;" />
+
+<h2 id="二-受控访问：预约、轮询、令牌环"><a href="#二-受控访问：预约、轮询、令牌环" class="headerlink" title="二.  受控访问：预约、轮询、令牌环"></a>二.  受控访问：预约、轮询、令牌环</h2><h3 id="1️⃣预约"><a href="#1️⃣预约" class="headerlink" title="1️⃣预约"></a>1️⃣预约</h3><ul>
+<li>概念：<ul>
+<li>站点在发送数据之前需要预约。将时间划分为时隙，在每一个时隙内，在数据帧之前先发送一个预约帧。</li>
+<li>如果系统中有N个站点，在预约帧中就恰好会有2N个预约子时隙。每个子时隙均属于一个站点。</li>
+<li>当一个站点想要发送一个数据帧时，它在自己的子时隙中做一个预约。已经预约完的站点可以在预约帧之后发送数据帧。</li>
+</ul>
+</li>
+</ul>
+<h3 id="2️⃣轮询"><a href="#2️⃣轮询" class="headerlink" title="2️⃣轮询"></a>2️⃣轮询</h3><ul>
+<li><p>轮询访问控制的特点：在轮询访问中，用户不能随机地发送信息，而要通过一个集中控制的监控站，以循环方式轮询每个结点，再决定信道的分配。当某结点使用信道时，其他结点都不能使用信道。</p>
+</li>
+<li><p>这里我们只讨论两类：<code>轮询协议与令牌传递协议</code></p>
+</li>
+<li><p>概念：</p>
+<ul>
+<li>一个设备作为主站，而另一些设备作为从站。</li>
+<li>所有的数据交换都要通过主站点进行，即使最终的目的站点是从站点时也是这样。</li>
+<li>主设备控制链路，而从设备只是跟随着它的指令工作。</li>
+<li>主设备决定在给定的时间内哪个设备被容许使用通道。</li>
+<li>主设备始终是一个会话的发起者。</li>
+</ul>
+</li>
+<li><p>轮询：</p>
+<ul>
+<li>如果主设备希望接收数据，它就询问从设备是否有数据要发送。</li>
+</ul>
+</li>
+<li><p>选择：</p>
+<ul>
+<li>如果主设备希望发送数据，它就通知从设备准备接收。</li>
+</ul>
+<h5 id="轮询协议"><a href="#轮询协议" class="headerlink" title="轮询协议"></a>轮询协议</h5><ul>
+<li>轮询协议要求节点中有一个被指定为主节点，其余节点是从属节点。</li>
+</ul>
+<ul>
+<li>主节点以循环的方式轮询每一个从属节点，“邀请”从属节点发送数据（实际上是向从属节点发送一个报文，告诉从属节点可以发送帧以及可以传输帧的最大数量），只有被主节点“邀请”的从节点可以发送数据，没有被“邀请”的节点不能发送，只能等待被轮询。</li>
+</ul>
+<img src="20200321193444582.png" alt="在这里插入图片描述" style="zoom:67%;" /></li>
+</ul>
+<h3 id="3️⃣令牌传递"><a href="#3️⃣令牌传递" class="headerlink" title="3️⃣令牌传递"></a>3️⃣令牌传递</h3><ul>
+<li>概念：<ul>
+<li>网络中的站点被组织在一个逻辑环中。</li>
+<li>对每一个站点来说，都有它的前驱和后继。</li>
+<li>前驱是指逻辑环中处于该站点之前的站点；而后继是指在环中处于该站点之后的站点。</li>
+<li>该站点是目前正在进行访问的站点。</li>
+<li>访问的权限由该站点的前驱站点传递给它。当该站点没有数据再要发送时，便将权限传递给它的后继站点。</li>
+</ul>
+</li>
+<li>权限如何传递：<ul>
+<li>令牌的持有赋予站点访问通道并发送数据的权限。</li>
+<li>当一个站点有一些数据要发送时，它要等待从它的前驱站点传来的令牌。</li>
+<li>持有令牌并发送数据。</li>
+<li>当这个站点没有数据再要发送时，它释放令牌并传递给环中的下一个逻辑站点。</li>
+<li>站点只有在下一个循环中再次收到令牌时才能再发送数据。</li>
+<li>如果一个站点收到了令牌，但是它没有数据要发送，它便将令牌传递给下一个站点。</li>
+</ul>
+<img src="20200321195854637.gif" alt="在这里插入图片描述" style="zoom:67%;" />
+
+<img src="2020032119591739.png" alt="在这里插入图片描述" style="zoom: 67%;" /></li>
+</ul>

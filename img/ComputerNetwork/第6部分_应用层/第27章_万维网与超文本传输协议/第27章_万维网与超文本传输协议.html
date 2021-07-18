@@ -1,0 +1,54 @@
+<!--
+
+ * @Title:  万维网与超文本传输协议
+ * @Description: 
+ * @Author: horizon/prinscarce
+ * @Email: prinscarce@outlook.com
+ * @Blog: prinscarce.github.io
+ * @LastEditors: prinscarce
+   -->
+
+<h1 id="第-27-章-万维网与超文本传输协议"><a href="#第-27-章-万维网与超文本传输协议" class="headerlink" title="第 27 章 万维网与超文本传输协议"></a>第 27 章 万维网与超文本传输协议</h1><h2 id="一-URL"><a href="#一-URL" class="headerlink" title="一. URL"></a>一. URL</h2><blockquote>
+<p>URL: Uniform Resource Locator, 统一资源定位符</p>
+</blockquote>
+<ul>
+<li>格式:协议 :// 主机 : 端口 / 路径<ul>
+<li>例如 <code>https://www.xidian.edu.cn/</code></li>
+</ul>
+</li>
+<li>端口可选, 协议最常用的是 HTTP/ftp</li>
+</ul>
+<h2 id="二-HTTP"><a href="#二-HTTP" class="headerlink" title="二. HTTP"></a>二. HTTP</h2><p><strong>概念、报文结构</strong>、HTTP 操作，<strong>采用 TCP 服务的端口</strong></p>
+<blockquote>
+<p>HTTP: HyperText Transfer Protocol, 超文本传输协议</p>
+</blockquote>
+<h3 id="概念"><a href="#概念" class="headerlink" title="概念"></a>概念</h3><ul>
+<li>超文本传输协议（HTTP）主要用于万维网上存取数据的协议</li>
+<li>在 80 端口上使用 TCP</li>
+<li>同样用来存取信息, 类似 FTP 和 SMTP 的组合</li>
+</ul>
+<h3 id="报文结构"><a href="#报文结构" class="headerlink" title="报文结构"></a>报文结构</h3><ul>
+<li><p>报文格式由类似MIME的头部控制。HTTP与SMTP不同的是，HTTP报文不是供人阅读的，它们是由HTTP服务器和HTTP客户端（浏览器）读取并解释。</p>
+<img src="20210622141444.png" alt="req" style="zoom:67%;" />
+
+<blockquote>
+<p>请求报文的结构</p>
+</blockquote>
+<img src="20210622141525.png" alt="res" style="zoom:67%;" /></li>
+</ul>
+<blockquote>
+<p>响应报文的结构</p>
+</blockquote>
+<ul>
+<li>都是纯文本的</li>
+<li>请求类型: GET, POST, HEAD, PUT, TRACE 等等</li>
+<li>首部: 类似于选项, 指定了可接受的格式, 语言, 过期时间等</li>
+</ul>
+<h3 id="HTTP-操作"><a href="#HTTP-操作" class="headerlink" title="HTTP 操作"></a>HTTP 操作</h3><ul>
+<li>HTTP 本身是无状态的, 状态需要依赖 cookie 保存</li>
+<li>客户端发送请求报文来初始化HTTP事务</li>
+<li>服务器发送响应报文进行回复</li>
+</ul>
+<h3 id="采用-TCP-服务的端口"><a href="#采用-TCP-服务的端口" class="headerlink" title="采用 TCP 服务的端口"></a>采用 TCP 服务的端口</h3><ul>
+<li>HTTP在熟知端口80上使用TCP服务。</li>
+</ul>

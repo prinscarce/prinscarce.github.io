@@ -1,0 +1,85 @@
+<!--
+
+ * @Title: 传输介质
+ * @Description: 
+ * @Author: SoulCompiler/prinscarce
+ * @Email: prinscarce@outlook.com
+ * @Blog: prinscarce.github.io
+ * @LastEditors: prinscarce
+   -->
+
+<h1 id="第8章-交换-传输时延分析"><a href="#第8章-交换-传输时延分析" class="headerlink" title="第8章 交换(传输时延分析)"></a>第8章 交换(传输时延分析)</h1><p>交换网分类法：</p>
+<img src="image-20210620165243858.png" alt="image-20210620165243858" style="zoom:67%;" />
+
+<h2 id="一-电路交换的概念"><a href="#一-电路交换的概念" class="headerlink" title="一. 电路交换的概念"></a>一. 电路交换的概念</h2><ul>
+<li>概念：<ul>
+<li>由物理链路连接的一组交换机组成。</li>
+<li>两个站点的连接是由一条或多条链路组成的专用路径来实现。每次连接仅使用每条链路上的一专用通道。</li>
+<li>通常每条链路用FDM或TDM划分成n个通道。</li>
+</ul>
+</li>
+<li><strong>电路交换是在物理层。</strong></li>
+<li><strong>电路交换网络由物理链路连接的一组交换机组成，每条链路被分成了n个通道。</strong></li>
+<li><strong>在电路交换中，建立阶段必须预留资源，以作为整个数据传输间的专用资源直到拆除阶段。</strong></li>
+<li>通信开始前，站点必须对通信时间所用的资源给以预留。</li>
+<li>两个站点之间数据传输不打包（物理层传输信号）。</li>
+<li>数据传输期间没有寻址，交换机基于它们占有频带（FDM）或时隙（TDM）发送数据。在建立阶段，存在端到端的寻址。</li>
+<li>传统电话网物理层的交换采用电路交换方法。<h3 id="三个阶段"><a href="#三个阶段" class="headerlink" title="三个阶段"></a>三个阶段</h3></li>
+</ul>
+<ol>
+<li><p>连接建立阶段</p>
+<ul>
+<li>连接建立是交换机之间建立一些专用通道</li>
+<li>端到端系统的寻址要求建立两个端系统之间的连接。</li>
+</ul>
+</li>
+<li><p>数据传输阶段</p>
+</li>
+<li><p>拆除阶段</p>
+<img src="image-20210620165840149.png" alt="image-20210620165840149" style="zoom:67%;" /></li>
+</ol>
+<h3 id="延迟"><a href="#延迟" class="headerlink" title="延迟"></a>延迟</h3><ul>
+<li><p> 虽然电路交换网的效率低，但是时延最小。</p>
+</li>
+<li><p> 总时延 = 建立连接时间 + 数据传输时间 + 拆除电路时间</p>
+</li>
+</ul>
+  <img src="image-20210620170206290.png" alt="image-20210620170206290" style="zoom:67%;" />
+
+<h2 id="二-数据报交换的概念"><a href="#二-数据报交换的概念" class="headerlink" title="二.  数据报交换的概念"></a>二.  数据报交换的概念</h2><ul>
+<li>概念：<ul>
+<li>分组不存在资源预留。链路没有预留的带宽，以及对每个分组没有安排预定的处理时间。</li>
+<li>资源按需分配，基于先来先服务的原则。</li>
+<li>每个分组独立处理，与其他分组无关。</li>
+</ul>
+</li>
+<li><strong>在分组交换网中，不存在资源预留，资源按需分配</strong></li>
+<li><strong>数据报交换通常是在网络层。</strong></li>
+<li>传统上称数据报网中的交换机为路由器</li>
+<li>因特网在网络层用数据报方法对分组进行交换。</li>
+</ul>
+<h3 id="路由表"><a href="#路由表" class="headerlink" title="路由表"></a>路由表</h3><ul>
+<li><strong>数据报网中的交换机使用基于目的地址的路由表。</strong></li>
+<li><strong>数据报网分组的头部中的目的地址在分组传送期间保持不变。</strong></li>
+</ul>
+<h3 id="延迟-1"><a href="#延迟-1" class="headerlink" title="延迟"></a>延迟</h3><p>​    下图中    总延迟时间 = 3个传输时间 + 3个传播延迟 + 2个等待时间</p>
+<img src="image-20210620170723433.png" alt="image-20210620170723433" style="zoom:67%;" />
+
+<h2 id="三-虚电路交换的概念"><a href="#三-虚电路交换的概念" class="headerlink" title="三. 虚电路交换的概念"></a>三. 虚电路交换的概念</h2><ul>
+<li><strong>是结合电路交换网络与数据报网络的产物</strong></li>
+<li>特征：<ul>
+<li>在数据传输阶段，如同电路交换网络一样有<strong>建立阶段</strong>与<strong>拆除阶段</strong>。</li>
+<li>同电路交换网络或数据报网络一样，按需在建立阶段期间分配资源：</li>
+<li>同数据报网络一样，数据被划为分组，每一分组的头部含有地址</li>
+<li>所有分组沿着连接期间建立的路径传送</li>
+<li><strong>虚电路网络通常在数据链路层实现</strong></li>
+</ul>
+</li>
+<li><strong>在虚电路交换中，属于相同源端与目的端的所有分组都按同一路径传送；但如果资源按需分配，分组到达目的端可能有不同延迟。</strong></li>
+<li><strong>在交换广域网中，数据链路层通常采用虚电路技术实现。</strong></li>
+</ul>
+<h3 id="延迟-2"><a href="#延迟-2" class="headerlink" title="延迟"></a>延迟</h3><ul>
+<li>在建立阶段分配资源，那么个别分组没有等待时间</li>
+<li>总延迟时间 = 3t<del>传输</del> + 3t<del>传播</del> + t<del>建立</del>+t<del>拆除</del></li>
+</ul>
+<img src="image-20210620171226330.png" alt="image-20210620171226330" style="zoom:67%;" />

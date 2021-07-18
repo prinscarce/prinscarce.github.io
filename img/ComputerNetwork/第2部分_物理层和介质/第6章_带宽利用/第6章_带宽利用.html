@@ -1,0 +1,146 @@
+<!--
+
+ * @Title: 带宽利用
+ * @Description: 
+ * @Author: SoulCompiler/prinscarce
+ * @Email: prinscarce@outlook.com
+ * @Blog: prinscarce.github.io
+ * @LastEditors: prinscarce
+   -->
+
+<h1 id="第6章-带宽利用"><a href="#第6章-带宽利用" class="headerlink" title="第6章 带宽利用"></a>第6章 带宽利用</h1><p><strong>为达到特定目的，带宽利用是可用带宽的合理使用.</strong></p>
+<p><strong>复用(multiplexing)可获得效率，</strong><br><strong>扩频(spreading)可以到保密与抗干扰</strong></p>
+<h2 id="一-复用"><a href="#一-复用" class="headerlink" title="一.  复用"></a>一.  复用</h2><p><strong>FDM、同步 TDM、统计 TDM 和 WDM 的概念</strong></p>
+<img src="image-20210620151724326-1624173445542.png" alt="Figure 6.2  多路复用的分类" style="zoom:67%;" />
+
+<h3 id="频分复用（FDM）"><a href="#频分复用（FDM）" class="headerlink" title="频分复用（FDM）"></a>频分复用（FDM）</h3><ul>
+<li><p>概念：</p>
+<ul>
+<li><p>在链路带宽（以Hz为单位）大于要传输的信号的带宽之和时采用。</p>
+</li>
+<li><p>每个发送设备生成的信号用于调制不同的载波频率。调制后的信号再被合并为一个可以通过链路传输的复合信号。</p>
+</li>
+<li><p>载波频率之间的频率差必须能够容纳调制信号的带宽。</p>
+<img src="image-20210620151959190-1624173600330.png" alt="image-20210620151959190" style="zoom:67%;" /></li>
+</ul>
+</li>
+<li><p><strong>FDM是用来组合模拟信号的模拟多路复用技术。</strong></p>
+</li>
+<li><p>复用过程：</p>
+<img src="image-20210620151915145-1624173556225.png" alt="image-20210620151915145" style="zoom:67%;" /></li>
+<li><p>分离过程：</p>
+<img src="image-20210620151939848-1624173580909.png" alt="image-20210620151939848" style="zoom:67%;" /></li>
+</ul>
+<h3 id="波分复用-WDM"><a href="#波分复用-WDM" class="headerlink" title="波分复用(WDM)"></a>波分复用(WDM)</h3><ul>
+<li>概念：<ul>
+<li><p>用于具有高数据速率传输能力的光缆。</p>
+</li>
+<li><p>除了复用和多路分离包括通过光纤通道传输的光信号以外，波分复用在概念上与FDM相同。</p>
+</li>
+<li><p>都是将不同频率的不同信号合并。但其差别是这些频率非常髙。</p>
+</li>
+<li><p>概念示意图：</p>
+<img src="image-20210620152330166.png" alt="image-20210620152330166" style="zoom:67%;" /></li>
+</ul>
+</li>
+<li><strong>WDM是合并多个光信号的模拟多路复用技术。</strong></li>
+</ul>
+<h3 id="时分复用-TDM"><a href="#时分复用-TDM" class="headerlink" title="时分复用(TDM)"></a>时分复用(TDM)</h3><ul>
+<li>概念：<ul>
+<li><p>TDM是一个数字化的过程，它允许多个连接共享一条高带宽链路</p>
+</li>
+<li><p>TDM在时间上共享，每个连接占用链路的一个时间片段。</p>
+</li>
+<li><p>TDM将不同源端的数字数据合并到一个时间共享的链路上。</p>
+<img src="image-20210620152504054.png" style="zoom:67%;" /></li>
+<li><img src="image-20210620152504054.png" alt="image-20210620152504054" style="zoom:67%;" /></li>
+</ul>
+</li>
+</ul>
+<h4 id="同步时分复用"><a href="#同步时分复用" class="headerlink" title="同步时分复用"></a>同步时分复用</h4><ul>
+<li><p>概念：</p>
+<ul>
+<li><p>每个输入连接的数据流被划分为多个单元，其中每个输入占用一个输入时隙。</p>
+</li>
+<li><p>一个单元可以是一位，一个字符或一个数据块。</p>
+</li>
+<li><p>每个输入单元成为一个输出单元，占用一个输出时隙。</p>
+</li>
+<li><p>输入单元持续T秒，则每个时隙持续时间是T/n，而每个帧持续时间是T。</p>
+</li>
+<li><p><strong>在同步TDM中,  链路速率是数据速率的 n 倍，并且比单元持续时间短 n 倍 .</strong></p>
+<img src="image-20210620153105955.png" alt="image-20210620153105955" style="zoom:67%;" /></li>
+</ul>
+</li>
+</ul>
+<h4 id="统计时分复用"><a href="#统计时分复用" class="headerlink" title="统计时分复用"></a>统计时分复用</h4><ul>
+<li><p>概念：</p>
+<ul>
+<li>动态地分配时隙以提髙带宽的效率。仅当输入线有发送数据，时隙才有意义并在输出帧中给予一个时隙。</li>
+<li>每个帧中时隙的个数小于输入线的条数。</li>
+<li>复用器循环顺序地检测每条输入线，如果输入线有数据发送， 则对输入线分配一个时隙，否则跳过这条线检测下一条线。</li>
+</ul>
+</li>
+<li><p>同步和统计TDM的差别：</p>
+<ul>
+<li>寻址：<ul>
+<li><strong>在同步TDM中，输出时隙全部由数据占用；而在统计TDM中，输出时隙需要携带数据和目的地址。</strong></li>
+<li>在同步TDM中不需要寻址，作为输入和输出的地址之间关系是同步的和指定的。</li>
+<li>在统计TDM中，由于输入和输出之间不存在指定或预定的时隙，它们之间没有固定的关系，需要在每个时隙中包含接收方地址以表明将要传送的地方。</li>
+</ul>
+</li>
+<li>时隙大小：<ul>
+<li>在统计TDM中，通常一个数据块有许多字节而地址只有很少字节。</li>
+</ul>
+</li>
+<li>同步位：<ul>
+<li>统计TDM没有同步位，它是处于帧级，不需要同步。</li>
+</ul>
+</li>
+<li>带宽：<ul>
+<li><p>在统计TDM中，链路的容量通常小于每个通道容量之和。</p>
+<img src="image-20210620154652209.png" alt="TDM 时隙比较" style="zoom:67%;" /></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="二-数字层次、T1-载波及其特性、E1-载波及其特性"><a href="#二-数字层次、T1-载波及其特性、E1-载波及其特性" class="headerlink" title="二. 数字层次、T1 载波及其特性、E1 载波及其特性"></a>二. 数字层次、T1 载波及其特性、E1 载波及其特性</h2><h3 id="数字信号服务"><a href="#数字信号服务" class="headerlink" title="数字信号服务"></a>数字信号服务</h3><ul>
+<li>一种数字信号的层次结构实现TDM</li>
+</ul>
+<h3 id="T线路"><a href="#T线路" class="headerlink" title="T线路"></a>T线路</h3><ul>
+<li><p>线路的容量与DS-1到DS-4的数据速率是精确匹配的</p>
+</li>
+<li><p>T线路是为数字数据、音频或者视频设计的数字线路，也可以用于模拟传输，前提是要对模拟信号采样，然后使用TDM</p>
+<h4 id="T-1帧"><a href="#T-1帧" class="headerlink" title="T-1帧"></a>T-1帧</h4><ul>
+<li>通常为193位，分为24个8位的时隙，每帧附加1位用于同步(24*8+1=193)</li>
+</ul>
+<img src="image-20210620154052929.png" alt="Figure 6.25  T-1 帧结构" style="zoom:67%;" /></li>
+</ul>
+<h3 id="E线路"><a href="#E线路" class="headerlink" title="E线路"></a>E线路</h3><ul>
+<li>欧洲使用的T线路版本为E线路</li>
+</ul>
+<h2 id="三-波分和码分的概念"><a href="#三-波分和码分的概念" class="headerlink" title="三. 波分和码分的概念"></a>三. 波分和码分的概念</h2><ul>
+<li>波分多路复用就是光的频分多路复用。具体看波分复用WDM</li>
+<li>码分复用(见12章)</li>
+</ul>
+<h2 id="四-扩频：FHSS-和-DSSS-的概念"><a href="#四-扩频：FHSS-和-DSSS-的概念" class="headerlink" title="四.  扩频：FHSS 和  DSSS 的概念"></a>四.  扩频：FHSS 和  DSSS 的概念</h2><h3 id="跳频扩频-FHSS"><a href="#跳频扩频-FHSS" class="headerlink" title="跳频扩频(FHSS)"></a>跳频扩频(FHSS)</h3><ul>
+<li>概念：<ul>
+<li><p>用源信号调制M个不同的载波频率。</p>
+</li>
+<li><p>频率表使用这个模式查找频率作为跳周期的频率</p>
+</li>
+<li><p>在某一时刻用信号调制1个载波频率，在下一时刻信号调制另一个频率。虽然调制是一次使用一个频率，但在最终用了M个频率。</p>
+<img src="image-20210620155340813.png" alt="image-20210620155340813" style="zoom:67%;" /></li>
+</ul>
+</li>
+</ul>
+<h3 id="直接序列扩频-DSSS"><a href="#直接序列扩频-DSSS" class="headerlink" title="直接序列扩频(DSSS)"></a>直接序列扩频(DSSS)</h3><ul>
+<li>概念：<ul>
+<li><p>每个数据位用扩展编码的n位代替。</p>
+</li>
+<li><p>每一位被编码 为a个码片，此处码片的速率是数据比特率的a倍。</p>
+<img src="image-20210620155551081.png" alt="image-20210620155551081" style="zoom:67%;" /></li>
+</ul>
+</li>
+</ul>

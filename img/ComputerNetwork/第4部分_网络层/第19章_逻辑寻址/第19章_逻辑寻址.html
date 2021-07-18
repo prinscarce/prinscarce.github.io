@@ -1,0 +1,109 @@
+<!--
+
+ * @Title: 逻辑寻址
+ * @Description: 
+ * @Author: SoulCompiler/horizon/prinscarce
+ * @Email: prinscarce@outlook.com
+ * @Blog: prinscarce.github.io
+ * @LastEditors: prinscarce
+   -->
+
+<h1 id="第-19-章-逻辑寻址"><a href="#第-19-章-逻辑寻址" class="headerlink" title="第 19 章 逻辑寻址"></a>第 19 章 逻辑寻址</h1><h2 id="一-IPv4地址"><a href="#一-IPv4地址" class="headerlink" title="一. IPv4地址"></a>一. IPv4地址</h2><p><strong>A、B、C、D 和  E 类地址、掩码、子网和超网的概念</strong></p>
+<ul>
+<li>IPv4地址（IPv4 address）是<strong>一个32位地址</strong></li>
+<li><strong>是唯一的与通用的。</strong></li>
+<li><strong>IPv4的地址空间是2<sup>32</sup>或4 294 967 296。</strong></li>
+<li>使用二进制标记法和点分十进制标记法<ul>
+<li>二进制标记法: 二进制表示, 八位一个空格</li>
+<li>点分十进制: 每个字节表示为十进制数, 中间用小数点分割</li>
+</ul>
+</li>
+</ul>
+<h3 id="分类寻址：ABCDE"><a href="#分类寻址：ABCDE" class="headerlink" title="分类寻址：ABCDE"></a>分类寻址：ABCDE</h3><ul>
+<li>A类地址(Class A address)是为那些具有大量的主机或路由器的大型组织机构所设计的。</li>
+<li>B类地址(Class B address)是为那些可能具有数万台主机或路由器的中型组织机构所设计的。</li>
+<li>C类地址(Class C address)是为那些具有少量主机或路由器的小型组织机构所设计的。</li>
+<li>在分类寻址中，大部分可用的地址被浪费了。</li>
+<li>在A类中，一个字节定义网络号而三个字节定义主机号。在B类中，二个字节定义网络号，二个字节定义主机号。在C类中，三个字节定义网络号而一个字节定义主机号。</li>
+</ul>
+<img src="image-20210622163524235.png" alt="image-20210622163524235" style="zoom:67%;" />
+
+<h3 id="掩码"><a href="#掩码" class="headerlink" title="掩码"></a>掩码</h3><ul>
+<li>用连续1的串后跟连续0的串组成的一个32位掩码(mask)(也称为<strong>默认掩码</strong>(default mark))。</li>
+<li>掩码能帮助我们找到网络号和主机号。</li>
+<li>A、B、C类的掩码表：</li>
+</ul>
+<img src="image-20210622163635284.png" alt="image-20210622163635284" style="zoom:67%;" />
+
+<h3 id="子网和超网的概念"><a href="#子网和超网的概念" class="headerlink" title="子网和超网的概念"></a>子网和超网的概念</h3><ul>
+<li>子网化：<ul>
+<li>如果一个组织机构指派A类或B类中 一大块地址，它可将这些地址划分为几个类组，并赋予每一组为较小的网络(称为子网，subnet)。</li>
+<li>子网化是在掩码中增加1的个数。</li>
+</ul>
+</li>
+<li>超网化：<ul>
+<li>一个组织机构能将几个C类块地址构成更大范围的地址空间。将几个网络联合起来构成一个超网（supernet）。</li>
+<li>超网化是在掩码中减小1的个数。</li>
+</ul>
+</li>
+</ul>
+<h4 id="无类寻址"><a href="#无类寻址" class="headerlink" title="无类寻址"></a>无类寻址</h4><ul>
+<li>没有类的概念, 但是仍划分为地址块</li>
+<li>地址块的限制条件<ul>
+<li>块中地址必须连续</li>
+<li>块中地址个数必须为 2 的整数次幂</li>
+<li>块的起始地址必须能被块中地址个数整除</li>
+</ul>
+</li>
+<li>通过 CIDR 标记法定义块地址<ul>
+<li>x.y.z.t/n</li>
+<li>其中 /n 为掩码, n 为掩码中 1 的位数 (掩码中的 1 必定连续)</li>
+</ul>
+</li>
+<li>起始地址: <strong>通过将块中某个地址的后 32-n 位置为 0 求得</strong> (也就是把地址和掩码进行与运算)</li>
+<li>最后的地址: <strong>通过将块中某个地址的后 32-n 位置为 1 求得</strong>（可用给定地址与掩码的反码进行OR运算）</li>
+<li>地址个数: 掩码求反，十进制数+1</li>
+<li>网络地址: 代表整个网络, 通常是块的起始地址</li>
+</ul>
+<h2 id="二-子网划分方法、子网范围计算"><a href="#二-子网划分方法、子网范围计算" class="headerlink" title="二.  子网划分方法、子网范围计算"></a>二.  子网划分方法、子网范围计算</h2><img src="20200327230800927.png" alt="在这里插入图片描述" style="zoom:67%;" />
+
+<img src="image-20210622172938197.png" alt="image-20210622172938197" style="zoom:67%;" />
+
+<img src="image-20210622173119841.png" alt="image-20210622173119841" style="zoom:67%;" />
+
+<h2 id="三-NAT-的概念"><a href="#三-NAT-的概念" class="headerlink" title="三. NAT 的概念"></a>三. NAT 的概念</h2><ul>
+<li>网络地址转换(network address translation, NAT)能使用户在内部拥有大量的地址，而在外部只有少量的地址。</li>
+<li>内部通信能使用内部的地址，而外部通信能使用外部地址。</li>
+</ul>
+<img src="image-20210622170550812.png" alt="image-20210622170550812" style="zoom:67%;" />
+
+<blockquote>
+<p>NAT实现</p>
+</blockquote>
+<img src="image-20210622170659921.png" alt="image-20210622170659921" style="zoom:67%;" />
+
+<blockquote>
+<p>NAT地址转换</p>
+</blockquote>
+<h2 id="四-IPv6-地址及其缩短形式"><a href="#四-IPv6-地址及其缩短形式" class="headerlink" title="四. IPv6 地址及其缩短形式"></a>四. IPv6 地址及其缩短形式</h2><ul>
+<li><p>16 个字节, 128 位</p>
+</li>
+<li><p>采用十六进制冒号标记法</p>
+<ul>
+<li>每两个字节一部分, 作为四个十六进制数字</li>
+<li>每部分之间用冒号分隔</li>
+</ul>
+<img src="image-20210622174406428.png" alt="image-20210622174406428" style="zoom:67%;" />
+
+<blockquote>
+<p>IPv6 地址用二进制与十六进制冒号标记法</p>
+</blockquote>
+</li>
+<li><p>缩短，需满足：</p>
+<ul>
+<li>在两个冒号之间 (所以开头和结尾不能缩短)</li>
+<li>高位的连续的 0 可以缩短</li>
+<li>若有连续的几个部分仅包含 0, 则可以把这些 0 用两个冒号代替, <strong>但这种缩短只能用一次</strong></li>
+</ul>
+<img src="image-20210622174536443.png" alt="image-20210622174536443" style="zoom:67%;" /></li>
+</ul>
