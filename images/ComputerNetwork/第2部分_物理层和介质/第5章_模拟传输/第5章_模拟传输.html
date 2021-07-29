@@ -1,0 +1,416 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=&#34;auto&#34;>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/favicon.jpg">
+  <link rel="icon" href="/img/favicon.jpg">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="description" content="𝐍&#39;𝐨𝐮𝐛𝐥𝐢é 𝐩𝐚𝐬 𝐝𝐞 𝐭&#39;𝐚𝐢𝐦𝐞𝐫">
+  <meta name="author" content="prinscarce">
+  <meta name="keywords" content="">
+  
+  <title>计算机网络 第5章 模拟传输 - prinscarce</title>
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" />
+
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-markdown-css@4.0.0/github-markdown.min.css" />
+  <link  rel="stylesheet" href="/lib/hint/hint.min.css" />
+
+  
+    
+    
+      
+      <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@10.7.2/styles/github-gist.min.css" />
+    
+  
+
+  
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_ba1fz6golrf.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_kmeydafke9r.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+<!-- 自定义样式保持在最底部 -->
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    var CONFIG = {"hostname":"prinscarce.github.io","root":"/","version":"1.8.11","typing":{"enable":true,"typeSpeed":80,"cursorChar":"_","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":true,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null}},"search_path":"/local-search.xml"};
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+
+<body>
+  <header style="height: 60vh;">
+    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand"
+       href="/">&nbsp;<strong>serendipity</strong>&nbsp;</a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                首页
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                归档
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                分类
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                标签
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                关于
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" data-toggle="modal" data-target="#modalSearch">&nbsp;<i
+                class="iconfont icon-search"></i>&nbsp;</a>
+          </li>
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+    <div class="banner" id="banner" parallax=true
+         style="background: url('/img/default1.jpg') no-repeat center center;
+           background-size: cover;">
+      <div class="full-bg-img">
+        <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+          <div class="page-header text-center fade-in-up">
+            <span class="h2" id="subtitle" title="计算机网络 第5章 模拟传输">
+              
+            </span>
+
+            
+          </div>
+
+          
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    
+      <div class="container nopadding-x-md">
+        <div class="py-5" id="board"
+          >
+          
+          <div class="container">
+            <div class="row">
+              <div class="col-12 col-md-10 m-auto">
+                
+
+<article class="page-content">
+  <h1 id="第5章-模拟传输"><a href="#第5章-模拟传输" class="headerlink" title="第5章 模拟传输"></a>第5章 模拟传输</h1><h2 id="一-比特率和波特率"><a href="#一-比特率和波特率" class="headerlink" title="一. 比特率和波特率"></a>一. 比特率和波特率</h2><ul>
+<li><strong>比特率和波特率的关系定义：</strong><br>  $$<br>S = N \times \frac{1}{r}<br>$$<ul>
+<li>S是波特率（baud），N是数据速率（bps）, r是一个信号元素携带的数据元素个数。</li>
+<li><strong>模拟传输中r值为r = log<sub>2</sub>L,这里L是信号元素类型，而不是电平个数。</strong>(类似于码元种类)</li>
+</ul>
+</li>
+<li><strong>比特率是每秒发送的位数，波特率是每秒发送的信号元素数。在数字数据模拟传输中，波特率小于等于比特率。</strong></li>
+</ul>
+<h2 id="二-数字到模拟转换的概念"><a href="#二-数字到模拟转换的概念" class="headerlink" title="二. 数字到模拟转换的概念"></a>二. 数字到模拟转换的概念</h2><h3 id="1-ASK幅移键控"><a href="#1-ASK幅移键控" class="headerlink" title="1.ASK幅移键控"></a>1.ASK幅移键控</h3><p> <strong>ask的概念及 ASK 的带宽</strong></p>
+<h4 id="概念"><a href="#概念" class="headerlink" title="概念"></a>概念</h4><ul>
+<li>ASK常用的信号元素只用两个电平。这称为二进制幅移键控或开关键控（OOK）。一个信号电平的振幅峰值是0,另一个和载波频率振幅一样。</li>
+</ul>
+<h4 id="带宽"><a href="#带宽" class="headerlink" title="带宽"></a>带宽</h4><ul>
+<li><p><strong>计算公式：</strong><br>$$<br>B = (1 + d) \times S<br>$$</p>
+</li>
+<li><p>S是信号速率，B是带宽。d在0和1之间。</p>
+</li>
+<li><p>r=1</p>
+<img src="/images/ComputerNetwork/%E7%AC%AC2%E9%83%A8%E5%88%86_%E7%89%A9%E7%90%86%E5%B1%82%E5%92%8C%E4%BB%8B%E8%B4%A8/%E7%AC%AC5%E7%AB%A0_%E6%A8%A1%E6%8B%9F%E4%BC%A0%E8%BE%93/%E7%AC%AC5%E7%AB%A0_%E6%A8%A1%E6%8B%9F%E4%BC%A0%E8%BE%93.htm/image-20210620142848447.png" srcset="/img/loading.gif" lazyload alt="Figure 5.3  Binary amplitude shift keying 二进制幅移键控" style="zoom:67%;"></li>
+</ul>
+<h3 id="2-FSK-频移键控"><a href="#2-FSK-频移键控" class="headerlink" title="2.FSK 频移键控"></a>2.FSK 频移键控</h3><p><strong>FSK的概念及 BFSK 的带宽</strong></p>
+<h4 id="概念-1"><a href="#概念-1" class="headerlink" title="概念"></a>概念</h4><ul>
+<li><p>选择了两个载波频率：f<sub>1</sub>和f<sub>2</sub>。如果数据元素是0,使用第一个载波，如果数据元素是1,则使用第二个载波。</p>
+<img src="/images/ComputerNetwork/%E7%AC%AC2%E9%83%A8%E5%88%86_%E7%89%A9%E7%90%86%E5%B1%82%E5%92%8C%E4%BB%8B%E8%B4%A8/%E7%AC%AC5%E7%AB%A0_%E6%A8%A1%E6%8B%9F%E4%BC%A0%E8%BE%93/%E7%AC%AC5%E7%AB%A0_%E6%A8%A1%E6%8B%9F%E4%BC%A0%E8%BE%93.htm/image-20210620141705997-1624169827200.png" srcset="/img/loading.gif" lazyload alt="Figure 5.6  Binary frequency shift keying" style="zoom:67%;"></li>
+<li><p>如图所示，一个带宽中点的频率是f<sub>1</sub>，而另一个带宽中点的频率是f<sub>2</sub>。f<sub>1</sub>和f<sub>2</sub>离这两个带的中点距离都是Δf,则两个频率之差是2Δf。</p>
+</li>
+<li><p>r=1</p>
+</li>
+</ul>
+<h4 id="带宽-1"><a href="#带宽-1" class="headerlink" title="带宽"></a>带宽</h4><ul>
+<li>计算公式：<br>$$<br>B = (1 + d) \times S + 2\Delta{f}<br>$$</li>
+</ul>
+<h3 id="3-PSK、BPSK、QPSK-和-QAM-的概念"><a href="#3-PSK、BPSK、QPSK-和-QAM-的概念" class="headerlink" title="3.PSK、BPSK、QPSK 和 QAM 的概念"></a>3.PSK、BPSK、QPSK 和 QAM 的概念</h3><h4 id="二进制PSK（BPSK）"><a href="#二进制PSK（BPSK）" class="headerlink" title="二进制PSK（BPSK）"></a>二进制PSK（BPSK）</h4><ul>
+<li><strong>概念</strong>：<ul>
+<li>只用两个信号元素，一个相位是0°,另一个相位是180°。</li>
+<li>在ASK中，位检测的标准是信号振幅；在PSK中则是相位。</li>
+<li>PSK比ASK更不易受噪声影响。PSK优于FSK是因为不需要两个载波信号。</li>
+</ul>
+</li>
+<li><strong>带宽</strong>：<ul>
+<li><p>和二进制ASK—样，但比BFSK少。</p>
+</li>
+<li><p>没有浪费带宽用来分离成两个载波信号。</p>
+<img src="/images/ComputerNetwork/%E7%AC%AC2%E9%83%A8%E5%88%86_%E7%89%A9%E7%90%86%E5%B1%82%E5%92%8C%E4%BB%8B%E8%B4%A8/%E7%AC%AC5%E7%AB%A0_%E6%A8%A1%E6%8B%9F%E4%BC%A0%E8%BE%93/%E7%AC%AC5%E7%AB%A0_%E6%A8%A1%E6%8B%9F%E4%BC%A0%E8%BE%93.htm/image-20210620143313414-1624170794692.png" srcset="/img/loading.gif" lazyload alt="image-20210620143313414" style="zoom:67%;"></li>
+</ul>
+</li>
+</ul>
+<h4 id="正交PSK（QPSK）"><a href="#正交PSK（QPSK）" class="headerlink" title="正交PSK（QPSK）"></a>正交PSK（QPSK）</h4><ul>
+<li>概念：<ul>
+<li><p>使用两个独立的BPSK调制；一个是同相的，另一个是正交的（异相）。</p>
+</li>
+<li><p>进入的2个位先经过串行到并行的转换，它发送一个位给一个调制器，发送下一个位给另一个调制器。</p>
+</li>
+<li><p>如果进入信号中的每个位的持续时间是T，发送相应BPSK信号的每个位持续时间就是2T。</p>
+</li>
+<li><p>r=2</p>
+</li>
+<li><p>如右图，上方为同相载波，下为正交载波</p>
+<img src="/images/ComputerNetwork/%E7%AC%AC2%E9%83%A8%E5%88%86_%E7%89%A9%E7%90%86%E5%B1%82%E5%92%8C%E4%BB%8B%E8%B4%A8/%E7%AC%AC5%E7%AB%A0_%E6%A8%A1%E6%8B%9F%E4%BC%A0%E8%BE%93/%E7%AC%AC5%E7%AB%A0_%E6%A8%A1%E6%8B%9F%E4%BC%A0%E8%BE%93.htm/image-20210620143439848-1624170881215.png" srcset="/img/loading.gif" lazyload alt="Figure 5.11  QPSK and its implementation" style="zoom:67%;"></li>
+</ul>
+</li>
+</ul>
+<h4 id="正交振幅调制-QAM"><a href="#正交振幅调制-QAM" class="headerlink" title="正交振幅调制(QAM)"></a>正交振幅调制(QAM)</h4><ul>
+<li>概念：<ul>
+<li>使用两个载波，一个同相而另一个正交，而且每个载波都用不同的振幅。</li>
+<li><strong>正交振幅调制是ASK和PSK的结合。</strong></li>
+</ul>
+</li>
+<li>带宽：<ul>
+<li>QAM传输所需的最小带宽与ASK和PSK传输所需的最小带宽相同。</li>
+</ul>
+</li>
+</ul>
+<img src="/images/ComputerNetwork/%E7%AC%AC2%E9%83%A8%E5%88%86_%E7%89%A9%E7%90%86%E5%B1%82%E5%92%8C%E4%BB%8B%E8%B4%A8/%E7%AC%AC5%E7%AB%A0_%E6%A8%A1%E6%8B%9F%E4%BC%A0%E8%BE%93/%E7%AC%AC5%E7%AB%A0_%E6%A8%A1%E6%8B%9F%E4%BC%A0%E8%BE%93.htm/20200306230830184.png" srcset="/img/loading.gif" lazyload alt="调制" style="zoom:67%;">
+
+
+  
+</article>
+
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    
+
+    
+      <a id="scroll-top-button" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v"
+                 for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+
+    
+  </main>
+
+  <footer class="text-center mt-5 py-3">
+  <div class="footer-content">
+     <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> <div> <span id="timeDate">载入天数...</span> <span id="times">载入时分秒...</span> <script src="/js/duration.js"></script> </div> 
+  </div>
+  
+
+  
+
+  
+</footer>
+
+
+  <!-- SCRIPTS -->
+  
+  <script  src="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js" ></script>
+<script  src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+<!-- Plugins -->
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+  
+
+
+
+
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/anchor-js@4.3.1/anchor.min.js" ></script>
+
+
+
+  <script defer src="https://cdn.jsdelivr.net/npm/clipboard@2.0.8/dist/clipboard.min.js" ></script>
+
+
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+  <script defer src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" ></script>
+
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12/lib/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var title = document.getElementById('subtitle').title;
+      
+      typing(title)
+      
+    })(window, document);
+  </script>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+
+
+
+
+<!-- 主题的启动项 保持在最底部 -->
+<script  src="/js/boot.js" ></script>
+
+
+</body>
+</html>
