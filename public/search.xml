@@ -584,13 +584,27 @@
     
     
     <entry>
-      <title></title>
+      <title>AUTOCAD2014</title>
       <link href="/2019/11/29/AUTOCAD2014/"/>
       <url>/2019/11/29/AUTOCAD2014/</url>
       
         <content type="html"><![CDATA[<h1 id="AUTOCAD2014"><a href="#AUTOCAD2014" class="headerlink" title="AUTOCAD2014"></a>AUTOCAD2014</h1><p><strong>L直线</strong>；<strong>PL二维多段线，W宽度</strong></p><p><strong>A圆弧</strong></p><p><strong>AL命令行文本框</strong></p><p><strong>C画圆</strong></p><p><strong>CO：copy</strong>，同时拷贝距离相等多个图形：<strong>CO-&gt;陈列</strong></p><p><strong>DIS测量端点距离</strong></p><p><strong>DIV等分点</strong></p><p><strong>M移动</strong></p><p><strong>MI对称</strong></p><p>找到等分点，使其更加明显显示出来–&gt;格式</p><p><strong>ME等距等分</strong></p><p><strong>REC矩形@长,宽</strong></p><p><strong>POL正多边形</strong></p><p><strong>相对坐标@Δx,Δy，@L&lt;α</strong></p><p>L：两点之间的距离（正值)</p><p>α：角度——第一点的x正方向与两点连线的夹角。（顺时针为负值，逆时针为正值）</p><p><strong>矩形选框</strong>：cad的默认选择的加选，若要减选按住shift键减选即可，单个物体多了也可以点一下来减少选区</p><p>从左向右：必须选全部；</p><p>从右到走：选部分即可选全部；</p><p>若要用线不规则选框，使用栏选</p><p><strong>esc：取消选择</strong></p><p><strong>滚轮按住不放可以使用鼠标平移</strong>，<strong>滚轮双击可以将图纸完整显示出来</strong></p><p><strong>CH特性</strong></p><p><strong>RO旋转</strong></p><p><strong>SC缩放</strong></p><p><strong>BR打断</strong>：切断线段</p><p><strong>X分解</strong>：将多段线分开</p><p><strong>J合并</strong>：(join)组合物体</p><p><strong>O偏移</strong>：(offset)</p><p><strong>EX延申</strong> 修剪按住shift选择</p><p><strong>S拉伸</strong></p><p><strong>AR阵列</strong></p><p><strong>H填充命令</strong>、<strong>HE对填充物体进行修改</strong></p><p><strong>CHA倒角</strong>，将纸片折起来</p><p><strong>F圆角命令</strong></p><h4 id="标注"><a href="#标注" class="headerlink" title="标注"></a>标注</h4><p><strong>DLI</strong>, *DIMLINEAR（<strong>直线标注</strong>）<br><strong>DAL</strong>, *DIMALIGNED（<strong>对齐标注</strong>）<br><strong>DRA</strong>, *DIMRADIUS（<strong>半径标注</strong>）<br><strong>DDI</strong>, *DIMDIAMETER（<strong>直径标注</strong>）<br><strong>DAN</strong>, *DIMANGULAR（<strong>角度标注</strong>）<br><strong>DCE</strong>, *DIMCENTER（<strong>中心标注</strong>）<br><strong>DOR</strong>, *DIMORDINATE（<strong>点标注</strong>）<br><strong>TOL</strong>, *TOLERANCE（<strong>标注形位公差</strong>）<br><strong>LE</strong>, *QLEADER（<strong>快速引出标注</strong>）<br><strong>DBA</strong>, *DIMBASELINE（<strong>基线标注</strong>）<br><strong>DCO</strong>, *DIMCONTINUE（<strong>连续标注</strong>）<br><strong>D</strong>, *DIMSTYLE（<strong>标注样式</strong>）<br><strong>DED</strong>, *DIMEDIT（<strong>编辑标注</strong>）<br><strong>DOV</strong>, *DIMOVERRIDE(<strong>替换标注系统变量</strong>)</p>]]></content>
       
       
+      <categories>
+          
+          <category> 杂谈 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 杂谈 </tag>
+            
+            <tag> 笔记 </tag>
+            
+        </tags>
       
     </entry>
     
