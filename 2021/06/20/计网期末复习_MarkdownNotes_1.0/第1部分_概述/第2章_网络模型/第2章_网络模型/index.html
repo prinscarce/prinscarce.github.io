@@ -60,7 +60,11 @@
   </script>
   <script  src="/js/utils.js" ></script>
   <script  src="/js/color-schema.js" ></script>
-<meta name="generator" content="Hexo 5.4.0"></head>
+<!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
+<!-- hexo injector head_end end --><meta name="generator" content="Hexo 5.4.0"></head>
 
 
 <body>
@@ -256,20 +260,17 @@
 <li>OSI模型提供了一个用来进行网络系统设计的层次化框架。它由7个相互独立但又有互相关联的层次组成，每一层都定义了通过网络传递信息的一部分功能。<br><img src="/images/ComputerNetwork/%E7%AC%AC1%E9%83%A8%E5%88%86_%E6%A6%82%E8%BF%B0/%E7%AC%AC2%E7%AB%A0_%E7%BD%91%E7%BB%9C%E6%A8%A1%E5%9E%8B/%E5%9B%BE%E7%89%872_1.png" srcset="/img/loading.gif" lazyload alt="OSI参考模型"></li>
 </ul>
 <ul>
-<li>使用 OSI 模型传输过程<img src="/images/ComputerNetwork/第1部分_概述/第2章_网络模型/图片2_2.png" srcset="/img/loading.gif" lazyload alt="传输过程" style="zoom:67%;"></li>
+<li>使用 OSI 模型传输过程<br><img src="/images/ComputerNetwork/%E7%AC%AC1%E9%83%A8%E5%88%86_%E6%A6%82%E8%BF%B0/%E7%AC%AC2%E7%AB%A0_%E7%BD%91%E7%BB%9C%E6%A8%A1%E5%9E%8B/%E5%9B%BE%E7%89%872_2.png" srcset="/img/loading.gif" lazyload alt="传输过程"></li>
 </ul>
 <h3 id="各层基本功能（自底向上）"><a href="#各层基本功能（自底向上）" class="headerlink" title="各层基本功能（自底向上）"></a>各层基本功能（自底向上）</h3><h4 id="物理层"><a href="#物理层" class="headerlink" title="物理层"></a>物理层</h4><ul>
 <li>定义了接口与传输介质的机械和电气特性，也定义了物理设备和接口为了传输而必须执行的过程和功能。</li>
 <li>主要任务是在物理媒体上实现比特流的透明传输。</li>
-<li><strong>物理层负责位（bits）从一跳（节点）到另一跳（节点）的传递</strong></li>
+<li><strong>物理层负责位（bits）从一跳（节点）到另一跳（节点）的传递</strong><br><img src="/images/ComputerNetwork/%E7%AC%AC1%E9%83%A8%E5%88%86_%E6%A6%82%E8%BF%B0/%E7%AC%AC2%E7%AB%A0_%E7%BD%91%E7%BB%9C%E6%A8%A1%E5%9E%8B/%E5%9B%BE%E7%89%872_3.png" srcset="/img/loading.gif" lazyload alt="物理层"></li>
 </ul>
 <h4 id="数据链路层"><a href="#数据链路层" class="headerlink" title="数据链路层"></a>数据链路层</h4><ul>
-<li><p>将物理层——对数据不做任何改动的传输通道变成可靠的链路，这样可以将物理层的数据无差错地传递给上层。</p>
-</li>
-<li><p><strong>数据链路层负责帧(frame)从一跳（节点）到下一跳（节点）传递。</strong></p>
-</li>
-<li><p>具体任务：</p>
-<ul>
+<li>将物理层——对数据不做任何改动的传输通道变成可靠的链路，这样可以将物理层的数据无差错地传递给上层。</li>
+<li><strong>数据链路层负责帧(frame)从一跳（节点）到下一跳（节点）传递。</strong></li>
+<li>具体任务：<ul>
 <li><p>成帧（定义帧的开始和结束）</p>
 </li>
 <li><p>物理寻址</p>
@@ -278,8 +279,8 @@
 </li>
 <li><p>差错控制</p>
 </li>
-<li><p>访问控制（控制对信道的访问）</p>
-<img src="/images/ComputerNetwork/第1部分_概述/第2章_网络模型/图片2_3.png" srcset="/img/loading.gif" lazyload alt="数据链路层" style="zoom:67%;"></li>
+<li><p>访问控制（控制对信道的访问）<br><img src="/images/ComputerNetwork/%E7%AC%AC1%E9%83%A8%E5%88%86_%E6%A6%82%E8%BF%B0/%E7%AC%AC2%E7%AB%A0_%E7%BD%91%E7%BB%9C%E6%A8%A1%E5%9E%8B/%E5%9B%BE%E7%89%872_4.png" srcset="/img/loading.gif" lazyload alt="数据链路层"></p>
+</li>
 </ul>
 </li>
 </ul>
@@ -294,10 +295,8 @@
 <ul>
 <li><p>逻辑寻址</p>
 </li>
-<li><p>路由选择（最佳路径）</p>
-<img src="/images/ComputerNetwork/第1部分_概述/第2章_网络模型/图片2_5.png" srcset="/img/loading.gif" lazyload alt="网络层" style="zoom:67%;">
-
-<img src="/2021/06/20/%E8%AE%A1%E7%BD%91%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0_MarkdownNotes_1.0/%E7%AC%AC1%E9%83%A8%E5%88%86_%E6%A6%82%E8%BF%B0/%E7%AC%AC2%E7%AB%A0_%E7%BD%91%E7%BB%9C%E6%A8%A1%E5%9E%8B/%E7%AC%AC2%E7%AB%A0_%E7%BD%91%E7%BB%9C%E6%A8%A1%E5%9E%8B/图片2_5.png" srcset="/img/loading.gif" lazyload alt="图片2_5" style="zoom:67%;"></li>
+<li><p>路由选择（最佳路径）<br><img src="/images/ComputerNetwork/%E7%AC%AC1%E9%83%A8%E5%88%86_%E6%A6%82%E8%BF%B0/%E7%AC%AC2%E7%AB%A0_%E7%BD%91%E7%BB%9C%E6%A8%A1%E5%9E%8B/%E5%9B%BE%E7%89%872_5.png" srcset="/img/loading.gif" lazyload alt="网络层"></p>
+</li>
 </ul>
 </li>
 </ul>
@@ -318,8 +317,8 @@
 </li>
 <li><p>流量控制</p>
 </li>
-<li><p>差错控制</p>
-<img src="/2021/06/20/%E8%AE%A1%E7%BD%91%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0_MarkdownNotes_1.0/%E7%AC%AC1%E9%83%A8%E5%88%86_%E6%A6%82%E8%BF%B0/%E7%AC%AC2%E7%AB%A0_%E7%BD%91%E7%BB%9C%E6%A8%A1%E5%9E%8B/%E7%AC%AC2%E7%AB%A0_%E7%BD%91%E7%BB%9C%E6%A8%A1%E5%9E%8B/图片2_6.png" srcset="/img/loading.gif" lazyload alt="图片2_6" style="zoom:67%;"></li>
+<li><p>差错控制<br><img src="/images/ComputerNetwork/%E7%AC%AC1%E9%83%A8%E5%88%86_%E6%A6%82%E8%BF%B0/%E7%AC%AC2%E7%AB%A0_%E7%BD%91%E7%BB%9C%E6%A8%A1%E5%9E%8B/%E5%9B%BE%E7%89%872_6.png" srcset="/img/loading.gif" lazyload alt="传输层"></p>
+</li>
 </ul>
 </li>
 </ul>
