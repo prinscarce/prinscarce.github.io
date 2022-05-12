@@ -1,0 +1,520 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=&#34;auto&#34;>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/favicon.jpg">
+  <link rel="icon" href="/img/favicon.jpg">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="description" content="分布式计算 上机实验">
+  <meta name="author" content="prinscarce">
+  <meta name="keywords" content="">
+  
+  <title>利用RPC技术一个书籍信息管理系统 - prinscarce</title>
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" />
+
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-markdown-css@4.0.0/github-markdown.min.css" />
+  <link  rel="stylesheet" href="/lib/hint/hint.min.css" />
+
+  
+    
+    
+      
+      <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@10.7.2/styles/github-gist.min.css" />
+    
+  
+
+  
+    <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css" />
+  
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_ba1fz6golrf.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_kmeydafke9r.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+<!-- 自定义样式保持在最底部 -->
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    var CONFIG = {"hostname":"prinscarce.github.io","root":"/","version":"1.8.11","typing":{"enable":true,"typeSpeed":80,"cursorChar":"_","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":true,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null}},"search_path":"/local-search.xml"};
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+<!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
+<!-- hexo injector head_end end --><meta name="generator" content="Hexo 5.4.0"></head>
+
+
+<body>
+  <header style="height: 70vh;">
+    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand"
+       href="/">&nbsp;<strong>serendipity</strong>&nbsp;</a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                首页
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                归档
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                分类
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                标签
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                关于
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" data-toggle="modal" data-target="#modalSearch">&nbsp;<i
+                class="iconfont icon-search"></i>&nbsp;</a>
+          </li>
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+    <div class="banner" id="banner" parallax=true
+         style="background: url('/img/default.jpg') no-repeat center center;
+           background-size: cover;">
+      <div class="full-bg-img">
+        <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+          <div class="page-header text-center fade-in-up">
+            <span class="h2" id="subtitle" title="利用RPC技术一个书籍信息管理系统">
+              
+            </span>
+
+            
+              <div class="mt-3">
+  
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-author" aria-hidden="true"></i>
+      prinscarce
+    </span>
+  
+  
+</div>
+
+<div class="mt-1">
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-chart"></i>
+      812 字
+    </span>
+  
+
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-clock-fill"></i>
+      
+      
+      11
+       分钟
+    </span>
+  
+
+  
+  
+    
+      <!-- 不蒜子统计文章PV -->
+      <span id="busuanzi_container_page_pv" style="display: none">
+        <i class="iconfont icon-eye" aria-hidden="true"></i>
+        <span id="busuanzi_value_page_pv"></span> 次
+      </span>
+    
+  
+</div>
+
+            
+          </div>
+
+          
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div class="py-5" id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">利用RPC技术一个书籍信息管理系统</h1>
+            
+            <div class="markdown-body">
+              <h2 id="分布式计算——第三次作业"><a href="#分布式计算——第三次作业" class="headerlink" title="分布式计算——第三次作业"></a>分布式计算——第三次作业</h2><p>19030100024 王子希</p>
+<blockquote>
+<p>JDK-17.0.1 </p>
+<p>IntelliJ IDEA 2021.3.3 (Community Edition) </p>
+</blockquote>
+<h3 id="1-实验题目"><a href="#1-实验题目" class="headerlink" title="1 实验题目"></a>1 实验题目</h3><p>利用RPC技术实现一个书籍信息管理系统</p>
+<h3 id="2-实验要求"><a href="#2-实验要求" class="headerlink" title="2 实验要求"></a>2 实验要求</h3><p>具体要求：</p>
+<ol>
+<li><p>客户端实现用户交互，服务器端实现书籍信息存储和管理。客户端与服 务器端利用RPC机制进行协作。</p>
+</li>
+<li><p>服务器端至少暴露如下RPC接口：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-function">bool <span class="hljs-title">add</span><span class="hljs-params">(Book b)</span> <span class="hljs-comment">//添加一个书籍对象</span></span><br><span class="hljs-function">Book <span class="hljs-title">queryByID</span><span class="hljs-params">(intbookID)</span> <span class="hljs-comment">//查询指定ID号的书籍对象。</span></span><br><span class="hljs-function">BookList <span class="hljs-title">queryByName</span><span class="hljs-params">(String name)</span> <span class="hljs-comment">//按书名查询符合条件的书籍对象列表，支持模糊查询。</span></span><br><span class="hljs-function">bool <span class="hljs-title">delete</span><span class="hljs-params">((intbookID)</span> <span class="hljs-comment">//删除指定ID号的书籍对象。</span></span><br></code></pre></td></tr></table></figure></li>
+</ol>
+<h3 id="3-实验方法与解释"><a href="#3-实验方法与解释" class="headerlink" title="3 实验方法与解释"></a>3 实验方法与解释</h3><h4 id="总体结构："><a href="#总体结构：" class="headerlink" title="总体结构："></a><strong>总体结构</strong>：</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">package</span> BMS;	<br>	Book.java				<span class="hljs-comment">//存储book的数据类型</span><br>    book.txt				<span class="hljs-comment">//存储书单</span><br>    BookList.java			<span class="hljs-comment">//存储bookList的数据类型</span><br>    BookManagement.java<br>    BookManagementImpl.java	<span class="hljs-comment">//BMS功能的主要实现</span><br>    <br>    <span class="hljs-comment">//使用RMI作为中间件</span><br>    RMIClient.java<br>    RMIServer.java<br></code></pre></td></tr></table></figure>
+
+<h4 id="Book"><a href="#Book" class="headerlink" title="Book"></a><strong>Book</strong></h4><p>​        创建含有以下API的数据类型Book，构造一个包含书号和书名的Book类。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Book</span> <span class="hljs-keyword">implements</span> <span class="hljs-title">Serializable</span> </span>&#123;<br>    <span class="hljs-keyword">private</span> <span class="hljs-keyword">int</span> bookID;<br>    <span class="hljs-keyword">private</span> String bookName;<br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-title">Book</span> <span class="hljs-params">(<span class="hljs-keyword">int</span> id, String name)</span><span class="hljs-comment">//initialization of Book</span></span><br><span class="hljs-function">    <span class="hljs-keyword">public</span> <span class="hljs-keyword">int</span> <span class="hljs-title">getID</span><span class="hljs-params">()</span>				 <span class="hljs-comment">//return bookID</span></span><br><span class="hljs-function">    <span class="hljs-keyword">public</span> String <span class="hljs-title">getName</span><span class="hljs-params">()</span>			 <span class="hljs-comment">//return bookName</span></span><br><span class="hljs-function">    <span class="hljs-keyword">private</span> String <span class="hljs-title">getInfo</span><span class="hljs-params">()</span>		 <span class="hljs-comment">//get the information of book</span></span><br><span class="hljs-function">    <span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">showInfo</span><span class="hljs-params">()</span> 			 <span class="hljs-comment">//show book</span></span><br><span class="hljs-function">&#125;</span><br></code></pre></td></tr></table></figure>
+
+<h4 id="BookList"><a href="#BookList" class="headerlink" title="BookList"></a><strong>BookList</strong></h4><p>​        将Book存储在ArrayList中，方便进行调用。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">BookList</span> <span class="hljs-keyword">implements</span> <span class="hljs-title">Serializable</span> </span>&#123;<br>    ArrayList&lt;Book&gt; BookList = <span class="hljs-keyword">new</span> ArrayList();<span class="hljs-comment">//initialization</span><br>    BookList()&#123;&#125;<br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">showInfo</span><span class="hljs-params">()</span>					   <span class="hljs-comment">//show the info bookList</span></span><br><span class="hljs-function">&#125;</span><br></code></pre></td></tr></table></figure>
+
+<h4 id="BookManagementImpl"><a href="#BookManagementImpl" class="headerlink" title="BookManagementImpl"></a><strong>BookManagementImpl</strong></h4><p>​        完成图书管理系统的主要功能实现，包括增加书、使用书号进行查找、使用书名进行模糊查找、使用书号/书名进行删除操作，打印书单。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">BookManagementImpl</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">java</span>.<span class="hljs-title">rmi</span>.<span class="hljs-title">server</span>.<span class="hljs-title">UnicastRemoteObject</span> <span class="hljs-keyword">implements</span> <span class="hljs-title">BookManagement</span></span>&#123;<br><br>    BookManagementImpl() <span class="hljs-keyword">throws</span> RemoteException<span class="hljs-comment">//Initialization</span><br><br>    ArrayList&lt;Book&gt; books = <span class="hljs-keyword">new</span> ArrayList&lt;&gt;();<br>    BookList list = <span class="hljs-keyword">new</span> BookList();<br><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">initBook</span><span class="hljs-params">()</span>						<span class="hljs-comment">//Initialization</span></span><br><span class="hljs-function">    <span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">saveBook</span><span class="hljs-params">()</span>						<span class="hljs-comment">//save in book.txt</span></span><br><span class="hljs-function">    <span class="hljs-keyword">public</span> <span class="hljs-keyword">boolean</span> <span class="hljs-title">add</span><span class="hljs-params">(Book b1)</span>					<span class="hljs-comment">//Add a book</span></span><br><span class="hljs-function">    <span class="hljs-keyword">public</span> Book <span class="hljs-title">queryByID</span><span class="hljs-params">(<span class="hljs-keyword">int</span> bookID)</span>			<span class="hljs-comment">//Query the book by ID number</span></span><br><span class="hljs-function">    <span class="hljs-keyword">public</span> BookList <span class="hljs-title">queryByName</span><span class="hljs-params">(String name)</span>	<span class="hljs-comment">//Query the book by Book Name</span></span><br><span class="hljs-function">    <span class="hljs-keyword">public</span> <span class="hljs-keyword">boolean</span> <span class="hljs-title">deleteByID</span><span class="hljs-params">(<span class="hljs-keyword">int</span> bookID)</span>		<span class="hljs-comment">//Delete the book with ID number</span></span><br><span class="hljs-function">    <span class="hljs-keyword">public</span> <span class="hljs-keyword">boolean</span> <span class="hljs-title">deleteByName</span><span class="hljs-params">(String name)</span>	<span class="hljs-comment">//Delete the book with Book Names</span></span><br><span class="hljs-function">    <span class="hljs-keyword">public</span> String <span class="hljs-title">booksInfo</span><span class="hljs-params">()</span>					<span class="hljs-comment">//return string of booksInfo</span></span><br><span class="hljs-function">    <span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">showBooks</span><span class="hljs-params">()</span>						<span class="hljs-comment">//print books info</span></span><br><span class="hljs-function">&#125;</span><br></code></pre></td></tr></table></figure>
+
+<h4 id="RMIServer"><a href="#RMIServer" class="headerlink" title="RMIServer"></a><strong>RMIServer</strong></h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-comment">//获取注册中心的引用，注册中心运行在IDEA中，port为8889</span><br>BookManagement var1 = <span class="hljs-keyword">new</span> BookManagementImpl();<br>LocateRegistry.createRegistry(<span class="hljs-number">8889</span>);<br>Naming.bind(<span class="hljs-string">&quot;rmi://localhost:8889/BookManagement&quot;</span>, var1);<br>System.out.println(<span class="hljs-string">&quot;BookManagement is online successfully&quot;</span>);<br></code></pre></td></tr></table></figure>
+
+<h4 id="RMIClient"><a href="#RMIClient" class="headerlink" title="RMIClient"></a>RMIClient</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-comment">//在port8889进行通信</span><br>BookManagement bookManagement = (BookManagement) Naming.lookup(<span class="hljs-string">&quot;rmi://localhost:8889/BookManagement&quot;</span>);<br>bookManagement.initBook();<br></code></pre></td></tr></table></figure>
+
+<h3 id="4-具体功能"><a href="#4-具体功能" class="headerlink" title="4 具体功能"></a>4 具体功能</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs java"> ---------------menu---------------<br>|   <span class="hljs-number">1.</span>add a <span class="hljs-keyword">new</span> book               |<br>|   <span class="hljs-number">2.</span>Query the book by ID number  |<br>|   <span class="hljs-number">3.</span>Query the book by Book Name  |<br>|   <span class="hljs-number">4.</span>Delete book by ID number     |<br>|   <span class="hljs-number">5.</span>Delete book by Book Names    |<br>|   <span class="hljs-number">6.</span>print the book list          |<br> ----------------------------------<br></code></pre></td></tr></table></figure>
+
+<ol>
+<li>通过书号和书名添加一本新书，当书号已存在时返回错误提醒</li>
+<li>通过书号进行查询，书号不存在返回错误提醒</li>
+<li>使用<code>matcher.find()</code>通过书名进行模糊查找，最终通过BookList进行打印</li>
+<li>通过ID进行删除，ID不存在返回错误提醒</li>
+<li>通过书名进行删除，书名不存在返回错误提醒</li>
+<li>打印书单</li>
+</ol>
+<h3 id="5-实验测试"><a href="#5-实验测试" class="headerlink" title="5 实验测试"></a>5 实验测试</h3><p>运行RMIServer</p>
+<img src="/2021/04/05/2022/%E5%88%86%E5%B8%83%E5%BC%8F%E8%AE%A1%E7%AE%97/%E5%AE%9E%E9%AA%8C%E4%B8%89/exp3/image-20220407095530614.png" srcset="/img/loading.gif" lazyload alt="image-20220407095530614" style="zoom:50%;">
+
+<p>运行RMIClient</p>
+<img src="/2021/04/05/2022/%E5%88%86%E5%B8%83%E5%BC%8F%E8%AE%A1%E7%AE%97/%E5%AE%9E%E9%AA%8C%E4%B8%89/exp3/image-20220407095557370.png" srcset="/img/loading.gif" lazyload alt="image-20220407095557370" style="zoom:50%;">
+
+<p>使用功能6，打印目前书单</p>
+<img src="/2021/04/05/2022/%E5%88%86%E5%B8%83%E5%BC%8F%E8%AE%A1%E7%AE%97/%E5%AE%9E%E9%AA%8C%E4%B8%89/exp3/image-20220407100051988.png" srcset="/img/loading.gif" lazyload alt="image-20220407100051988" style="zoom:50%;">
+
+<p>使用功能1，新增6 math</p>
+<p><img src="/2021/04/05/2022/%E5%88%86%E5%B8%83%E5%BC%8F%E8%AE%A1%E7%AE%97/%E5%AE%9E%E9%AA%8C%E4%B8%89/exp3/image-20220407100148215.png" srcset="/img/loading.gif" lazyload alt="image-20220407100148215"></p>
+<p>使用功能2，查询书号6</p>
+<p><img src="/2021/04/05/2022/%E5%88%86%E5%B8%83%E5%BC%8F%E8%AE%A1%E7%AE%97/%E5%AE%9E%E9%AA%8C%E4%B8%89/exp3/image-20220407100250561.png" srcset="/img/loading.gif" lazyload alt="image-20220407100250561"></p>
+<p>使用功能3，查询书名Co，得到模糊查找</p>
+<p><img src="/2021/04/05/2022/%E5%88%86%E5%B8%83%E5%BC%8F%E8%AE%A1%E7%AE%97/%E5%AE%9E%E9%AA%8C%E4%B8%89/exp3/image-20220407100337211.png" srcset="/img/loading.gif" lazyload alt="image-20220407100337211"></p>
+<p>使用功能4，删除书号5</p>
+<p>使用功能5，删除书名Math</p>
+<p>使用功能6，返回最终书目</p>
+<p><img src="/2021/04/05/2022/%E5%88%86%E5%B8%83%E5%BC%8F%E8%AE%A1%E7%AE%97/%E5%AE%9E%E9%AA%8C%E4%B8%89/exp3/image-20220407100515313.png" srcset="/img/loading.gif" lazyload alt="image-20220407100515313"></p>
+
+            </div>
+            <hr>
+            <div>
+              <div class="post-metas mb-3">
+                
+                  <div class="post-meta mr-3">
+                    <i class="iconfont icon-category"></i>
+                    
+                      <a class="hover-with-bg" href="/categories/%E5%88%86%E5%B8%83%E5%BC%8F%E8%AE%A1%E7%AE%97/">分布式计算</a>
+                    
+                  </div>
+                
+                
+                  <div class="post-meta">
+                    <i class="iconfont icon-tags"></i>
+                    
+                      <a class="hover-with-bg" href="/tags/RPC-Java/">RPC Java</a>
+                    
+                  </div>
+                
+              </div>
+              
+                <p class="note note-warning">
+                  
+                    本博客所有文章除特别声明外，均采用 <a target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" rel="nofollow noopener noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！
+                  
+                </p>
+              
+              
+                <div class="post-prevnext">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/2021/04/29/2022/%E5%88%86%E5%B8%83%E5%BC%8F%E8%AE%A1%E7%AE%97/%E5%AE%9E%E9%AA%8C%E5%9B%9B/exp4/">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">利用MOM消息队列技术实现一个分布式随机信号分析系统</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2021/01/22/2022/%E5%88%86%E5%B8%83%E5%BC%8F%E8%AE%A1%E7%AE%97/%E5%AE%9E%E9%AA%8C%E4%B8%80/%E5%AE%9E%E9%AA%8C1/">
+                        <span class="hidden-mobile">nginx负载均衡实验</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+          </article>
+        </div>
+      </div>
+    </div>
+    
+      <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
+        <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目录</p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+      </div>
+    
+  </div>
+</div>
+
+<!-- Custom -->
+
+
+    
+
+    
+      <a id="scroll-top-button" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v"
+                 for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+
+    
+  </main>
+
+  <footer class="text-center mt-5 py-3">
+  <div class="footer-content">
+     <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> <div> <span id="timeDate">载入天数...</span> <span id="times">载入时分秒...</span> <script src="/js/duration.js"></script> </div> 
+  </div>
+  
+
+  
+
+  
+</footer>
+
+
+  <!-- SCRIPTS -->
+  
+  <script  src="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js" ></script>
+<script  src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+<!-- Plugins -->
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+  
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/tocbot@4.12.3/dist/tocbot.min.js" ></script>
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js" ></script>
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/anchor-js@4.3.1/anchor.min.js" ></script>
+
+
+
+  <script defer src="https://cdn.jsdelivr.net/npm/clipboard@2.0.8/dist/clipboard.min.js" ></script>
+
+
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+  <script defer src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" ></script>
+
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12/lib/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var title = document.getElementById('subtitle').title;
+      
+      typing(title)
+      
+    })(window, document);
+  </script>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+
+
+
+
+<!-- 主题的启动项 保持在最底部 -->
+<script  src="/js/boot.js" ></script>
+
+
+</body>
+</html>
