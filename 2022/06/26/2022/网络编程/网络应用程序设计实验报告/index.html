@@ -1,0 +1,561 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=&#34;auto&#34;>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/favicon.jpg">
+  <link rel="icon" href="/img/favicon.jpg">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="description" content="𝐍&#39;𝐨𝐮𝐛𝐥𝐢é 𝐩𝐚𝐬 𝐝𝐞 𝐭&#39;𝐚𝐢𝐦𝐞𝐫">
+  <meta name="author" content="prinscarce">
+  <meta name="keywords" content="">
+  
+  <title>prinscarce</title>
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" />
+
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-markdown-css@4.0.0/github-markdown.min.css" />
+  <link  rel="stylesheet" href="/lib/hint/hint.min.css" />
+
+  
+    
+    
+      
+      <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@10.7.2/styles/github-gist.min.css" />
+    
+  
+
+  
+    <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css" />
+  
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_ba1fz6golrf.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_kmeydafke9r.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+<!-- 自定义样式保持在最底部 -->
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    var CONFIG = {"hostname":"prinscarce.github.io","root":"/","version":"1.8.11","typing":{"enable":true,"typeSpeed":80,"cursorChar":"_","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":true,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null}},"search_path":"/local-search.xml"};
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+<!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
+<!-- hexo injector head_end end --><meta name="generator" content="Hexo 5.4.0"></head>
+
+
+<body>
+  <header style="height: 70vh;">
+    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand"
+       href="/">&nbsp;<strong>serendipity</strong>&nbsp;</a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                首页
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                归档
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                分类
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                标签
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                关于
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" data-toggle="modal" data-target="#modalSearch">&nbsp;<i
+                class="iconfont icon-search"></i>&nbsp;</a>
+          </li>
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+    <div class="banner" id="banner" parallax=true
+         style="background: url('/img/default.jpg') no-repeat center center;
+           background-size: cover;">
+      <div class="full-bg-img">
+        <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+          <div class="page-header text-center fade-in-up">
+            <span class="h2" id="subtitle" title="">
+              
+            </span>
+
+            
+              <div class="mt-3">
+  
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-author" aria-hidden="true"></i>
+      prinscarce
+    </span>
+  
+  
+</div>
+
+<div class="mt-1">
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-chart"></i>
+      2.1k 字
+    </span>
+  
+
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-clock-fill"></i>
+      
+      
+      29
+       分钟
+    </span>
+  
+
+  
+  
+    
+      <!-- 不蒜子统计文章PV -->
+      <span id="busuanzi_container_page_pv" style="display: none">
+        <i class="iconfont icon-eye" aria-hidden="true"></i>
+        <span id="busuanzi_value_page_pv"></span> 次
+      </span>
+    
+  
+</div>
+
+            
+          </div>
+
+          
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div class="py-5" id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none"></h1>
+            
+            <div class="markdown-body">
+              <h1 id="网络应用程序设计实验报告"><a href="#网络应用程序设计实验报告" class="headerlink" title="网络应用程序设计实验报告"></a>网络应用程序设计实验报告</h1><blockquote>
+<p>Ubuntu 20.04</p>
+<p>IntelliJ IDEA Community Edition 2021.3.3</p>
+<p>jdk-17.0.1</p>
+</blockquote>
+<h2 id="1-Linux平台上的TCP并发服务"><a href="#1-Linux平台上的TCP并发服务" class="headerlink" title="1 Linux平台上的TCP并发服务"></a>1 Linux平台上的TCP并发服务</h2><h3 id="一、实验内容"><a href="#一、实验内容" class="headerlink" title="一、实验内容"></a>一、实验内容</h3><p>掌握基本套接字函数使用方法、TCP协议工作原理、并发服务原理和编程方法。实验内容：在Linux平台上实现1个TCP并发服务器，至少可以为10个客户端同时提供服务。</p>
+<ol>
+<li><p>基于TCP套接字编写服务器端程序代码，然后编译和调试；</p>
+</li>
+<li><p>服务器程序要达到：可以绑定从终端输入的IP地址和端口；可以显示每一个进程的进程号；可以显示当前并发执行的进程数量；可以根据客户机要求的服务时间确定进程的生存时间。</p>
+</li>
+<li><p>基于TCP套接字编写客户端程序代码，然后编译和调试；</p>
+</li>
+<li><p>客户端程序要达到：可以从终端输入服务器的IP地址和端口；可以从终端输入对服务器的服务时间要求。</p>
+</li>
+<li><p>联调服务器和客户端，服务器每收到一个连接就新建一个子进程，在子进程中接收客户端的服务时间请求，根据所请求的时间进行延时，然后终止子进程。如：客户端请求服务10s，则服务器的子进程运行10s，然后结束。</p>
+</li>
+<li><p>服务器要清除因并发服务而产生的僵尸进程。</p>
+</li>
+</ol>
+<h3 id="二、实验思想"><a href="#二、实验思想" class="headerlink" title="二、实验思想"></a>二、实验思想</h3><p>服务端进行监听请求，当得到请求后进行子进程的处理，完成后继续监听。这里设置处理上限为10个客户端，用一个数组来进行记录，当超过上限时会显示服务器超进程数。</p>
+<h3 id="三、实验设计"><a href="#三、实验设计" class="headerlink" title="三、实验设计"></a>三、实验设计</h3><h4 id="服务器端"><a href="#服务器端" class="headerlink" title="服务器端"></a>服务器端</h4><p>设置进程监控数组，监控函数</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs c"><span class="hljs-keyword">int</span> maxPro[<span class="hljs-number">10</span>] = &#123; <span class="hljs-number">0</span>,<span class="hljs-number">0</span>,<span class="hljs-number">0</span>,<span class="hljs-number">0</span>,<span class="hljs-number">0</span>,<span class="hljs-number">0</span>,<span class="hljs-number">0</span>,<span class="hljs-number">0</span>,<span class="hljs-number">0</span>,<span class="hljs-number">0</span> &#125;, count = <span class="hljs-number">-1</span>;<br><span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">checksp</span><span class="hljs-params">(<span class="hljs-keyword">int</span>* livesp)</span> </span>&#123;<br>	<span class="hljs-keyword">int</span> count = <span class="hljs-number">-1</span>, i = <span class="hljs-number">0</span>;<br>	<span class="hljs-keyword">for</span> (; i &lt; <span class="hljs-number">10</span>; i++) &#123;<br>		<span class="hljs-keyword">if</span> (maxPro[i] != <span class="hljs-number">0</span>) &#123;<br>			<span class="hljs-keyword">if</span> (kill(maxPro[i], <span class="hljs-number">0</span>) != <span class="hljs-number">0</span>) &#123; maxPro[i] = <span class="hljs-number">0</span>; count = i; &#125;<br>		&#125;<br>		<span class="hljs-keyword">else</span> count = i;<br>	&#125;<br>	<span class="hljs-keyword">return</span> count;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<p>创建网络端口并填充地址</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><code class="hljs c"><span class="hljs-comment">//创建网络端点</span><br>sockfd = socket(AF_INET, SOCK_STREAM, <span class="hljs-number">0</span>);<br><span class="hljs-keyword">if</span> (sockfd == <span class="hljs-number">-1</span>) &#123;<br>	<span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;can;t create socket\n&quot;</span>);<br>	<span class="hljs-built_in">exit</span>(<span class="hljs-number">1</span>);<br>&#125;<br><span class="hljs-keyword">if</span> (argc == <span class="hljs-number">2</span>) &#123;<br>	<span class="hljs-keyword">int</span> on = <span class="hljs-number">1</span>;<br>	setsockopt(sockfd, SOL_SOCKET, SO_REUSEADDR, &amp;on, <span class="hljs-keyword">sizeof</span>(on));<br>	<span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;reuse addr\n&quot;</span>);<br>&#125;<br><span class="hljs-comment">//填充地址</span><br>bzero(&amp;srvaddr, <span class="hljs-keyword">sizeof</span>(srvaddr));<br>srvaddr.sin_family = AF_INET;<br>srvaddr.sin_port = htons(PORT);<br>srvaddr.sin_addr.s_addr = inet_addr(<span class="hljs-string">&quot;127.0.0.1&quot;</span>);<br></code></pre></td></tr></table></figure>
+
+<p>绑定并监听端口</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs c"><span class="hljs-comment">//bind</span><br><span class="hljs-keyword">if</span> (bind(sockfd, (struct sockaddr*) &amp; srvaddr, <span class="hljs-keyword">sizeof</span>(struct sockaddr)) == <span class="hljs-number">-1</span>) &#123;<br>	<span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;bind error\n&quot;</span>);<br>	<span class="hljs-built_in">exit</span>(<span class="hljs-number">1</span>);<br>&#125;<br><span class="hljs-comment">//listen</span><br><span class="hljs-keyword">if</span> (listen(sockfd, BACKLOG) == <span class="hljs-number">-1</span>) &#123;<br>	<span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;listen error\n&quot;</span>);<br>	<span class="hljs-built_in">exit</span>(<span class="hljs-number">1</span>);<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<p>检查子进程个数</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs c"><span class="hljs-keyword">for</span> (;;) &#123;<br>		count = checksp(maxPro);<br>		<span class="hljs-keyword">if</span> (count == <span class="hljs-number">-1</span>) &#123; <span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;server has been reached maxinum of process!!!\n&quot;</span>); <span class="hljs-keyword">continue</span>; &#125;<br>		<span class="hljs-keyword">char</span> dest[MAXDATASIZE] = &#123; <span class="hljs-string">&quot;&quot;</span> &#125;;<br>		mypid = fork();<br>    	<span class="hljs-comment">//...</span><br>&#125;<br></code></pre></td></tr></table></figure>
+
+<p>等待监听过程</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs c"><span class="hljs-keyword">if</span> (mypid == <span class="hljs-number">0</span>) &#123;<br>		<span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;pid:%d  listening...\n&quot;</span>, getpid());<br>		sin_size = <span class="hljs-keyword">sizeof</span>(struct sockaddr_in);<br>		<span class="hljs-keyword">if</span> ((new_fd = accept(sockfd, (struct sockaddr*) &amp; clientaddr, &amp;sin_size)) == <span class="hljs-number">-1</span>) &#123;<br>			<span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;accept error\n&quot;</span>);<br>			<span class="hljs-keyword">continue</span>;<br>		&#125;<br></code></pre></td></tr></table></figure>
+
+<p>获得请求与返回响应</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs c"><span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;client addr:%s %d\n&quot;</span>, inet_ntoa(clientaddr.sin_addr), ntohs(clientaddr.sin_port));<br><span class="hljs-comment">//接收请求</span><br>getchar();<br>nbytes = read(new_fd, buf, MAXDATASIZE);<br>buf[nbytes] = <span class="hljs-string">&#x27;\0&#x27;</span>;<br><span class="hljs-comment">//...</span><br><span class="hljs-comment">//回送响应</span><br><span class="hljs-built_in">sprintf</span>(buf, <span class="hljs-string">&quot;proc shutdown.&quot;</span>);<br>write(new_fd, buf, <span class="hljs-built_in">strlen</span>(buf));<br></code></pre></td></tr></table></figure>
+
+<h4 id="客户端"><a href="#客户端" class="headerlink" title="客户端"></a>客户端</h4><p>创建网络端口同理</p>
+<p>指定服务器地址</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><code class="hljs c">bzero(&amp;srvaddr,<span class="hljs-keyword">sizeof</span>(srvaddr));<br>srvaddr.sin_family=AF_INET;<br>srvaddr.sin_port=htons(port);<br><br><span class="hljs-keyword">if</span>(inet_aton(<span class="hljs-string">&quot;127.0.0.1&quot;</span>,&amp;srvaddr.sin_addr)==<span class="hljs-number">-1</span>)&#123;<br>	<span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;addr convert error\n&quot;</span>);<br>	<span class="hljs-built_in">exit</span>(<span class="hljs-number">1</span>);<br>&#125;<br><br><span class="hljs-keyword">if</span>(addr_conv(argv[<span class="hljs-number">1</span>],&amp;srvaddr.sin_addr)==<span class="hljs-number">-1</span>)&#123;<br>	perror(strerror(errno));<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<p>连接服务器</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs c"><span class="hljs-keyword">if</span>(new_fd = connect(sockfd,(struct sockaddr *)&amp;srvaddr,<span class="hljs-keyword">sizeof</span>(struct sockaddr))==<span class="hljs-number">-1</span>)&#123;<br>	<span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;connect error\n&quot;</span>);<br>	<span class="hljs-built_in">exit</span>(<span class="hljs-number">1</span>);<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<p>发送请求与接受响应</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs c"><span class="hljs-built_in">sprintf</span>(buf,<span class="hljs-string">&quot;server time:%d&quot;</span>,surviveTime);<br>send(sockfd,buf,<span class="hljs-built_in">strlen</span>(buf),<span class="hljs-number">0</span>);<br><span class="hljs-keyword">if</span>((nbytes=recv(sockfd,buf,MAXDATASIZE,<span class="hljs-number">0</span>))==<span class="hljs-number">-1</span>)&#123;<br>	<span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;read error\n&quot;</span>);<br>	<span class="hljs-built_in">exit</span>(<span class="hljs-number">1</span>);<br>&#125;<br>buf[nbytes]=<span class="hljs-string">&#x27;\0&#x27;</span>;<br><span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;srv respons:%s\n&quot;</span>,buf);<br>sleep(surviveTime);<br></code></pre></td></tr></table></figure>
+
+<h3 id="四、实验结果"><a href="#四、实验结果" class="headerlink" title="四、实验结果"></a>四、实验结果</h3><p> 仅单个客户端运行</p>
+<p><img src="/2022/06/26/2022/%E7%BD%91%E7%BB%9C%E7%BC%96%E7%A8%8B/%E7%BD%91%E7%BB%9C%E5%BA%94%E7%94%A8%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E5%AE%9E%E9%AA%8C%E6%8A%A5%E5%91%8A/prinscarce\XDU\STDUY\大三下\网络应用程序设计\实验\mine\image-20220625201029271.png" srcset="/img/loading.gif" lazyload alt="image-20220625201029271"></p>
+<p>多个客户端运行</p>
+<p><img src="/2022/06/26/2022/%E7%BD%91%E7%BB%9C%E7%BC%96%E7%A8%8B/%E7%BD%91%E7%BB%9C%E5%BA%94%E7%94%A8%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E5%AE%9E%E9%AA%8C%E6%8A%A5%E5%91%8A/prinscarce\XDU\STDUY\大三下\网络应用程序设计\实验\mine\image-20220625201057696.png" srcset="/img/loading.gif" lazyload alt="image-20220625201057696"></p>
+<h2 id="2-进程间的协调通信"><a href="#2-进程间的协调通信" class="headerlink" title="2 进程间的协调通信"></a>2 <strong>进程间的协调通信</strong></h2><h3 id="一、实验内容-1"><a href="#一、实验内容-1" class="headerlink" title="一、实验内容"></a>一、实验内容</h3><p>掌握进程的概念、进程间通信的基本原理、集成间通信的主要类型和各自的特点。实验内容：在linux平台上实现1个父进程、2个子进程，利用管道和共享内存实现两个子进程之间数据快速传送。</p>
+<ol>
+<li><p>创建一个进程，再创建一对管道、一块共享内存（大于64kB）；</p>
+</li>
+<li><p>通过fork（）函数生成2个子进程；</p>
+</li>
+<li><p>调试程序，确定父、子进程之间可以双向通信；</p>
+</li>
+<li><p>调试程序，确定两个子进程之间可以通过父进程中转实现双向通信；</p>
+</li>
+<li><p>调试程序，确定两个子进程都可访问共享内存；</p>
+</li>
+<li><p>实现两个子进程之间无冲突地访问共享内存。传送的数据块不小于32kB，为了能够看到演示效果，读/写每个字节后都延时0.5ms。</p>
+</li>
+</ol>
+<h3 id="二、实验思想-1"><a href="#二、实验思想-1" class="headerlink" title="二、实验思想"></a>二、实验思想</h3><p>管道通信只支持父进程与子进程之间通信，想要完成2子进程之间的通信的话需要通过父进程作为桥梁来通信。当使用fork函数时，子进程继承父进程共享内存空间，这样就不需要再依靠父进程维护通信，只是需要在一个进程读写时加上锁就可以防止读写混乱。</p>
+<h3 id="三、实验设计-1"><a href="#三、实验设计-1" class="headerlink" title="三、实验设计"></a>三、实验设计</h3><h4 id="利用管道通信"><a href="#利用管道通信" class="headerlink" title="利用管道通信"></a>利用管道通信</h4><p>管道初始化</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs c++"><span class="hljs-keyword">int</span> pipe1[<span class="hljs-number">2</span>],pipe2[<span class="hljs-number">2</span>];<br><span class="hljs-keyword">int</span> pid1,pid2;<br><span class="hljs-keyword">int</span> n;<br><span class="hljs-keyword">char</span> buf1[<span class="hljs-number">128</span>];<br><span class="hljs-keyword">char</span> buf2[<span class="hljs-number">128</span>];<br><span class="hljs-comment">//init</span><br><span class="hljs-built_in">memset</span>(buf1,<span class="hljs-string">&#x27;\0&#x27;</span>,<span class="hljs-number">128</span>); <br><span class="hljs-built_in">memset</span>(buf2,<span class="hljs-string">&#x27;\0&#x27;</span>,<span class="hljs-number">128</span>);<br><span class="hljs-keyword">if</span>(<span class="hljs-built_in">pipe</span>(pipe1)&lt;<span class="hljs-number">0</span>||<span class="hljs-built_in">pipe</span>(pipe2)&lt;<span class="hljs-number">0</span>)&#123;<br>	cout&lt;&lt;<span class="hljs-string">&quot;pipe error&quot;</span>&lt;&lt;endl;<br>   &#125;<br></code></pre></td></tr></table></figure>
+
+<p>父进程用管道一读数据，管道二写数据</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs c++"><span class="hljs-keyword">if</span>((pid1=fork())==<span class="hljs-number">-1</span>)<br>	&#123;<br>		<span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;childprocess1 failed!&quot;</span>);<br>	&#125;<br>	<span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span>(pid1 &gt; <span class="hljs-number">0</span>)<br>	&#123;<br>		cout&lt;&lt;<span class="hljs-string">&quot;father PID:&quot;</span>&lt;&lt;<span class="hljs-built_in">getpid</span>()&lt;&lt;endl;<br>		<span class="hljs-keyword">if</span>(<span class="hljs-built_in">read</span>(pipe1[<span class="hljs-number">0</span>],buf1,<span class="hljs-number">100</span>)&gt;<span class="hljs-number">0</span>)<br>			cout&lt;&lt;<span class="hljs-string">&quot;father received:&quot;</span>&lt;&lt;buf1&lt;&lt;endl;<br>		<span class="hljs-built_in">write</span>(pipe2[<span class="hljs-number">1</span>],buf1,<span class="hljs-built_in">strlen</span>(buf1));<br>	&#125;<br></code></pre></td></tr></table></figure>
+
+<p>子进程1用管道一写数据</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs c++"><span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span>(pid1==<span class="hljs-number">0</span>)<br>&#123;<br>	cout&lt;&lt;<span class="hljs-string">&quot;child1 PID:&quot;</span>&lt;&lt;<span class="hljs-built_in">getpid</span>()&lt;&lt;endl;<br>	<span class="hljs-comment">//子进程用管道1写数据</span><br>	<span class="hljs-built_in">close</span>(pipe1[<span class="hljs-number">0</span>]);<span class="hljs-comment">//关闭pipe1读端口</span><br>	<span class="hljs-built_in">close</span>(pipe2[<span class="hljs-number">0</span>]);<span class="hljs-comment">//关闭pipe2读端口</span><br>	<span class="hljs-built_in">close</span>(pipe2[<span class="hljs-number">1</span>]);<span class="hljs-comment">//关闭pipe2写端口</span><br>	<span class="hljs-built_in">write</span>(pipe1[<span class="hljs-number">1</span>],cstr,<span class="hljs-built_in">strlen</span>(cstr));<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<p>子进程2用管道二读数据</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><code class="hljs c++"><span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span>(pid2==<span class="hljs-number">0</span>)<br>&#123;<br>	<span class="hljs-comment">//子进程2用管道2读数据</span><br>	<span class="hljs-built_in">close</span>(pipe1[<span class="hljs-number">0</span>]);<br>	<span class="hljs-built_in">close</span>(pipe1[<span class="hljs-number">1</span>]);<br>	<span class="hljs-built_in">close</span>(pipe2[<span class="hljs-number">1</span>]);<br>	<span class="hljs-keyword">if</span>(<span class="hljs-built_in">read</span>(pipe2[<span class="hljs-number">0</span>],buf2,<span class="hljs-number">128</span>)&gt;<span class="hljs-number">0</span>)<br>	&#123;<br>		<span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;In child2 : pid=%d\n&quot;</span>,<span class="hljs-built_in">getpid</span>());<br>		<span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;In child2 : buf=%s\n&quot;</span>,buf2);<br>		<span class="hljs-built_in">exit</span>(<span class="hljs-number">0</span>);<br>	&#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<h4 id="利用共享内存"><a href="#利用共享内存" class="headerlink" title="利用共享内存"></a>利用共享内存</h4><p>获取由mem_size指定大小的共享内存id</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs c++"><span class="hljs-comment">//...</span><br>shmid=<span class="hljs-built_in">shmget</span>(key,MEM_SIZE,<span class="hljs-number">0777</span>|IPC_CREAT);<br><span class="hljs-keyword">if</span>(shmid==<span class="hljs-number">-1</span>)<br>&#123;<br>	<span class="hljs-built_in">perror</span>(<span class="hljs-string">&quot;shmget error&quot;</span>);<br>	<span class="hljs-built_in">exit</span>(<span class="hljs-number">1</span>);<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<p>读写锁的实现，子进程1写入，子进程2读出</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><code class="hljs c++"><span class="hljs-comment">//...</span><br><span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span>(pid1&gt;<span class="hljs-number">0</span>)<br>&#123;<br>	cout&lt;&lt;<span class="hljs-string">&quot;father PID:&quot;</span>&lt;&lt;<span class="hljs-built_in">getpid</span>()&lt;&lt;endl;<br>	<span class="hljs-built_in">wait</span>(&amp;status);<br>	p_addr = (<span class="hljs-keyword">char</span>* )<span class="hljs-built_in">shmat</span>(shmid,<span class="hljs-number">0</span>,<span class="hljs-number">0</span>);<br>	cout&lt;&lt;<span class="hljs-string">&quot;father received:&quot;</span>&lt;&lt;p_addr&lt;&lt;endl;<br>&#125;<br><span class="hljs-keyword">else</span><br>&#123;<br>	cout&lt;&lt;<span class="hljs-string">&quot;child1 PID:&quot;</span>&lt;&lt;<span class="hljs-built_in">getpid</span>()&lt;&lt;endl;<br>	c1_addr = (<span class="hljs-keyword">char</span>* )<span class="hljs-built_in">shmat</span>(shmid,<span class="hljs-number">0</span>,<span class="hljs-number">0</span>);<br>	<span class="hljs-built_in">memset</span>(c1_addr, <span class="hljs-string">&#x27;\0&#x27;</span>,<span class="hljs-number">1024</span>);<br>	<span class="hljs-built_in">strncpy</span>(c1_addr,text,<span class="hljs-number">1024</span>);<br>	<span class="hljs-built_in">exit</span>(<span class="hljs-number">0</span>);<br>&#125;<br><span class="hljs-comment">//...</span><br><span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span>(pid2==<span class="hljs-number">0</span>)<br>&#123;			<br>	c2_addr = (<span class="hljs-keyword">char</span>* )<span class="hljs-built_in">shmat</span>(shmid,<span class="hljs-number">0</span>,<span class="hljs-number">0</span>);<br>	cout&lt;&lt;<span class="hljs-string">&quot;child2 PID:&quot;</span>&lt;&lt;<span class="hljs-built_in">getpid</span>()&lt;&lt;endl;<br>	cout&lt;&lt;<span class="hljs-string">&quot;child2 received:&quot;</span>&lt;&lt;c2_addr&lt;&lt;endl;<br>	<span class="hljs-built_in">exit</span>(<span class="hljs-number">0</span>);<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<h3 id="四、实验结果-1"><a href="#四、实验结果-1" class="headerlink" title="四、实验结果"></a>四、实验结果</h3><p>利用管道通信</p>
+<p><img src="/2022/06/26/2022/%E7%BD%91%E7%BB%9C%E7%BC%96%E7%A8%8B/%E7%BD%91%E7%BB%9C%E5%BA%94%E7%94%A8%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E5%AE%9E%E9%AA%8C%E6%8A%A5%E5%91%8A/prinscarce\XDU\STDUY\大三下\网络应用程序设计\实验\mine\UC3932%OB682P@@}17[JQD1.png" srcset="/img/loading.gif" lazyload alt="img"></p>
+<p>利用共享内存</p>
+<p><img src="/2022/06/26/2022/%E7%BD%91%E7%BB%9C%E7%BC%96%E7%A8%8B/%E7%BD%91%E7%BB%9C%E5%BA%94%E7%94%A8%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E5%AE%9E%E9%AA%8C%E6%8A%A5%E5%91%8A/prinscarce\XDU\STDUY\大三下\网络应用程序设计\实验\mine\image-20220625203806813.png" srcset="/img/loading.gif" lazyload alt="image-20220625203806813"></p>
+<h2 id="3-Windows平台上的TCP并发服务"><a href="#3-Windows平台上的TCP并发服务" class="headerlink" title="3 Windows平台上的TCP并发服务"></a>3 Windows平台上的TCP并发服务</h2><h3 id="一、实验内容-2"><a href="#一、实验内容-2" class="headerlink" title="一、实验内容"></a>一、实验内容</h3><p>编程内容与实验1相同，操作系统为windows。了解Windows与Linux平台编程环境的差异，掌握Winsock编程接口及编程方法。</p>
+<h3 id="二、实验思想-2"><a href="#二、实验思想-2" class="headerlink" title="二、实验思想"></a>二、实验思想</h3><p>利用并发服务中的线程池技术来完成本实验，监听端口设为8189</p>
+<h3 id="三、实验设计-2"><a href="#三、实验设计-2" class="headerlink" title="三、实验设计"></a>三、实验设计</h3><h4 id="服务端"><a href="#服务端" class="headerlink" title="服务端"></a>服务端</h4><p>创建端口并监听</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs java">Socket socket = <span class="hljs-keyword">null</span>;<br>   ServerSocket listenSocket = <span class="hljs-keyword">new</span> ServerSocket(<span class="hljs-number">8189</span>);<br></code></pre></td></tr></table></figure>
+
+<p>接收到客户端请求</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs java">socket = listenSocket.accept();<br>System.out.println(<span class="hljs-string">&quot;Accepted connection from client&quot;</span>);<br></code></pre></td></tr></table></figure>
+
+<p>进行通信</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs java">InputStream inStream = socket.getInputStream();<br>OutputStream outStream = socket.getOutputStream();<br>BufferedReader in = <span class="hljs-keyword">new</span> BufferedReader(<span class="hljs-keyword">new</span> InputStreamReader(inStream));<br>PrintWriter out = <span class="hljs-keyword">new</span> PrintWriter(outStream);<br><br>String str = <span class="hljs-keyword">null</span>;<br><span class="hljs-keyword">while</span>((str=in.readLine())!=<span class="hljs-keyword">null</span>) &#123;<br>	System.out.println(<span class="hljs-string">&quot;Message from client:&quot;</span> + str);<br>	out.println(str);<br>	out.flush();<br>   &#125;<br></code></pre></td></tr></table></figure>
+
+<p>关闭socket</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs java">socket.close();<br>listenSocket.close();<br></code></pre></td></tr></table></figure>
+
+<h4 id="客户端-1"><a href="#客户端-1" class="headerlink" title="客户端"></a>客户端</h4><p>创建socket并建立连接</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs java">BufferedReader stdIn = <span class="hljs-keyword">new</span> BufferedReader(<span class="hljs-keyword">new</span> InputStreamReader(System.in));<br><br>   Socket socket = <span class="hljs-keyword">new</span> Socket(<span class="hljs-string">&quot;127.0.0.1&quot;</span>, <span class="hljs-number">8189</span>);<br>   System.out.println(<span class="hljs-string">&quot;Connected to Server&quot;</span>);<br></code></pre></td></tr></table></figure>
+
+<p>进行通信与关闭socket</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><code class="hljs java">   InputStream inStream = socket.getInputStream();<br>   OutputStream outStream = socket.getOutputStream();<br>   BufferedReader in = <span class="hljs-keyword">new</span> BufferedReader(<span class="hljs-keyword">new</span> InputStreamReader(inStream));<br>   PrintWriter out = <span class="hljs-keyword">new</span> PrintWriter(outStream);<br><span class="hljs-keyword">while</span>((input=stdIn.readLine())!=<span class="hljs-keyword">null</span>)<br>   &#123;<br>       out.println(input);<br>       out.flush();<br>       echoMessage = in.readLine();<br>       System.out.println(<span class="hljs-string">&quot;Echo from server: &quot;</span> + echoMessage);<br>   &#125;<br>   socket.close();<br></code></pre></td></tr></table></figure>
+
+<h3 id="四、实验结果-2"><a href="#四、实验结果-2" class="headerlink" title="四、实验结果"></a>四、实验结果</h3><p>客户端、服务端连接后，互相通信</p>
+<img src="/2022/06/26/2022/%E7%BD%91%E7%BB%9C%E7%BC%96%E7%A8%8B/%E7%BD%91%E7%BB%9C%E5%BA%94%E7%94%A8%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E5%AE%9E%E9%AA%8C%E6%8A%A5%E5%91%8A/prinscarce\XDU\STDUY\大三下\网络应用程序设计\实验\mine\image-20220625205852023.png" srcset="/img/loading.gif" lazyload style="zoom:67%;">
+
+<img src="/2022/06/26/2022/%E7%BD%91%E7%BB%9C%E7%BC%96%E7%A8%8B/%E7%BD%91%E7%BB%9C%E5%BA%94%E7%94%A8%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E5%AE%9E%E9%AA%8C%E6%8A%A5%E5%91%8A/prinscarce\XDU\STDUY\大三下\网络应用程序设计\实验\mine\image-20220625205911199.png" srcset="/img/loading.gif" lazyload alt="image-20220625205911199" style="zoom:67%;">
+
+
+
+
+            </div>
+            <hr>
+            <div>
+              <div class="post-metas mb-3">
+                
+                
+              </div>
+              
+                <p class="note note-warning">
+                  
+                    本博客所有文章除特别声明外，均采用 <a target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" rel="nofollow noopener noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！
+                  
+                </p>
+              
+              
+                <div class="post-prevnext">
+                  <article class="post-prev col-6">
+                    
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2022/04/29/2022/%E5%88%86%E5%B8%83%E5%BC%8F%E8%AE%A1%E7%AE%97/%E5%AE%9E%E9%AA%8C%E5%9B%9B/exp4/">
+                        <span class="hidden-mobile">利用MOM消息队列技术实现一个分布式随机信号分析系统</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+          </article>
+        </div>
+      </div>
+    </div>
+    
+      <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
+        <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目录</p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+      </div>
+    
+  </div>
+</div>
+
+<!-- Custom -->
+
+
+    
+
+    
+      <a id="scroll-top-button" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v"
+                 for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+
+    
+  </main>
+
+  <footer class="text-center mt-5 py-3">
+  <div class="footer-content">
+     <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> <div> <span id="timeDate">载入天数...</span> <span id="times">载入时分秒...</span> <script src="/js/duration.js"></script> </div> 
+  </div>
+  
+
+  
+
+  
+</footer>
+
+
+  <!-- SCRIPTS -->
+  
+  <script  src="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js" ></script>
+<script  src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+<!-- Plugins -->
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+  
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/tocbot@4.12.3/dist/tocbot.min.js" ></script>
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js" ></script>
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/anchor-js@4.3.1/anchor.min.js" ></script>
+
+
+
+  <script defer src="https://cdn.jsdelivr.net/npm/clipboard@2.0.8/dist/clipboard.min.js" ></script>
+
+
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+  <script defer src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" ></script>
+
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12/lib/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var title = document.getElementById('subtitle').title;
+      
+      typing(title)
+      
+    })(window, document);
+  </script>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+
+
+
+
+<!-- 主题的启动项 保持在最底部 -->
+<script  src="/js/boot.js" ></script>
+
+
+</body>
+</html>
