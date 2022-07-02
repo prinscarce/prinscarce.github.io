@@ -242,7 +242,38 @@
 
 <article class="about-content page-content mt-5">
   <div class="markdown-body">
-    <p>计算机在读的菜狗，努力学习中！</p>
+    <script src="https://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/gh/litstronger/live2d-moc3@master/js/frame/live2dcubismcore.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pixi.js/4.6.1/pixi.min.js"></script>
+<script src="https://cdn.jsdelivr.net/gh/litstronger/live2d-moc3@master/js/live2dcubismframework.js"></script>
+<script src="https://cdn.jsdelivr.net/gh/litstronger/live2d-moc3@master/js/live2dcubismpixi.js"></script>
+<script src="https://cdn.jsdelivr.net/gh/litstronger/live2d-moc3@master/js/l2d.js"></script>
+<script src="https://cdn.jsdelivr.net/gh/litstronger/live2d-moc3@master/js/main.js"></script>
+<div class="Canvas" id="L2dCanvas"></div>
+<div>
+    <script>
+        var config = {
+            width: 800,
+            height: 600,
+            right: '-300px',
+            bottom: '-100px',
+            basePath: './live2d_models',
+            role: 'claudine',
+            background: '',
+            opacity: 1,
+            mobile: false
+        }
+        var v = new Viewer(config); 
+        window.onload = function(){
+            let dom = document.querySelector('.Canvas')
+            console.log(dom)
+            dom.style["pointer-events"]= 'none'
+        }
+    </script>
+</div>
+
+
+<p>计算机在读的菜狗，努力学习中！</p>
 <hr>
 <p>封面图：min@泉水煮茶菌：<a target="_blank" rel="noopener" href="https://weibo.com/u/2828274924">https://weibo.com/u/2828274924</a></p>
 
@@ -398,5 +429,5 @@
 <script  src="/js/boot.js" ></script>
 
 
-<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"display":{"position":"right","width":150,"height":300},"mobile":{"show":true},"jsonPath":"/null"},"log":false});</script></body>
+</body>
 </html>
