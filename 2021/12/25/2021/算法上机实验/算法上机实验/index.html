@@ -242,7 +242,7 @@
 <h3 id="二、题目描述"><a href="#二、题目描述" class="headerlink" title="二、题目描述"></a>二、题目描述</h3><p><strong>模型。</strong> 我们使用N×N网格点来模型一个渗透系统。 每个格点或是open格点或是blocked格点。 一个full site是一个open格点，它可以通过一连串的邻近（左，右，上，下）open格点连通到顶行的一个open格点。如果在底行中有一个full site格点，则称系统是渗透的。（对于绝缘/金属材料的例子，open格点对应于金属材料，渗透系统有一条从顶行到底行的金属路径，且full sites格点导电。对于多孔物质示例，open格点对应于空格，水可能流过，从而渗透系统使水充满open格点，自顶向下流动。）</p>
 <p><img src="/images/algs4/image-20211225134840912.png" srcset="/img/loading.gif" lazyload></p>
 <p><strong>问题。</strong> 在一个著名的科学问题中，研究人员对以下问题感兴趣：如果将格点以空置概率p独立地设置为open格点（因此以概率1-p被设置为blocked格点），系统渗透的概率是多少？ 当p = 0时，系统不会渗出; 当p=1时，系统渗透。 下图显示了20×20随机网格（左）和100×100随机网格（右）的格点空置概率p与渗滤概率。</p>
-<p>​                                <img src="/images/algs4/image-20211225134910165.png" srcset="/img/loading.gif" lazyload>           <img src="images/algs4/image-20211225134919354.png" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/images/algs4/image-20211225134910165.png" srcset="/img/loading.gif" lazyload>  <img src="images/algs4/image-20211225134919354.png" srcset="/img/loading.gif" lazyload></p>
 <p><strong>当N足够大时，存在阈值p</strong><em>，使得当p &lt;p* ，随机N N网格几乎不会渗透，并且当p&gt; p</em>时，随机N N网格几乎总是渗透。 尚未得出用于确定渗滤阈值p<em>的数学解。<strong>你的任务是编写一个计算机程序来估计p</strong></em>。</p>
 <h3 id="三、解决方法"><a href="#三、解决方法" class="headerlink" title="三、解决方法"></a>三、解决方法</h3><p><strong>Percolation数据类型。</strong>模型化一个Percolation系统，创建含有以下API的数据类型Percolation。</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Percolation</span> </span>&#123;<br>   <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-title">Percolation</span><span class="hljs-params">(<span class="hljs-keyword">int</span> N)</span>           <span class="hljs-comment">// create N-by-N grid, with all sites blocked</span></span><br><span class="hljs-function">   <span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">open</span><span class="hljs-params">(<span class="hljs-keyword">int</span> i, <span class="hljs-keyword">int</span> j)</span>         <span class="hljs-comment">// open site (row i, column j) if it is not already</span></span><br><span class="hljs-function">   <span class="hljs-keyword">public</span> <span class="hljs-keyword">boolean</span> <span class="hljs-title">isOpen</span><span class="hljs-params">(<span class="hljs-keyword">int</span> i, <span class="hljs-keyword">int</span> j)</span>    <span class="hljs-comment">// is site (row i, column j) open?</span></span><br><span class="hljs-function">   <span class="hljs-keyword">public</span> <span class="hljs-keyword">boolean</span> <span class="hljs-title">isFull</span><span class="hljs-params">(<span class="hljs-keyword">int</span> i, <span class="hljs-keyword">int</span> j)</span>     <span class="hljs-comment">// is site (row i, column j) full?</span></span><br><span class="hljs-function">   <span class="hljs-keyword">public</span> <span class="hljs-keyword">boolean</span> <span class="hljs-title">percolates</span><span class="hljs-params">()</span>          <span class="hljs-comment">// does the system percolate?</span></span><br><span class="hljs-function">   <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">main</span><span class="hljs-params">(String[] args)</span>  <span class="hljs-comment">// test client, optional</span></span><br><span class="hljs-function">&#125;</span><br></code></pre></td></tr></table></figure>
@@ -259,8 +259,7 @@
 <li>open格点的比例提供了系统渗透时渗透阈值的一个估计。</li>
 </ul>
 <p>例如，如果在20×20的网格中，根据以下快照的<em>open</em>格点数，那么对渗滤阈值的估计是204/400 = 0.51，因为当第204个格点被<em>open</em>时系统渗透。</p>
-<img src="images/algs4/image-20211225135642643.png" srcset="/img/loading.gif" lazyload alt style="zoom: 50%;">
-
+<p><img src="/images/algs4/image-20211225135642643.png" srcset="/img/loading.gif" lazyload></p>
 <p>通过重复该计算实验<em>T</em>次并对结果求平均值，我们获得了更准确的渗滤阈值估计。 令<em>xt</em>是第<em>t</em>次计算实验中<em>open</em>格点所占比例。 样本均值<em>m</em>提供渗滤阈值的一个估计值； 样本标准差<em>s</em>测量阈值的灵敏性。<br>$$<br>\mu=\frac { x_1+x_2+\ldots+x_T } { T }, \sigma^2=\frac { { (x_1-\mu) } ^2+ { (x_2-\mu) } ^2 + \ldots+ { (x_T-\mu) } ^2 } { T-1 }<br>$$<br>假设<em>T</em>足够大（例如至少30），以下为渗滤阈值提供95％置信区间：<br>$$<br>\left[\mu-\frac { 1.96\sigma } {\sqrt T},\ \mu+\frac { 1.96\sigma } { \sqrt T }\right]<br>$$<br>我们创建<strong>数据类型PercolationStats来执行一系列计算实验</strong>，包含以下API。</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">PercolationStats</span> </span>&#123;<br>   <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-title">PercolationStats</span><span class="hljs-params">(<span class="hljs-keyword">int</span> N, <span class="hljs-keyword">int</span> T)</span>    <span class="hljs-comment">// perform T independent computational experiments on an N-by-N grid</span></span><br><span class="hljs-function">   <span class="hljs-keyword">public</span> <span class="hljs-keyword">double</span> <span class="hljs-title">mean</span><span class="hljs-params">()</span>                <span class="hljs-comment">// sample mean of percolation threshold</span></span><br><span class="hljs-function">   <span class="hljs-keyword">public</span> <span class="hljs-keyword">double</span> <span class="hljs-title">stddev</span><span class="hljs-params">()</span>               <span class="hljs-comment">// sample standard deviation of percolation threshold</span></span><br><span class="hljs-function">   <span class="hljs-keyword">public</span> <span class="hljs-keyword">double</span> <span class="hljs-title">confidenceLo</span><span class="hljs-params">()</span>         <span class="hljs-comment">// returns lower bound of the 95% confidence interval</span></span><br><span class="hljs-function">   <span class="hljs-keyword">public</span> <span class="hljs-keyword">double</span> <span class="hljs-title">confidenceHi</span><span class="hljs-params">()</span>         <span class="hljs-comment">// returns upper bound of the 95% confidence interval</span></span><br><span class="hljs-function">   <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">main</span><span class="hljs-params">(String[] args)</span>    <span class="hljs-comment">// test client, described below</span></span><br><span class="hljs-function">&#125;</span><br></code></pre></td></tr></table></figure>
 
@@ -275,7 +274,7 @@
 <p><strong>构造Percolate_problem类</strong>，使其能够实现存储渗透的点阵，并能够判断最后其点阵是否渗透。以下简单说明各函数功能以及实现要点。</p>
 <ol>
 <li><p>初始化时构造一个虚拟的顶部以及底部，以便判断是否渗透。因为有这俩顶点，所以进行初始化时QF和WQU都为<strong>N*N+2</strong></p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">if</span>(i == <span class="hljs-number">1</span>)	QF = <span class="hljs-keyword">new</span> QuickFindUF(N*N+<span class="hljs-number">2</span>);<br><span class="hljs-keyword">else</span>	WQU = <span class="hljs-keyword">new</span> WeightedQuickUnionUF(N*N+<span class="hljs-number">2</span>);<br>   <br>virtualTop = perRowColumnSize * perRowColumnSize;<br>virtualBottom = virtualTop + <span class="hljs-number">1</span>;<br></code></pre></td></tr></table></figure></li>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">if</span>(i == <span class="hljs-number">1</span>)	QF = <span class="hljs-keyword">new</span> QuickFindUF(N*N+<span class="hljs-number">2</span>);<br><span class="hljs-keyword">else</span>	WQU = <span class="hljs-keyword">new</span> WeightedQuickUnionUF(N*N+<span class="hljs-number">2</span>);<br><br>virtualTop = perRowColumnSize * perRowColumnSize;<br>virtualBottom = virtualTop + <span class="hljs-number">1</span>;<br></code></pre></td></tr></table></figure></li>
 <li><p>构建一个TransIndex函数，以便在查询节点位置中更简洁更易理解。</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">int</span> <span class="hljs-title">TransIndex</span><span class="hljs-params">(<span class="hljs-keyword">int</span> row,<span class="hljs-keyword">int</span> column)</span> </span>&#123;<br>	<span class="hljs-keyword">return</span> (row - <span class="hljs-number">1</span>) * perRowColumnSize + column - <span class="hljs-number">1</span>;<br>&#125;<br></code></pre></td></tr></table></figure></li>
 <li><p>输入t，以区分目前open的节点正在使用quickfind或是WeightedQuickUnion算法。open新节点时需连接上下左右，此时需小心是否溢出边界，是否直接为首行或者尾行（直接与虚顶和虚底进行连接）。</p>
@@ -304,31 +303,22 @@
 
 <h3 id="五、实验结果"><a href="#五、实验结果" class="headerlink" title="五、实验结果"></a>五、实验结果</h3><p><strong>测试数据：</strong></p>
 <p><strong>N = 10， Times = 100；</strong></p>
-<img src="/2021/12/25/2021/%E7%AE%97%E6%B3%95%E4%B8%8A%E6%9C%BA%E5%AE%9E%E9%AA%8C/%E7%AE%97%E6%B3%95%E4%B8%8A%E6%9C%BA%E5%AE%9E%E9%AA%8C/image-20211224135818426.png" srcset="/img/loading.gif" lazyload alt="image-20211224135818426" style="zoom: 80%;">
-
+<p><img src="/images/algs4/image-20211224135818426.png" srcset="/img/loading.gif" lazyload></p>
 <p><strong>N = 20， Times = 100；</strong></p>
-<img src="/2021/12/25/2021/%E7%AE%97%E6%B3%95%E4%B8%8A%E6%9C%BA%E5%AE%9E%E9%AA%8C/%E7%AE%97%E6%B3%95%E4%B8%8A%E6%9C%BA%E5%AE%9E%E9%AA%8C/image-20211224140433628.png" srcset="/img/loading.gif" lazyload alt="image-20211224140433628" style="zoom:80%;">
-
+<p><img src="/images/algs4/image-20211224140433628.png" srcset="/img/loading.gif" lazyload></p>
 <p><strong>N = 40， Times = 100；</strong></p>
-<img src="/2021/12/25/2021/%E7%AE%97%E6%B3%95%E4%B8%8A%E6%9C%BA%E5%AE%9E%E9%AA%8C/%E7%AE%97%E6%B3%95%E4%B8%8A%E6%9C%BA%E5%AE%9E%E9%AA%8C/image-20211224141036095.png" srcset="/img/loading.gif" lazyload alt="image-20211224141036095" style="zoom:80%;">
-
+<p><img src="/images/algs4/image-20211224141036095.png" srcset="/img/loading.gif" lazyload></p>
 <p><strong>N = 80， Times = 100；</strong></p>
-<img src="/2021/12/25/2021/%E7%AE%97%E6%B3%95%E4%B8%8A%E6%9C%BA%E5%AE%9E%E9%AA%8C/%E7%AE%97%E6%B3%95%E4%B8%8A%E6%9C%BA%E5%AE%9E%E9%AA%8C/image-20211224141117706.png" srcset="/img/loading.gif" lazyload alt="image-20211224141117706" style="zoom:80%;">
-
+<p><img src="/images/algs4/image-20211224141117706.png" srcset="/img/loading.gif" lazyload></p>
 <p><strong>N = 100， Times = 100；</strong></p>
-<img src="/2021/12/25/2021/%E7%AE%97%E6%B3%95%E4%B8%8A%E6%9C%BA%E5%AE%9E%E9%AA%8C/%E7%AE%97%E6%B3%95%E4%B8%8A%E6%9C%BA%E5%AE%9E%E9%AA%8C/image-20211224140022141.png" srcset="/img/loading.gif" lazyload alt="image-20211224140022141" style="zoom: 67%;">
-
+<p><img src="/images/algs4/image-20211224140022141.png" srcset="/img/loading.gif" lazyload></p>
 <p><strong>N = 160， Times = 100；</strong></p>
-<img src="/2021/12/25/2021/%E7%AE%97%E6%B3%95%E4%B8%8A%E6%9C%BA%E5%AE%9E%E9%AA%8C/%E7%AE%97%E6%B3%95%E4%B8%8A%E6%9C%BA%E5%AE%9E%E9%AA%8C/image-20211224141231709.png" srcset="/img/loading.gif" lazyload alt="image-20211224141231709" style="zoom:67%;">
-
+<p><img src="/images/algs4/image-20211224141231709.png" srcset="/img/loading.gif" lazyload></p>
 <p><strong>N = 200，Times = 100；</strong></p>
-<img src="/2021/12/25/2021/%E7%AE%97%E6%B3%95%E4%B8%8A%E6%9C%BA%E5%AE%9E%E9%AA%8C/%E7%AE%97%E6%B3%95%E4%B8%8A%E6%9C%BA%E5%AE%9E%E9%AA%8C/image-20211224135619797.png" srcset="/img/loading.gif" lazyload alt="image-20211224135619797" style="zoom:80%;">
-
-<img src="/2021/12/25/2021/%E7%AE%97%E6%B3%95%E4%B8%8A%E6%9C%BA%E5%AE%9E%E9%AA%8C/%E7%AE%97%E6%B3%95%E4%B8%8A%E6%9C%BA%E5%AE%9E%E9%AA%8C/image-20211224135632977.png" srcset="/img/loading.gif" lazyload alt="image-20211224135632977" style="zoom:80%;">
-
+<p><img src="/images/algs4/image-20211224135619797.png" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/images/algs4/image-20211224135632977.png" srcset="/img/loading.gif" lazyload></p>
 <p><strong>特殊情况：N = 2， Times = 100000；</strong></p>
-<img src="/2021/12/25/2021/%E7%AE%97%E6%B3%95%E4%B8%8A%E6%9C%BA%E5%AE%9E%E9%AA%8C/%E7%AE%97%E6%B3%95%E4%B8%8A%E6%9C%BA%E5%AE%9E%E9%AA%8C/image-20211224140957414.png" srcset="/img/loading.gif" lazyload alt="image-20211224140957414" style="zoom:80%;">
-
+<p><img src="/images/algs4/image-20211224140957414.png" srcset="/img/loading.gif" lazyload></p>
 <h3 id="六、分析与总结"><a href="#六、分析与总结" class="headerlink" title="六、分析与总结"></a>六、分析与总结</h3><p>==<strong>分析：</strong>==</p>
 <p><strong>T=100，时间单位都为ms</strong></p>
 <table>
@@ -389,7 +379,7 @@
 <p>CPU: Intel(R) Core(TM) i5-8265U CPU @ 1.60GHz   1.80 GHz with 8GB RAM</p>
 <p>OS: Windows 10 64位</p>
 </blockquote>
-<p><img src="/2021/12/25/2021/%E7%AE%97%E6%B3%95%E4%B8%8A%E6%9C%BA%E5%AE%9E%E9%AA%8C/%E7%AE%97%E6%B3%95%E4%B8%8A%E6%9C%BA%E5%AE%9E%E9%AA%8C/image-20211226142031488.png" srcset="/img/loading.gif" lazyload alt="image-20211226142031488"></p>
+<p><img src="/images/algs4/image-20211226142031488.png" srcset="/img/loading.gif" lazyload></p>
 <p>通过总结可以明显看出，在N极小的时候，两种算法的区别并不大，甚至当N=10，T=100时QF略快一筹。考虑其算法，此结果应该时由于WQU算法有额外数组的生成所导致的。</p>
 <p>当N逐渐增大时，WQU加权的优化便明显体现出来了。在N=80时便已经有10倍的差距，在N=200时甚至达到了近90倍的差距。</p>
 <p>最后根据两种方法求得的阈值进行加权平均，解得题目对应的阈值 p*=0.5925</p>
@@ -422,58 +412,58 @@
 <h3 id="五、实验结果-1"><a href="#五、实验结果-1" class="headerlink" title="五、实验结果"></a>五、实验结果</h3><p>==<strong>随机数列</strong>==</p>
 <p><strong>Insertion_Sort</strong></p>
 <p> N = 1000</p>
-<p><img src="/2021/12/25/2021/%E7%AE%97%E6%B3%95%E4%B8%8A%E6%9C%BA%E5%AE%9E%E9%AA%8C/%E7%AE%97%E6%B3%95%E4%B8%8A%E6%9C%BA%E5%AE%9E%E9%AA%8C/image-20211225231812865.png" srcset="/img/loading.gif" lazyload alt="image-20211225231812865"></p>
+<p><img src="/images/algs4/image-20211225231812865.png" srcset="/img/loading.gif" lazyload></p>
 <p>N = 10000</p>
-<p><img src="/2021/12/25/2021/%E7%AE%97%E6%B3%95%E4%B8%8A%E6%9C%BA%E5%AE%9E%E9%AA%8C/%E7%AE%97%E6%B3%95%E4%B8%8A%E6%9C%BA%E5%AE%9E%E9%AA%8C/image-20211225231708477.png" srcset="/img/loading.gif" lazyload alt="image-20211225231708477"></p>
+<p><img src="/images/algs4/image-20211225231708477.png" srcset="/img/loading.gif" lazyload></p>
 <p>N = 100000</p>
-<p><img src="/2021/12/25/2021/%E7%AE%97%E6%B3%95%E4%B8%8A%E6%9C%BA%E5%AE%9E%E9%AA%8C/%E7%AE%97%E6%B3%95%E4%B8%8A%E6%9C%BA%E5%AE%9E%E9%AA%8C/image-20211225232313832.png" srcset="/img/loading.gif" lazyload alt="image-20211225232313832"></p>
+<p><img src="/images/algs4/image-20211225232313832.png" srcset="/img/loading.gif" lazyload></p>
 <p><strong>TopDown_Mergesort</strong></p>
 <p>N = 1000</p>
-<p><img src="/2021/12/25/2021/%E7%AE%97%E6%B3%95%E4%B8%8A%E6%9C%BA%E5%AE%9E%E9%AA%8C/%E7%AE%97%E6%B3%95%E4%B8%8A%E6%9C%BA%E5%AE%9E%E9%AA%8C/image-20211225232446880.png" srcset="/img/loading.gif" lazyload alt="image-20211225232446880"></p>
+<p><img src="/images/algs4/image-20211225232446880.png" srcset="/img/loading.gif" lazyload></p>
 <p>N = 10000</p>
-<p><img src="/2021/12/25/2021/%E7%AE%97%E6%B3%95%E4%B8%8A%E6%9C%BA%E5%AE%9E%E9%AA%8C/%E7%AE%97%E6%B3%95%E4%B8%8A%E6%9C%BA%E5%AE%9E%E9%AA%8C/image-20211225232528472.png" srcset="/img/loading.gif" lazyload alt="image-20211225232528472"></p>
+<p><img src="/images/algs4/image-20211225232528472.png" srcset="/img/loading.gif" lazyload></p>
 <p>N = 100000</p>
-<p><img src="/2021/12/25/2021/%E7%AE%97%E6%B3%95%E4%B8%8A%E6%9C%BA%E5%AE%9E%E9%AA%8C/%E7%AE%97%E6%B3%95%E4%B8%8A%E6%9C%BA%E5%AE%9E%E9%AA%8C/image-20211225232545226.png" srcset="/img/loading.gif" lazyload alt="image-20211225232545226"></p>
+<p><img src="/images/algs4/image-20211225232545226.png" srcset="/img/loading.gif" lazyload></p>
 <p><strong>BottomUp_Mergesort：</strong></p>
 <p>N = 1000</p>
-<p><img src="/2021/12/25/2021/%E7%AE%97%E6%B3%95%E4%B8%8A%E6%9C%BA%E5%AE%9E%E9%AA%8C/%E7%AE%97%E6%B3%95%E4%B8%8A%E6%9C%BA%E5%AE%9E%E9%AA%8C/image-20211225232922040.png" srcset="/img/loading.gif" lazyload alt="image-20211225232922040"></p>
+<p><img src="/images/algs4/image-20211225232922040.png" srcset="/img/loading.gif" lazyload></p>
 <p>N = 10000</p>
-<p><img src="/2021/12/25/2021/%E7%AE%97%E6%B3%95%E4%B8%8A%E6%9C%BA%E5%AE%9E%E9%AA%8C/%E7%AE%97%E6%B3%95%E4%B8%8A%E6%9C%BA%E5%AE%9E%E9%AA%8C/image-20211225233006554.png" srcset="/img/loading.gif" lazyload alt="image-20211225233006554"></p>
+<p><img src="/images/algs4/image-20211225233006554.png" srcset="/img/loading.gif" lazyload></p>
 <p>N = 100000</p>
-<p><img src="/2021/12/25/2021/%E7%AE%97%E6%B3%95%E4%B8%8A%E6%9C%BA%E5%AE%9E%E9%AA%8C/%E7%AE%97%E6%B3%95%E4%B8%8A%E6%9C%BA%E5%AE%9E%E9%AA%8C/image-20211225233036114.png" srcset="/img/loading.gif" lazyload alt="image-20211225233036114"></p>
+<p><img src="/images/algs4/image-20211225233036114.png" srcset="/img/loading.gif" lazyload></p>
 <p><strong>Random Quicksort</strong></p>
 <p>N = 1000</p>
-<p><img src="/2021/12/25/2021/%E7%AE%97%E6%B3%95%E4%B8%8A%E6%9C%BA%E5%AE%9E%E9%AA%8C/%E7%AE%97%E6%B3%95%E4%B8%8A%E6%9C%BA%E5%AE%9E%E9%AA%8C/image-20211225233209613.png" srcset="/img/loading.gif" lazyload alt="image-20211225233209613"></p>
+<p><img src="/images/algs4/image-20211225233209613.png" srcset="/img/loading.gif" lazyload></p>
 <p>N = 10000</p>
-<p><img src="/2021/12/25/2021/%E7%AE%97%E6%B3%95%E4%B8%8A%E6%9C%BA%E5%AE%9E%E9%AA%8C/%E7%AE%97%E6%B3%95%E4%B8%8A%E6%9C%BA%E5%AE%9E%E9%AA%8C/image-20211225233239226.png" srcset="/img/loading.gif" lazyload alt="image-20211225233239226"></p>
+<p><img src="/images/algs4/image-20211225233239226.png" srcset="/img/loading.gif" lazyload></p>
 <p>N = 100000</p>
-<p><img src="/2021/12/25/2021/%E7%AE%97%E6%B3%95%E4%B8%8A%E6%9C%BA%E5%AE%9E%E9%AA%8C/%E7%AE%97%E6%B3%95%E4%B8%8A%E6%9C%BA%E5%AE%9E%E9%AA%8C/image-20211225233413539.png" srcset="/img/loading.gif" lazyload alt="image-20211225233413539"></p>
+<p><img src="/images/algs4/image-20211225233413539.png" srcset="/img/loading.gif" lazyload></p>
 <p><strong>QD_3Partition</strong></p>
 <p>N = 1000</p>
-<p><img src="/2021/12/25/2021/%E7%AE%97%E6%B3%95%E4%B8%8A%E6%9C%BA%E5%AE%9E%E9%AA%8C/%E7%AE%97%E6%B3%95%E4%B8%8A%E6%9C%BA%E5%AE%9E%E9%AA%8C/image-20211225233549999.png" srcset="/img/loading.gif" lazyload alt="image-20211225233549999"></p>
+<p><img src="/images/algs4/image-20211225233549999.png" srcset="/img/loading.gif" lazyload></p>
 <p>N = 10000</p>
-<p><img src="/2021/12/25/2021/%E7%AE%97%E6%B3%95%E4%B8%8A%E6%9C%BA%E5%AE%9E%E9%AA%8C/%E7%AE%97%E6%B3%95%E4%B8%8A%E6%9C%BA%E5%AE%9E%E9%AA%8C/image-20211225233615498.png" srcset="/img/loading.gif" lazyload alt="image-20211225233615498"></p>
+<p><img src="/images/algs4/image-20211225233615498.png" srcset="/img/loading.gif" lazyload></p>
 <p>N = 100000</p>
-<p><img src="/2021/12/25/2021/%E7%AE%97%E6%B3%95%E4%B8%8A%E6%9C%BA%E5%AE%9E%E9%AA%8C/%E7%AE%97%E6%B3%95%E4%B8%8A%E6%9C%BA%E5%AE%9E%E9%AA%8C/image-20211225233641684.png" srcset="/img/loading.gif" lazyload alt="image-20211225233641684"></p>
+<p><img src="/images/algs4/image-20211225233641684.png" srcset="/img/loading.gif" lazyload></p>
 <p><strong>使用vector+sort</strong></p>
 <p>N = 100000</p>
-<p><img src="/2021/12/25/2021/%E7%AE%97%E6%B3%95%E4%B8%8A%E6%9C%BA%E5%AE%9E%E9%AA%8C/%E7%AE%97%E6%B3%95%E4%B8%8A%E6%9C%BA%E5%AE%9E%E9%AA%8C/image-20211226132801236.png" srcset="/img/loading.gif" lazyload alt="image-20211226132801236"></p>
+<p><img src="/images/algs4/image-20211226132801236.png" srcset="/img/loading.gif" lazyload></p>
 <p>==<strong>升序数列</strong>==</p>
 <p><strong>Insertion_Sort</strong></p>
 <p>N = 100000</p>
-<p><img src="/2021/12/25/2021/%E7%AE%97%E6%B3%95%E4%B8%8A%E6%9C%BA%E5%AE%9E%E9%AA%8C/%E7%AE%97%E6%B3%95%E4%B8%8A%E6%9C%BA%E5%AE%9E%E9%AA%8C/image-20211226134407209.png" srcset="/img/loading.gif" lazyload alt="image-20211226134407209"></p>
+<p><img src="/images/algs4/image-20211226134407209.png" srcset="/img/loading.gif" lazyload></p>
 <p><strong>TopDown_Mergesort</strong></p>
 <p>N = 100000</p>
-<p><img src="/2021/12/25/2021/%E7%AE%97%E6%B3%95%E4%B8%8A%E6%9C%BA%E5%AE%9E%E9%AA%8C/%E7%AE%97%E6%B3%95%E4%B8%8A%E6%9C%BA%E5%AE%9E%E9%AA%8C/image-20211226134520903.png" srcset="/img/loading.gif" lazyload alt="image-20211226134520903"></p>
+<p><img src="/images/algs4/image-20211226134520903.png" srcset="/img/loading.gif" lazyload></p>
 <p><strong>BottomUp_Mergesort：</strong></p>
 <p>N = 100000</p>
-<p><img src="/2021/12/25/2021/%E7%AE%97%E6%B3%95%E4%B8%8A%E6%9C%BA%E5%AE%9E%E9%AA%8C/%E7%AE%97%E6%B3%95%E4%B8%8A%E6%9C%BA%E5%AE%9E%E9%AA%8C/image-20211226134707777.png" srcset="/img/loading.gif" lazyload alt="image-20211226134707777"></p>
+<p><img src="/images/algs4/image-20211226134707777.png" srcset="/img/loading.gif" lazyload></p>
 <p><strong>Random Quicksort</strong></p>
 <p>N = 100000</p>
-<p><img src="/2021/12/25/2021/%E7%AE%97%E6%B3%95%E4%B8%8A%E6%9C%BA%E5%AE%9E%E9%AA%8C/%E7%AE%97%E6%B3%95%E4%B8%8A%E6%9C%BA%E5%AE%9E%E9%AA%8C/image-20211226134830259.png" srcset="/img/loading.gif" lazyload alt="image-20211226134830259"></p>
+<p><img src="/images/algs4/image-20211226134830259.png" srcset="/img/loading.gif" lazyload></p>
 <p><strong>使用vector+sort</strong></p>
 <p>N = 100000</p>
-<p><img src="/2021/12/25/2021/%E7%AE%97%E6%B3%95%E4%B8%8A%E6%9C%BA%E5%AE%9E%E9%AA%8C/%E7%AE%97%E6%B3%95%E4%B8%8A%E6%9C%BA%E5%AE%9E%E9%AA%8C/image-20211226135256393.png" srcset="/img/loading.gif" lazyload alt="image-20211226135256393"></p>
+<p><img src="/images/algs4/image-20211226135256393.png" srcset="/img/loading.gif" lazyload></p>
 <h3 id="六、分析与总结-1"><a href="#六、分析与总结-1" class="headerlink" title="六、分析与总结"></a>六、分析与总结</h3><p><strong>随机数列</strong></p>
 <p>N = 100000，Comparison of running time of sorting algorithms (in Micro Seconds)</p>
 <table>
@@ -579,7 +569,7 @@
 </tr>
 </tbody></table>
 <p>本图与上述表格为同一张表，打开pdf后发现无法完整显示表格，所以另补了完整的图</p>
-<p><img src="/2021/12/25/2021/%E7%AE%97%E6%B3%95%E4%B8%8A%E6%9C%BA%E5%AE%9E%E9%AA%8C/%E7%AE%97%E6%B3%95%E4%B8%8A%E6%9C%BA%E5%AE%9E%E9%AA%8C/image-20211226143852703.png" srcset="/img/loading.gif" lazyload alt="image-20211226143852703"></p>
+<p><img src="/images/algs4/image-20211226143852703.png" srcset="/img/loading.gif" lazyload></p>
 <blockquote>
 <p>CPU: Intel(R) Core(TM) i5-8265U CPU @ 1.60GHz   1.80 GHz with 8GB RAM</p>
 <p>OS: Windows 10 64位</p>
@@ -715,7 +705,7 @@
 <hr>
 <h2 id="地图路由（Map-Routing）"><a href="#地图路由（Map-Routing）" class="headerlink" title="地图路由（Map Routing）"></a>地图路由（Map Routing）</h2><h3 id="一、实验目的-2"><a href="#一、实验目的-2" class="headerlink" title="一、实验目的"></a>一、实验目的</h3><p>实现经典的Dijkstra最短路径算法，并对其进行优化。 这种算法广泛应用于地理信息系统（GIS），包括MapQuest和基于GPS的汽车导航系统。</p>
 <h3 id="二、题目描述-2"><a href="#二、题目描述-2" class="headerlink" title="二、题目描述"></a>二、题目描述</h3><p><strong>地图。</strong> 本次实验对象是图maps或graphs，其中顶点为平面上的点，这些点由权值为欧氏距离的边相连成图。 可将顶点视为城市，将边视为相连的道路。 为了在文件中表示地图，我们列出了顶点数和边数，然后列出顶点（索引后跟其x和y坐标），然后列出边（顶点对），最后列出源点和汇点。 例如，如下左图信息表示右图：</p>
-<p><img src="/2021/12/25/2021/%E7%AE%97%E6%B3%95%E4%B8%8A%E6%9C%BA%E5%AE%9E%E9%AA%8C/%E7%AE%97%E6%B3%95%E4%B8%8A%E6%9C%BA%E5%AE%9E%E9%AA%8C/image-20211225151732144.png" srcset="/img/loading.gif" lazyload alt="image-20211225151732144"></p>
+<p><img src="/images/algs4/image-20211225151732144.png" srcset="/img/loading.gif" lazyload></p>
 <p><strong>Dijkstra算法</strong>。 Dijkstra算法是最短路径问题的经典解决方案。 它在教科书第21章中有描述。 基本思路不难理解。 对于图中的每个顶点，我们维护从源点到该顶点的最短已知的路径长度，并且将这些长度保持在优先队列（<em>priority queue</em>, <em>PQ</em>）中。 初始时，我们把所有的顶点放在这个队列中，并设置高优先级，然后将源点的优先级设为<strong>0.0</strong>。 算法通过从<em>PQ</em>中<strong>取出最低优先级的顶点</strong>，然后检查可从该顶点经由一条边可达的所有顶点，以<strong>查看这条边是否提供了从源点到那个顶点较之之前已知的最短路径的更短路径。</strong> 如果是这样，它会降低优先级来反映这种新的信息。</p>
 <p>这里给出了Dijkstra算法计算从0到5的最短路径0-1-2-5的详细过程。</p>
 <p>process 0 (0.0)</p>
@@ -757,8 +747,7 @@
 <li>边的松弛中，引入A*算法来进行优化</li>
 </ol>
 <p><code>优化 2:</code><strong>利用问题的欧式几何来进一步减少搜索时间</strong>；对于图来说，常将distTo[w] 更新为 distTo[v] +  v到w的距离。对于地图，将distTo看作s-&gt;v的最短距离+v-&gt;d的直接距离。相当于distTo不止考虑当前点到出发点的距离，也将考虑到目的地的距离。</p>
-<img src="/2021/12/25/2021/%E7%AE%97%E6%B3%95%E4%B8%8A%E6%9C%BA%E5%AE%9E%E9%AA%8C/%E7%AE%97%E6%B3%95%E4%B8%8A%E6%9C%BA%E5%AE%9E%E9%AA%8C/image-20211225205912415.png" srcset="/img/loading.gif" lazyload alt="image-20211225205912415" style="zoom:67%;">
-
+<p><img src="/images/algs4/image-20211225205912415.png" srcset="/img/loading.gif" lazyload></p>
 <p><code>优化3：</code><strong>使用更快的优先队列。</strong>使用多路堆的方式来优化单路堆，使用教材源码IndexMultiwayMinPQ来代替初始化IndexPQ。没有进行单独实现，直接使用了algs4.jar</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">import</span> edu.princeton.cs.algs4.*;<br><br><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Dijkstra</span> </span>&#123;<br>    <span class="hljs-keyword">private</span> <span class="hljs-keyword">double</span>[] distTo;	<span class="hljs-comment">//length of shortest path : s-&gt;v</span><br>    <span class="hljs-keyword">private</span> Edge[] edgeTo;	<br><span class="hljs-comment">//    private IndexPQ pq;</span><br>    <span class="hljs-keyword">private</span> IndexMultiwayMinPQ&lt;Double&gt; pq;	<span class="hljs-comment">//优化3：使用更快的优先队列</span><br>    <br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-title">Dijkstra</span><span class="hljs-params">(EdgeWeightedGraph G, <span class="hljs-keyword">int</span> s, <span class="hljs-keyword">int</span> d, <span class="hljs-keyword">double</span>[][] Nodes)</span><span class="hljs-comment">//初始化</span></span><br><span class="hljs-function">    <span class="hljs-keyword">private</span> <span class="hljs-keyword">void</span> <span class="hljs-title">relax</span><span class="hljs-params">(Edge e, <span class="hljs-keyword">int</span> v, <span class="hljs-keyword">double</span>[][] Nodes, <span class="hljs-keyword">int</span> d)</span>			<span class="hljs-comment">//松弛边</span></span><br><span class="hljs-function">    <span class="hljs-keyword">public</span> <span class="hljs-keyword">boolean</span> <span class="hljs-title">hasPathTo</span><span class="hljs-params">(<span class="hljs-keyword">int</span> v)</span> 									<span class="hljs-comment">//判断目标节点是否可达</span></span><br><span class="hljs-function">    <span class="hljs-keyword">public</span> Iterable&lt;Edge&gt; <span class="hljs-title">pathTo</span><span class="hljs-params">(<span class="hljs-keyword">int</span> v)</span>									<span class="hljs-comment">//遍历边</span></span><br><span class="hljs-function">&#125;</span><br></code></pre></td></tr></table></figure>
 
@@ -774,14 +763,13 @@
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">import</span> edu.princeton.cs.algs4.*;<br><br><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">MapRouting</span> </span>&#123;<br>	<span class="hljs-keyword">private</span> <span class="hljs-keyword">static</span> EdgeWeightedGraph G;<br>	<span class="hljs-keyword">private</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">double</span>[][] Nodes;	<br>	<br>	<span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">getGraph</span><span class="hljs-params">(In in)</span>				<span class="hljs-comment">//读入usa.txt，初始化点和边</span></span><br><span class="hljs-function">	<span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">double</span> <span class="hljs-title">Distance</span><span class="hljs-params">(<span class="hljs-keyword">int</span> v1, <span class="hljs-keyword">int</span> v2)</span>	<span class="hljs-comment">//得到两点之间的距离</span></span><br><span class="hljs-function">	<span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">main</span><span class="hljs-params">(String[] args)</span>			<span class="hljs-comment">//输出测试结果</span></span><br><span class="hljs-function">&#125;</span><br></code></pre></td></tr></table></figure>
 
 <h3 id="五、实验结果-2"><a href="#五、实验结果-2" class="headerlink" title="五、实验结果"></a>五、实验结果</h3><p>未优化版本：</p>
-<p><img src="/2021/12/25/2021/%E7%AE%97%E6%B3%95%E4%B8%8A%E6%9C%BA%E5%AE%9E%E9%AA%8C/%E7%AE%97%E6%B3%95%E4%B8%8A%E6%9C%BA%E5%AE%9E%E9%AA%8C/map1.png" srcset="/img/loading.gif" lazyload alt="map1"></p>
+<p><img src="/images/algs4/map1.png" srcset="/img/loading.gif" lazyload></p>
 <p>优化1：</p>
-<p><img src="/2021/12/25/2021/%E7%AE%97%E6%B3%95%E4%B8%8A%E6%9C%BA%E5%AE%9E%E9%AA%8C/%E7%AE%97%E6%B3%95%E4%B8%8A%E6%9C%BA%E5%AE%9E%E9%AA%8C/map2.png" srcset="/img/loading.gif" lazyload alt="map2"></p>
+<p><img src="/images/algs4/map2.png" srcset="/img/loading.gif" lazyload></p>
 <p>优化2：</p>
-<p><img src="/2021/12/25/2021/%E7%AE%97%E6%B3%95%E4%B8%8A%E6%9C%BA%E5%AE%9E%E9%AA%8C/%E7%AE%97%E6%B3%95%E4%B8%8A%E6%9C%BA%E5%AE%9E%E9%AA%8C/map3.jpg" srcset="/img/loading.gif" lazyload alt="map3"></p>
+<p><img src="/images/algs4/map3.png" srcset="/img/loading.gif" lazyload></p>
 <p>优化3：</p>
-<img src="/2021/12/25/2021/%E7%AE%97%E6%B3%95%E4%B8%8A%E6%9C%BA%E5%AE%9E%E9%AA%8C/%E7%AE%97%E6%B3%95%E4%B8%8A%E6%9C%BA%E5%AE%9E%E9%AA%8C/19DD17838CE46200EAA147CAA44A520D.png" srcset="/img/loading.gif" lazyload alt="19DD17838CE46200EAA147CAA44A520D" style="zoom: 80%;">
-
+<p><img src="/images/algs4/19DD17838CE46200EAA147CAA44A520D.png" srcset="/img/loading.gif" lazyload></p>
 <h3 id="六、分析与总结-2"><a href="#六、分析与总结-2" class="headerlink" title="六、分析与总结"></a>六、分析与总结</h3><table>
 <thead>
 <tr>
@@ -823,6 +811,10 @@
                     <i class="iconfont icon-tags"></i>
                     
                       <a class="hover-with-bg" href="/tags/%E5%AE%9E%E9%AA%8C/">实验</a>
+                    
+                      <a class="hover-with-bg" href="/tags/Java/">Java</a>
+                    
+                      <a class="hover-with-bg" href="/tags/c/">c++</a>
                     
                   </div>
                 
