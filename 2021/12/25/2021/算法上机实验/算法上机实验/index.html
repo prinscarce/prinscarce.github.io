@@ -180,6 +180,13 @@
     </span>
   
   
+    <span class="post-meta">
+      <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+      <time datetime="2021-12-25 22:36" pubdate>
+        2021年12月25日 晚上
+      </time>
+    </span>
+  
 </div>
 
 <div class="mt-1">
@@ -242,7 +249,7 @@
 <h3 id="二、题目描述"><a href="#二、题目描述" class="headerlink" title="二、题目描述"></a>二、题目描述</h3><p><strong>模型。</strong> 我们使用N×N网格点来模型一个渗透系统。 每个格点或是open格点或是blocked格点。 一个full site是一个open格点，它可以通过一连串的邻近（左，右，上，下）open格点连通到顶行的一个open格点。如果在底行中有一个full site格点，则称系统是渗透的。（对于绝缘/金属材料的例子，open格点对应于金属材料，渗透系统有一条从顶行到底行的金属路径，且full sites格点导电。对于多孔物质示例，open格点对应于空格，水可能流过，从而渗透系统使水充满open格点，自顶向下流动。）</p>
 <p><img src="/images/algs4/image-20211225134840912.png" srcset="/img/loading.gif" lazyload></p>
 <p><strong>问题。</strong> 在一个著名的科学问题中，研究人员对以下问题感兴趣：如果将格点以空置概率p独立地设置为open格点（因此以概率1-p被设置为blocked格点），系统渗透的概率是多少？ 当p = 0时，系统不会渗出; 当p=1时，系统渗透。 下图显示了20×20随机网格（左）和100×100随机网格（右）的格点空置概率p与渗滤概率。</p>
-<p><img src="/images/algs4/image-20211225134910165.png" srcset="/img/loading.gif" lazyload>  <img src="images/algs4/image-20211225134919354.png" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/images/algs4/image-20211225134910165.png" srcset="/img/loading.gif" lazyload><br><img src="images/algs4/image-20211225134919354.png" srcset="/img/loading.gif" lazyload></p>
 <p><strong>当N足够大时，存在阈值p</strong><em>，使得当p &lt;p* ，随机N N网格几乎不会渗透，并且当p&gt; p</em>时，随机N N网格几乎总是渗透。 尚未得出用于确定渗滤阈值p<em>的数学解。<strong>你的任务是编写一个计算机程序来估计p</strong></em>。</p>
 <h3 id="三、解决方法"><a href="#三、解决方法" class="headerlink" title="三、解决方法"></a>三、解决方法</h3><p><strong>Percolation数据类型。</strong>模型化一个Percolation系统，创建含有以下API的数据类型Percolation。</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Percolation</span> </span>&#123;<br>   <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-title">Percolation</span><span class="hljs-params">(<span class="hljs-keyword">int</span> N)</span>           <span class="hljs-comment">// create N-by-N grid, with all sites blocked</span></span><br><span class="hljs-function">   <span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">open</span><span class="hljs-params">(<span class="hljs-keyword">int</span> i, <span class="hljs-keyword">int</span> j)</span>         <span class="hljs-comment">// open site (row i, column j) if it is not already</span></span><br><span class="hljs-function">   <span class="hljs-keyword">public</span> <span class="hljs-keyword">boolean</span> <span class="hljs-title">isOpen</span><span class="hljs-params">(<span class="hljs-keyword">int</span> i, <span class="hljs-keyword">int</span> j)</span>    <span class="hljs-comment">// is site (row i, column j) open?</span></span><br><span class="hljs-function">   <span class="hljs-keyword">public</span> <span class="hljs-keyword">boolean</span> <span class="hljs-title">isFull</span><span class="hljs-params">(<span class="hljs-keyword">int</span> i, <span class="hljs-keyword">int</span> j)</span>     <span class="hljs-comment">// is site (row i, column j) full?</span></span><br><span class="hljs-function">   <span class="hljs-keyword">public</span> <span class="hljs-keyword">boolean</span> <span class="hljs-title">percolates</span><span class="hljs-params">()</span>          <span class="hljs-comment">// does the system percolate?</span></span><br><span class="hljs-function">   <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">main</span><span class="hljs-params">(String[] args)</span>  <span class="hljs-comment">// test client, optional</span></span><br><span class="hljs-function">&#125;</span><br></code></pre></td></tr></table></figure>
@@ -319,7 +326,7 @@
 <p><img src="/images/algs4/image-20211224135632977.png" srcset="/img/loading.gif" lazyload></p>
 <p><strong>特殊情况：N = 2， Times = 100000；</strong></p>
 <p><img src="/images/algs4/image-20211224140957414.png" srcset="/img/loading.gif" lazyload></p>
-<h3 id="六、分析与总结"><a href="#六、分析与总结" class="headerlink" title="六、分析与总结"></a>六、分析与总结</h3><p>==<strong>分析：</strong>==</p>
+<h3 id="六、分析与总结"><a href="#六、分析与总结" class="headerlink" title="六、分析与总结"></a>六、分析与总结</h3><p><strong>分析：</strong></p>
 <p><strong>T=100，时间单位都为ms</strong></p>
 <table>
 <thead>
@@ -383,7 +390,7 @@
 <p>通过总结可以明显看出，在N极小的时候，两种算法的区别并不大，甚至当N=10，T=100时QF略快一筹。考虑其算法，此结果应该时由于WQU算法有额外数组的生成所导致的。</p>
 <p>当N逐渐增大时，WQU加权的优化便明显体现出来了。在N=80时便已经有10倍的差距，在N=200时甚至达到了近90倍的差距。</p>
 <p>最后根据两种方法求得的阈值进行加权平均，解得题目对应的阈值 p*=0.5925</p>
-<p><strong>==总结==</strong></p>
+<p><strong>总结</strong></p>
 <p>实际进行实验时，在逐渐加大N值时也明显感受到QF变得非常的缓慢，WQU的结果很快便出来了，QF却一直没出现，一度以为应用程序是否停止响应了。WQU这个优化虽然看上去不大，仅仅加了一个数组和一点实现，但最终呈现出来的速度差距竟然如此之大，使用正确的数据结构以及更快的算法才能得到更好的程序，受益匪浅。</p>
 <hr>
 <h2 id="几种排序算法的实验性能比较"><a href="#几种排序算法的实验性能比较" class="headerlink" title="几种排序算法的实验性能比较"></a>几种排序算法的实验性能比较</h2><h3 id="一、实验目的-1"><a href="#一、实验目的-1" class="headerlink" title="一、实验目的"></a>一、实验目的</h3><p>通过对多种排序算法的实现，针对不同输入规模的数据进行实验，比 较各种排序算法的时间性能。</p>
@@ -409,7 +416,7 @@
 <p>QD3P将数组分为三个部分，分别是&lt;v, =v, &gt;v的三项，然后从v作为分割轴开始左边自增，右边交换中进行自减</p>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br></pre></td><td class="code"><pre><code class="hljs c++"><span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">partition</span><span class="hljs-params">(<span class="hljs-keyword">int</span> a[], <span class="hljs-keyword">int</span> l, <span class="hljs-keyword">int</span> r, <span class="hljs-keyword">int</span>&amp; i, <span class="hljs-keyword">int</span>&amp; j)</span></span><br><span class="hljs-function"></span>&#123;<br>    i = l - <span class="hljs-number">1</span>, j = r;<br>    <span class="hljs-keyword">int</span> p = l - <span class="hljs-number">1</span>, q = r;<br>    <span class="hljs-keyword">int</span> v = a[r];<br> <br>    <span class="hljs-keyword">while</span> (<span class="hljs-literal">true</span>) &#123;<br>        <span class="hljs-comment">//首先找到大于等于v的值</span><br>        <span class="hljs-keyword">while</span> (a[++i] &lt; v)<br>            ;<br><br>        <span class="hljs-keyword">while</span> (v &lt; a[--j])<br>            <span class="hljs-keyword">if</span> (j == l)	<span class="hljs-keyword">break</span>;<br><br>        <span class="hljs-keyword">if</span> (i &gt;= j)	<span class="hljs-keyword">break</span>;<br>        <span class="hljs-built_in">swap</span>(a[i], a[j]);<br>        <span class="hljs-keyword">if</span> (a[i] == v) &#123;<br>            p++;<br>            <span class="hljs-built_in">swap</span>(a[p], a[i]);<br>        &#125;<br>        <span class="hljs-keyword">if</span> (a[j] == v) &#123;<br>            q--;<br>            <span class="hljs-built_in">swap</span>(a[j], a[q]);<br>        &#125;<br>    &#125;<br> <br>    <span class="hljs-built_in">swap</span>(a[i], a[r]);<br>    j = i - <span class="hljs-number">1</span>;<br>    <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> k = l; k &lt; p; k++, j--)<br>        <span class="hljs-built_in">swap</span>(a[k], a[j]);<br> <br>    i = i + <span class="hljs-number">1</span>;<br>    <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> k = r - <span class="hljs-number">1</span>; k &gt; q; k--, i++)<br>        <span class="hljs-built_in">swap</span>(a[i], a[k]);<br>&#125;<br> <br><span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">QD_3Partition</span><span class="hljs-params">(<span class="hljs-keyword">int</span> a[], <span class="hljs-keyword">int</span> l, <span class="hljs-keyword">int</span> r)</span></span><br><span class="hljs-function"></span>&#123;<br>    <span class="hljs-keyword">if</span> (r &lt;= l)	<span class="hljs-keyword">return</span>;<br>    <span class="hljs-keyword">int</span> i, j;<br>    <span class="hljs-built_in">partition</span>(a, l, r, i, j);<br> <br>    <span class="hljs-built_in">QD_3Partition</span>(a, l, j);<br>    <span class="hljs-built_in">QD_3Partition</span>(a, i, r);<br>&#125;<br></code></pre></td></tr></table></figure></li>
 </ol>
-<h3 id="五、实验结果-1"><a href="#五、实验结果-1" class="headerlink" title="五、实验结果"></a>五、实验结果</h3><p>==<strong>随机数列</strong>==</p>
+<h3 id="五、实验结果-1"><a href="#五、实验结果-1" class="headerlink" title="五、实验结果"></a>五、实验结果</h3><p><strong>随机数列</strong></p>
 <p><strong>Insertion_Sort</strong></p>
 <p> N = 1000</p>
 <p><img src="/images/algs4/image-20211225231812865.png" srcset="/img/loading.gif" lazyload></p>
@@ -448,7 +455,7 @@
 <p><strong>使用vector+sort</strong></p>
 <p>N = 100000</p>
 <p><img src="/images/algs4/image-20211226132801236.png" srcset="/img/loading.gif" lazyload></p>
-<p>==<strong>升序数列</strong>==</p>
+<p><strong>升序数列</strong></p>
 <p><strong>Insertion_Sort</strong></p>
 <p>N = 100000</p>
 <p><img src="/images/algs4/image-20211226134407209.png" srcset="/img/loading.gif" lazyload></p>
@@ -568,8 +575,6 @@
 <td align="center">0.0283</td>
 </tr>
 </tbody></table>
-<p>本图与上述表格为同一张表，打开pdf后发现无法完整显示表格，所以另补了完整的图</p>
-<p><img src="/images/algs4/image-20211226143852703.png" srcset="/img/loading.gif" lazyload></p>
 <blockquote>
 <p>CPU: Intel(R) Core(TM) i5-8265U CPU @ 1.60GHz   1.80 GHz with 8GB RAM</p>
 <p>OS: Windows 10 64位</p>
@@ -767,7 +772,7 @@
 <p>优化1：</p>
 <p><img src="/images/algs4/map2.png" srcset="/img/loading.gif" lazyload></p>
 <p>优化2：</p>
-<p><img src="/images/algs4/map3.png" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/images/algs4/map3.jpg" srcset="/img/loading.gif" lazyload></p>
 <p>优化3：</p>
 <p><img src="/images/algs4/19DD17838CE46200EAA147CAA44A520D.png" srcset="/img/loading.gif" lazyload></p>
 <h3 id="六、分析与总结-2"><a href="#六、分析与总结-2" class="headerlink" title="六、分析与总结"></a>六、分析与总结</h3><table>
@@ -895,7 +900,7 @@
         <div class="md-form mb-5">
           <input type="text" id="local-search-input" class="form-control validate">
           <label data-error="x" data-success="v"
-                 for="local-search-input">关键词</label>
+                 for="local-search-input">keyword</label>
         </div>
         <div class="list-group" id="local-search-result"></div>
       </div>
